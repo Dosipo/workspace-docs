@@ -1,6 +1,8 @@
 ---
 title: ИИ-платформа
 description: Корпоративная ИИ-платформа - регистрация, агенты, модели, работа с файлами и каналами.
+navigation:
+  icon: heroicons:chat-bubble-left-ellipsis
 type: index
 resource: /ii-platforma
 tags: [ai-platform, corporate-ai]
@@ -8,7 +10,8 @@ generated: human-authored
 status: current
 ---
 
-# ИИ-платформа
+::section-hero{icon="💬" title="ИИ-платформа" description="Корпоративная платформа для работы с ИИ — регистрация, агенты, модели, файлы и каналы." accent="emerald"}
+::
 
 Корпоративная ИИ-платформа доступна по адресу: **https://chat.geotech.user.events/**
 
