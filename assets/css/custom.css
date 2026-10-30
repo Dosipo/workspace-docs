@@ -52,7 +52,7 @@ article h2 {
   margin-top: 2em;
   margin-bottom: 0.5em;
   padding-left: 0.65rem;
-  border-left: 3px solid var(--color-primary-500, #6366f1);
+  border-left: 3px solid var(--color-emerald-500, #10b981);
 }
 
 .prose h3,
