@@ -2,7 +2,7 @@
 title: Быстрый старт
 description: Начните работать в воркспейсе за 15 минут.
 navigation:
-  icon: i-heroicons-play
+  icon: heroicons:play
 ---
 
 # Быстрый старт

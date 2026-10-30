@@ -2,7 +2,7 @@
 title: Справочник
 description: Детальная документация по инструментам, процессам и соглашениям воркспейса.
 navigation:
-  icon: i-heroicons-book-open
+  icon: heroicons:book-open
 ---
 
 # Справочник

@@ -2,7 +2,7 @@
 title: Ключевые концепции
 description: Как устроена работа в воркспейсе — модель, инструменты, принципы.
 navigation:
-  icon: i-heroicons-light-bulb
+  icon: heroicons:light-bulb
 ---
 
 # Ключевые концепции

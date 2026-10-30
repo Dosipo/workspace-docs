@@ -25,7 +25,7 @@ snippet: npx create-docus workspace-docs
   ::card
   ---
   title: Онбординг
-  icon: i-heroicons-rocket-launch
+  icon: heroicons:rocket-launch
   to: /onboarding
   ---
   Введение в воркспейс, быстрый старт и ключевые концепции.
@@ -34,7 +34,7 @@ snippet: npx create-docus workspace-docs
   ::card
   ---
   title: Справочник
-  icon: i-heroicons-book-open
+  icon: heroicons:book-open
   to: /reference
   ---
   Детальная документация по инструментам, процессам и API.
