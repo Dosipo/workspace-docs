@@ -3,6 +3,11 @@ title: Ключевые концепции
 description: Как устроена работа в воркспейсе — модель, инструменты, принципы.
 navigation:
   icon: heroicons:light-bulb
+type: concept
+resource: /onboarding/concepts
+tags: [onboarding, concepts, workspace, multica, agents, issues]
+generated: human-authored
+status: current
 ---
 
 # Ключевые концепции

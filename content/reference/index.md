@@ -3,6 +3,11 @@ title: Справочник
 description: Детальная документация по инструментам, процессам и соглашениям воркспейса.
 navigation:
   icon: heroicons:book-open
+type: index
+resource: /reference
+tags: [reference, documentation, workspace, tools, processes]
+generated: human-authored
+status: current
 ---
 
 # Справочник

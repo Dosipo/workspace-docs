@@ -3,6 +3,11 @@ title: Онбординг
 description: Введение в воркспейс — всё необходимое для начала работы.
 navigation:
   icon: heroicons:rocket-launch
+type: index
+resource: /onboarding
+tags: [onboarding, getting-started, workspace, introduction]
+generated: human-authored
+status: current
 ---
 
 # Онбординг
