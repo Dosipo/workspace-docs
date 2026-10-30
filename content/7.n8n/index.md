@@ -1,6 +1,11 @@
 ---
 title: n8n
 description: Корпоративная автоматизация - workflows, credentials, PostgreSQL, демо-сценарии.
+type: index
+resource: /n8n
+tags: [n8n, automation, workflows]
+generated: human-authored
+status: current
 ---
 
 # n8n

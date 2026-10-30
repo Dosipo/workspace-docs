@@ -1,6 +1,11 @@
 ---
 title: VSCode
 description: Настройка Visual Studio Code для работы с ИИ - Claude Code, Kilo Code, Rules и Skills.
+type: index
+resource: /vayb-koding/vscode
+tags: [vscode, ide, ai-extensions]
+generated: human-authored
+status: current
 ---
 
 # VSCode

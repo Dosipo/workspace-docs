@@ -32,5 +32,12 @@ export default defineAppConfig({
       iconLinks: [],
       fluid: false
     }
+  },
+  assistant: {
+    floatingInput: true,
+    explainWithAi: true,
+    shortcuts: {
+      focusInput: 'meta_i'
+    }
   }
 })
