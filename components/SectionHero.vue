@@ -1,5 +1,13 @@
 <template>
   <div class="section-hero" :class="`accent-${accent}`" aria-hidden="true">
+    <svg class="section-hero__bg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" preserveAspectRatio="xMaxYMid meet">
+      <circle cx="258" cy="-5" r="68" fill="var(--hero-accent-color, #7c3aed)" fill-opacity="0.14"/>
+      <circle cx="208" cy="62" r="52" fill="var(--hero-accent-color, #7c3aed)" fill-opacity="0.09"/>
+      <circle cx="292" cy="72" r="34" fill="var(--hero-accent-color, #7c3aed)" fill-opacity="0.12"/>
+      <rect x="148" y="6" width="52" height="52" rx="10" transform="rotate(28 174 32)" fill="var(--hero-accent-color, #7c3aed)" fill-opacity="0.06"/>
+      <polygon points="158,80 196,12 234,80" fill="var(--hero-accent-color, #7c3aed)" fill-opacity="0.05"/>
+      <circle cx="170" cy="12" r="20" fill="var(--hero-accent-color, #7c3aed)" fill-opacity="0.09"/>
+    </svg>
     <span class="section-hero__icon" aria-hidden="true">{{ icon }}</span>
     <div class="section-hero__body">
       <p class="section-hero__title">{{ title }}</p>
@@ -41,6 +49,15 @@ withDefaults(defineProps<{
   opacity: 0.07;
   border-radius: inherit;
   background: var(--hero-accent-color, transparent);
+}
+
+.section-hero__bg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  pointer-events: none;
 }
 
 .section-hero__icon {
