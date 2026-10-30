@@ -8,6 +8,11 @@ resource: /reference
 tags: [reference, documentation, workspace, tools, processes]
 generated: human-authored
 status: current
+sources:
+  - title: "Внутренняя база знаний ArealDev"
+    author: "Команда ArealDev"
+    date: "2026-10"
+    type: "internal"
 ---
 
 Этот раздел содержит детальную документацию для тех, кто уже знаком с базовым онбордингом.
@@ -21,6 +26,7 @@ status: current
 ## Разделы
 
 - [**Статусы задач**](/reference/statuses) — полный список встроенных и кастомных статусов issue, включая `agent_review`
+- [**Источники данных**](/reference/sources) — реестр источников базы знаний, методология и атрибуция контента
 
 ## Скоро будет добавлено
 

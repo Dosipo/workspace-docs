@@ -1,0 +1,36 @@
+{
+  "name": "workspace-docs",
+  "title": "ArealDev Knowledge Base",
+  "description": "Централизованная база знаний воркспейса ArealDev — гайды, инструкции и справочные материалы по корпоративным ИИ-инструментам.",
+  "version": "1.0.0",
+  "licenses": [
+    {
+      "name": "proprietary",
+      "title": "Proprietary — ArealDev internal use only"
+    }
+  ],
+  "sources": [
+    {
+      "title": "ArealDev Internal Documentation",
+      "author": "Команда ArealDev",
+      "path": "content/",
+      "type": "internal",
+      "date": "2026-10"
+    },
+    {
+      "title": "Mika (AI agent) — Chief of Staff",
+      "author": "Mika (AI agent)",
+      "path": "content/onboarding/",
+      "type": "ai-generated",
+      "date": "2026-10"
+    }
+  ],
+  "resources": [
+    {
+      "path": "content/",
+      "name": "knowledge-base-content",
+      "title": "База знаний ArealDev",
+      "description": "Markdown-страницы базы знаний в формате Docus/Nuxt Content"
+    }
+  ]
+}

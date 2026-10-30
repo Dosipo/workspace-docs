@@ -8,6 +8,11 @@ resource: /onboarding
 tags: [onboarding, getting-started, workspace, introduction]
 generated: human-authored
 status: current
+sources:
+  - title: "Внутренняя база знаний ArealDev"
+    author: "Команда ArealDev"
+    date: "2026-10"
+    type: "internal"
 ---
 
 ::PageHeader

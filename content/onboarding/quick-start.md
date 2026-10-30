@@ -8,6 +8,15 @@ resource: /onboarding/quick-start
 tags: [onboarding, quick-start, getting-started, workspace, mika]
 generated: human-authored
 status: current
+sources:
+  - title: "Внутренняя база знаний ArealDev"
+    author: "Команда ArealDev"
+    date: "2026-10"
+    type: "internal"
+  - title: "Mika (AI agent) — Chief of Staff воркспейса"
+    author: "Mika (AI agent)"
+    date: "2026-10"
+    type: "ai-generated"
 ---
 
 # Быстрый старт
