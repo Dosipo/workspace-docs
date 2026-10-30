@@ -1,0 +1,147 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Issue",
+  "description": "Задача (issue) воркспейса Multica — единица работы с владельцем, статусом и жизненным циклом.",
+  "type": "object",
+  "required": ["id", "identifier", "title", "workspace_id", "status", "status_category"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Уникальный идентификатор задачи."
+    },
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Z]+-[0-9]+$",
+      "description": "Человекочитаемый идентификатор задачи (например, «AREA-55»)."
+    },
+    "number": {
+      "type": "integer",
+      "description": "Порядковый номер задачи в воркспейсе."
+    },
+    "title": {
+      "type": "string",
+      "description": "Заголовок задачи."
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Тело задачи в формате Markdown."
+    },
+    "status": {
+      "type": "string",
+      "description": "Ключ текущего статуса задачи (встроенный или кастомный).",
+      "examples": ["backlog", "todo", "in_progress", "agent_review", "in_review", "blocked", "done", "cancelled"]
+    },
+    "status_category": {
+      "type": "string",
+      "enum": ["unstarted", "started", "done", "cancelled"],
+      "description": "Категория жизненного цикла текущего статуса."
+    },
+    "status_name": {
+      "type": "string",
+      "description": "Отображаемое имя статуса (пустая строка для встроенных статусов)."
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["urgent", "high", "medium", "low", "none"],
+      "description": "Приоритет задачи."
+    },
+    "assignee_id": {
+      "type": ["string", "null"],
+      "format": "uuid",
+      "description": "ID исполнителя задачи."
+    },
+    "assignee_type": {
+      "type": ["string", "null"],
+      "enum": ["agent", "member", null],
+      "description": "Тип исполнителя: «agent» или «member»."
+    },
+    "creator_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID создателя задачи."
+    },
+    "creator_type": {
+      "type": "string",
+      "enum": ["agent", "member"],
+      "description": "Тип создателя."
+    },
+    "workspace_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID воркспейса."
+    },
+    "project_id": {
+      "type": ["string", "null"],
+      "format": "uuid",
+      "description": "ID проекта, к которому относится задача."
+    },
+    "parent_issue_id": {
+      "type": ["string", "null"],
+      "format": "uuid",
+      "description": "ID родительской задачи (для под-задач)."
+    },
+    "duplicate_of": {
+      "type": ["string", "null"],
+      "format": "uuid",
+      "description": "ID оригинальной задачи, если эта является дубликатом."
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "name": { "type": "string" },
+          "color": { "type": "string" }
+        }
+      },
+      "description": "Метки задачи."
+    },
+    "stage": {
+      "type": ["integer", "null"],
+      "description": "Этап (stage) для под-задач. Задачи одного этапа стартуют одновременно, следующий этап начинается после завершения предыдущего."
+    },
+    "position": {
+      "type": "number",
+      "description": "Позиция задачи в списке (для сортировки)."
+    },
+    "revision": {
+      "type": "integer",
+      "description": "Версия записи (увеличивается при каждом обновлении)."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Произвольные метаданные задачи."
+    },
+    "properties": {
+      "type": "object",
+      "description": "Кастомные поля задачи."
+    },
+    "start_date": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Дата начала работы (YYYY-MM-DD)."
+    },
+    "due_date": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Дедлайн задачи (YYYY-MM-DD)."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Дата и время создания задачи (RFC 3339)."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Дата и время последнего обновления (RFC 3339)."
+    },
+    "last_activity_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Дата и время последней активности (комментарий, смена статуса и т.д.)."
+    }
+  }
+}
