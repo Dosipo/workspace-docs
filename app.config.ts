@@ -1,4 +1,8 @@
 export default defineAppConfig({
+  // Лицензия контента базы знаний
+  license: 'CC BY 4.0',
+  licenseUrl: '/license',
+
   docus: {
     title: 'База знаний воркспейса',
     description: 'Центральная база знаний для команды и AI-агентов',
@@ -27,8 +31,17 @@ export default defineAppConfig({
       fluid: false
     },
     footer: {
-      credits: false,
-      textLinks: [],
+      credits: {
+        icon: 'IconDocus',
+        text: '© 2026 Workspace Knowledge Base. Лицензия: CC BY 4.0',
+        href: '/license'
+      },
+      textLinks: [
+        {
+          text: 'Лицензия CC BY 4.0',
+          href: '/license'
+        }
+      ],
       iconLinks: [],
       fluid: false
     }
@@ -39,6 +52,18 @@ export default defineAppConfig({
         color: 'neutral',
         highlightColor: 'neutral'
       }
+    }
+  },
+  toc: {
+    bottom: {
+      title: 'Правовая информация',
+      links: [
+        {
+          icon: 'i-lucide-scale',
+          label: 'Лицензия CC BY 4.0',
+          to: '/license'
+        }
+      ]
     }
   },
   assistant: {
