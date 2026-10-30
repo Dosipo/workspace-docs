@@ -2,7 +2,7 @@
 title: Онбординг
 description: Введение в воркспейс — всё необходимое для начала работы.
 navigation:
-  icon: heroicons:rocket-launch
+  icon: heroicons:map
 ---
 
 # Онбординг

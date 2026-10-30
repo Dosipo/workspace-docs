@@ -9,23 +9,23 @@ navigation: false
 cta:
   - Начать работу
   - /onboarding
-snippet: npx create-docus workspace-docs
+snippet: База знаний · ArealDev workspace
 ---
 
 #title
 База знаний воркспейса
 
 #description
-Всё, что нужно знать команде и AI-агентам — в одном месте.
+Документация, гайды и справочники для команды и AI-агентов — в одном месте.
 ::
 
-## Разделы
+## Разделы базы знаний
 
 ::card-group
   ::card
   ---
   title: Онбординг
-  icon: heroicons:rocket-launch
+  icon: heroicons:map
   to: /onboarding
   ---
   Введение в воркспейс, быстрый старт и ключевые концепции.
@@ -34,7 +34,7 @@ snippet: npx create-docus workspace-docs
   ::card
   ---
   title: Справочник
-  icon: heroicons:book-open
+  icon: heroicons:document-magnifying-glass
   to: /reference
   ---
   Детальная документация по инструментам, процессам и API.
@@ -43,7 +43,7 @@ snippet: npx create-docus workspace-docs
   ::card
   ---
   title: Обзор ИИ-инструментов
-  icon: heroicons:cpu-chip
+  icon: heroicons:sparkles
   to: /obzor
   ---
   Корпоративные инструменты ИИ: платформа, VSCode, Excel, n8n.
@@ -52,7 +52,7 @@ snippet: npx create-docus workspace-docs
   ::card
   ---
   title: Лучшие практики
-  icon: heroicons:light-bulb
+  icon: heroicons:academic-cap
   to: /luchshie-praktiki
   ---
   Как писать промпты, выбирать модели и работать с ИИ эффективно.
@@ -61,7 +61,7 @@ snippet: npx create-docus workspace-docs
   ::card
   ---
   title: ИИ-платформа
-  icon: heroicons:chat-bubble-left-right
+  icon: heroicons:server-stack
   to: /ii-platforma
   ---
   Регистрация, агенты, модели, работа с файлами и каналами.
@@ -70,7 +70,7 @@ snippet: npx create-docus workspace-docs
   ::card
   ---
   title: Вайб-кодинг
-  icon: heroicons:code-bracket
+  icon: heroicons:command-line
   to: /vayb-koding
   ---
   VSCode, Claude Code, Kilo Code, Git, SSH и работа с ИИ в IDE.
@@ -79,7 +79,7 @@ snippet: npx create-docus workspace-docs
   ::card
   ---
   title: Excel + ИИ
-  icon: heroicons:table-cells
+  icon: heroicons:chart-bar
   to: /excel
   ---
   Надстройка для Excel: чат, функция LLM(), пакетная обработка.
@@ -88,7 +88,7 @@ snippet: npx create-docus workspace-docs
   ::card
   ---
   title: n8n
-  icon: heroicons:arrows-right-left
+  icon: heroicons:arrow-path-rounded-square
   to: /n8n
   ---
   Автоматизация: workflows, credentials, PostgreSQL, демо-сценарии.
@@ -97,7 +97,7 @@ snippet: npx create-docus workspace-docs
   ::card
   ---
   title: Частые вопросы
-  icon: heroicons:question-mark-circle
+  icon: heroicons:chat-bubble-oval-left-ellipsis
   to: /faq
   ---
   Ответы на самые частые вопросы по всем инструментам.
@@ -106,7 +106,7 @@ snippet: npx create-docus workspace-docs
   ::card
   ---
   title: Список моделей
-  icon: heroicons:rectangle-stack
+  icon: heroicons:cpu-chip
   to: /modeli
   ---
   Доступные ИИ-модели для платформы, n8n и вайб-кодинга.
