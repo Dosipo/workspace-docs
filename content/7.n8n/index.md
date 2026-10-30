@@ -25,3 +25,7 @@ status: current
 
 - [Загрузка данных из Data table](/n8n/demo-data-table)
 - [OCR файлов из Nextcloud](/n8n/demo-ocr-nextcloud)
+
+## Интеграции
+
+- [PLANE → Сервис деск](/n8n/plane-servicedesk) — polling инцидентов с лейблом `needs-human`
