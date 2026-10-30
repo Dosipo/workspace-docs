@@ -9,6 +9,11 @@ tags: [reference, documentation, workspace, tools, processes]
 generated: human-authored
 status: current
 timestamp: "2026-11-02T00:00:00Z"
+sources:
+  - title: "Внутренняя база знаний ArealDev"
+    author: "Команда ArealDev"
+    date: "2026-10"
+    type: "internal"
 ---
 
 Этот раздел содержит детальную документацию для тех, кто уже знаком с базовым онбордингом.
@@ -23,6 +28,7 @@ timestamp: "2026-11-02T00:00:00Z"
 
 - [**Статусы задач**](/reference/statuses) — полный список встроенных и кастомных статусов issue, включая `agent_review`
 - [**Скиллы воркспейса**](/reference/skills) — что умеет каждый установленный скилл и когда его применять
+- [**Источники данных**](/reference/sources) — реестр источников базы знаний, методология и атрибуция контента
 
 ## Скоро будет добавлено
 
