@@ -1,0 +1,369 @@
+{
+  "name": "PLANE → Service Desk Integration",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 5
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Every 5 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Read static data for deduplication state\nconst staticData = $getWorkflowStaticData('global');\n\n// Initialize state if first run\nif (!staticData.lastRunTimestamp) {\n  // Default: 24 hours ago to avoid flooding on first run\n  staticData.lastRunTimestamp = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();\n}\n\nif (!staticData.processedIssues) {\n  staticData.processedIssues = {};\n}\n\nreturn [\n  {\n    json: {\n      lastRunTimestamp: staticData.lastRunTimestamp,\n      processedIssues: staticData.processedIssues\n    }\n  }\n];"
+      },
+      "id": "read-state",
+      "name": "Read State",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $env.PLANE_URL }}/api/v2/workspaces/{{ $env.PLANE_WORKSPACE_SLUG }}/work-items/",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Api-Key",
+              "value": "={{ $env.PLANE_TOKEN }}"
+            }
+          ]
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "label_id",
+              "value": "={{ $env.NEEDS_HUMAN_LABEL_ID }}"
+            },
+            {
+              "name": "updated_at__gte",
+              "value": "={{ $json.lastRunTimestamp }}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "fetch-plane-issues",
+      "name": "Fetch PLANE Issues",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract items from PLANE API response\nconst response = $json;\nconst items = response.results || [];\nconst processedIssues = $('Read State').first().json.processedIssues || {};\n\nif (items.length === 0) {\n  return [];\n}\n\n// Filter out already-processed issues (deduplication)\nconst newItems = items.filter(item => {\n  // Skip if already has external_id set (already synced to service desk)\n  if (item.external_id && item.external_source === 'servicedesk') {\n    return false;\n  }\n  // Skip if we processed this in a recent run\n  if (processedIssues[item.id] && processedIssues[item.id].synced) {\n    return false;\n  }\n  return true;\n});\n\nreturn newItems.map(item => ({\n  json: {\n    ...item,\n    _processedIssues: processedIssues\n  }\n}));"
+      },
+      "id": "deduplicate",
+      "name": "Deduplicate",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Map PLANE issue to service desk schema\nconst item = $json;\n\n// Map PLANE priority to service desk priority\nconst priorityMap = {\n  'urgent': 'urgent',\n  'high': 'high',\n  'medium': 'medium',\n  'low': 'low',\n  'none': 'medium'\n};\n\nconst labels = (item.label_details || []).map(l => l.name);\nif (!labels.includes('needs-human')) {\n  labels.push('needs-human');\n}\n\nconst planeUrl = `${$env.PLANE_URL}/workspaces/${$env.PLANE_WORKSPACE_SLUG}/projects/${item.project}/issues/${item.id}/`;\n\nreturn [\n  {\n    json: {\n      source: 'plane',\n      plane_issue_id: item.id,\n      plane_identifier: item.sequence_id ? `${item.project_identifier}-${item.sequence_id}` : item.id,\n      plane_project_id: item.project,\n      title: item.name || item.title || '(без названия)',\n      description: item.description_stripped || item.description || '',\n      priority: priorityMap[item.priority] || 'medium',\n      labels: labels,\n      url: planeUrl,\n      created_at: item.created_at,\n      updated_at: item.updated_at,\n      _processedIssues: item._processedIssues\n    }\n  }\n];"
+      },
+      "id": "map-to-servicedesk",
+      "name": "Map to Service Desk Schema",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SERVICEDESK_URL }}/api/tickets",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $env.SERVICEDESK_TOKEN }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "source",
+              "value": "={{ $json.source }}"
+            },
+            {
+              "name": "plane_issue_id",
+              "value": "={{ $json.plane_issue_id }}"
+            },
+            {
+              "name": "plane_identifier",
+              "value": "={{ $json.plane_identifier }}"
+            },
+            {
+              "name": "title",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "name": "description",
+              "value": "={{ $json.description }}"
+            },
+            {
+              "name": "priority",
+              "value": "={{ $json.priority }}"
+            },
+            {
+              "name": "labels",
+              "value": "={{ $json.labels }}"
+            },
+            {
+              "name": "url",
+              "value": "={{ $json.url }}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "create-sd-ticket",
+      "name": "Create Service Desk Ticket",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Combine upstream data for writeback\nconst sdResponse = $json;\nconst mappedItem = $('Map to Service Desk Schema').item.json;\n\nreturn [\n  {\n    json: {\n      sd_ticket_id: sdResponse.id || sdResponse.ticket_id,\n      plane_issue_id: mappedItem.plane_issue_id,\n      plane_project_id: mappedItem.plane_project_id,\n      _processedIssues: mappedItem._processedIssues\n    }\n  }\n];"
+      },
+      "id": "prepare-writeback",
+      "name": "Prepare Writeback",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 300]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $env.PLANE_URL }}/api/v2/workspaces/{{ $env.PLANE_WORKSPACE_SLUG }}/projects/{{ $json.plane_project_id }}/work-items/{{ $json.plane_issue_id }}/",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Api-Key",
+              "value": "={{ $env.PLANE_TOKEN }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"external_id\": \"{{ $json.sd_ticket_id }}\", \"external_source\": \"servicedesk\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "writeback-to-plane",
+      "name": "Write Back to PLANE",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1780, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Update processed issues state after successful writeback\nconst item = $('Prepare Writeback').item.json;\nconst staticData = $getWorkflowStaticData('global');\n\n// Mark this issue as synced\nif (!staticData.processedIssues) {\n  staticData.processedIssues = {};\n}\nstaticData.processedIssues[item.plane_issue_id] = {\n  synced: true,\n  sd_ticket_id: item.sd_ticket_id,\n  synced_at: new Date().toISOString()\n};\n\nreturn [{ json: { status: 'ok', plane_issue_id: item.plane_issue_id, sd_ticket_id: item.sd_ticket_id } }];"
+      },
+      "id": "update-dedup-state",
+      "name": "Update Dedup State",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2000, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Update lastRunTimestamp after the full batch completes\nconst staticData = $getWorkflowStaticData('global');\nstaticData.lastRunTimestamp = new Date().toISOString();\n\nreturn [{ json: { status: 'done', lastRunTimestamp: staticData.lastRunTimestamp } }];"
+      },
+      "id": "save-timestamp",
+      "name": "Save Timestamp",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2220, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "has-items",
+              "leftValue": "={{ $json.results }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "has-new-issues",
+      "name": "Has New Issues?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [900, 160]
+    }
+  ],
+  "connections": {
+    "Every 5 Minutes": {
+      "main": [
+        [
+          {
+            "node": "Read State",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read State": {
+      "main": [
+        [
+          {
+            "node": "Fetch PLANE Issues",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch PLANE Issues": {
+      "main": [
+        [
+          {
+            "node": "Deduplicate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deduplicate": {
+      "main": [
+        [
+          {
+            "node": "Map to Service Desk Schema",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map to Service Desk Schema": {
+      "main": [
+        [
+          {
+            "node": "Create Service Desk Ticket",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Service Desk Ticket": {
+      "main": [
+        [
+          {
+            "node": "Prepare Writeback",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Writeback": {
+      "main": [
+        [
+          {
+            "node": "Write Back to PLANE",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write Back to PLANE": {
+      "main": [
+        [
+          {
+            "node": "Update Dedup State",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Dedup State": {
+      "main": [
+        [
+          {
+            "node": "Save Timestamp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "pinData": {},
+  "versionId": "1",
+  "triggerCount": 0,
+  "tags": [
+    {
+      "createdAt": "2026-10-30T00:00:00.000Z",
+      "updatedAt": "2026-10-30T00:00:00.000Z",
+      "id": "plane-integration",
+      "name": "plane-integration"
+    }
+  ]
+}
