@@ -1,6 +1,8 @@
 ---
 title: VSCode
 description: Настройка Visual Studio Code для работы с ИИ - Claude Code, Kilo Code, Rules и Skills.
+navigation:
+  icon: heroicons:wrench-screwdriver
 type: index
 resource: /vayb-koding/vscode
 tags: [vscode, ide, ai-extensions]

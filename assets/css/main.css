@@ -1,0 +1,210 @@
+/* ============================================================
+   CSS Design Tokens — AREA-43 colour scheme
+   ============================================================ */
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* ============================================================
+   Heading sizes — more compact hierarchy
+   ============================================================ */
+
+.prose h1,
+.document-driven-page h1 {
+  font-size: 1.75rem !important;
+  line-height: 1.25 !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.75rem !important;
+  font-weight: 700 !important;
+}
+
+.prose h2,
+.document-driven-page h2 {
+  font-size: 1.25rem !important;
+  line-height: 1.35 !important;
+  margin-top: 1.75rem !important;
+  margin-bottom: 0.5rem !important;
+  font-weight: 600 !important;
+}
+
+.prose h3,
+.document-driven-page h3 {
+  font-size: 1.05rem !important;
+  line-height: 1.4 !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.4rem !important;
+  font-weight: 600 !important;
+}
+
+/* Nuxt Content / MDC prose overrides */
+.nuxt-content h1 { font-size: 1.75rem !important; }
+.nuxt-content h2 { font-size: 1.25rem !important; }
+.nuxt-content h3 { font-size: 1.05rem !important; }
+
+/* ============================================================
+   Page header cover component
+   ============================================================ */
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 2rem 2.5rem;
+  margin: -1.5rem -1.5rem 2rem;
+  border-radius: 0 0 1rem 1rem;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    oklch(0.97 0 0 / 60%) 0%,
+    oklch(0.985 0 0 / 0%) 70%
+  );
+  pointer-events: none;
+}
+
+.dark .page-header::before {
+  background: linear-gradient(135deg,
+    oklch(0.205 0 0 / 60%) 0%,
+    oklch(0.145 0 0 / 0%) 70%
+  );
+}
+
+.page-header__icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.875rem;
+  background: var(--secondary);
+  border: 1px solid var(--border);
+}
+
+.page-header__content {
+  position: relative;
+  z-index: 1;
+}
+
+.page-header__title {
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  margin: 0 0 0.25rem !important;
+  color: var(--foreground) !important;
+}
+
+.page-header__description {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Accent stripes per section */
+.page-header--violet { border-bottom-color: #7c3aed; }
+.page-header--violet .page-header__icon { background: #7c3aed18; border-color: #7c3aed40; }
+
+.page-header--blue { border-bottom-color: #2563eb; }
+.page-header--blue .page-header__icon { background: #2563eb18; border-color: #2563eb40; }
+
+.page-header--emerald { border-bottom-color: #059669; }
+.page-header--emerald .page-header__icon { background: #05966918; border-color: #05966940; }
+
+.page-header--orange { border-bottom-color: #ea580c; }
+.page-header--orange .page-header__icon { background: #ea580c18; border-color: #ea580c40; }
+
+.page-header--yellow { border-bottom-color: #ca8a04; }
+.page-header--yellow .page-header__icon { background: #ca8a0418; border-color: #ca8a0440; }
+
+.page-header--indigo { border-bottom-color: #4f46e5; }
+.page-header--indigo .page-header__icon { background: #4f46e518; border-color: #4f46e540; }
+
+.page-header--green { border-bottom-color: #16a34a; }
+.page-header--green .page-header__icon { background: #16a34a18; border-color: #16a34a40; }
+
+.page-header--red { border-bottom-color: #dc2626; }
+.page-header--red .page-header__icon { background: #dc262618; border-color: #dc262640; }
+
+.page-header--pink { border-bottom-color: #db2777; }
+.page-header--pink .page-header__icon { background: #db277718; border-color: #db277740; }
+
+.page-header--slate { border-bottom-color: #475569; }
+.page-header--slate .page-header__icon { background: #47556918; border-color: #47556940; }

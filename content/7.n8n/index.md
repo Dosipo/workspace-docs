@@ -1,6 +1,8 @@
 ---
 title: n8n
 description: Корпоративная автоматизация - workflows, credentials, PostgreSQL, демо-сценарии.
+navigation:
+  icon: heroicons:arrow-path
 type: index
 resource: /n8n
 tags: [n8n, automation, workflows]
@@ -8,7 +10,15 @@ generated: human-authored
 status: current
 ---
 
-# n8n
+::PageHeader
+---
+title: "n8n"
+description: "Корпоративная автоматизация: workflows, credentials, PostgreSQL, демо-сценарии."
+icon: "⚡"
+accent: red
+---
+::
+
 
 Корпоративный n8n доступен по адресу: **https://n8n.geotech.user.events/**
 
