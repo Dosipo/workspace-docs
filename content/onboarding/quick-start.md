@@ -3,6 +3,11 @@ title: Быстрый старт
 description: Начните работать в воркспейсе за 15 минут.
 navigation:
   icon: heroicons:play
+type: guide
+resource: /onboarding/quick-start
+tags: [onboarding, quick-start, getting-started, workspace, mika]
+generated: human-authored
+status: current
 ---
 
 # Быстрый старт
