@@ -5,10 +5,55 @@ export default defineEventHandler(async (event) => {
   if (method === 'OPTIONS') {
     setResponseHeaders(event, {
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
     })
     return null
+  }
+
+  // GET: return machine-readable capabilities description (OKF compliance)
+  if (method === 'GET') {
+    setResponseHeaders(event, {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    })
+    return {
+      name: 'workspace-docs-mcp',
+      version: '1.0.0',
+      protocolVersion: '2024-11-05',
+      description: 'MCP server for ArealDev workspace knowledge base (DOCUS)',
+      transport: 'http',
+      endpoint: '/mcp',
+      capabilities: {
+        tools: {
+          'list-pages': {
+            description: 'List all pages in the workspace knowledge base',
+            inputSchema: {
+              type: 'object',
+              properties: {
+                dir: {
+                  type: 'string',
+                  description: 'Filter by directory prefix, e.g. "onboarding" (optional)',
+                },
+              },
+            },
+          },
+          'get-page': {
+            description: 'Get the full content of a page by its path',
+            inputSchema: {
+              type: 'object',
+              properties: {
+                path: {
+                  type: 'string',
+                  description: 'Page path, e.g. "/onboarding/quick-start"',
+                },
+              },
+              required: ['path'],
+            },
+          },
+        },
+      },
+    }
   }
 
   if (method !== 'POST') {
