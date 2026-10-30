@@ -108,6 +108,44 @@
 .nuxt-content h3 { font-size: 1.05rem !important; }
 
 /* ============================================================
+   Docus v5 heading overrides (Nuxt UI / MDC selectors)
+   UPageHeader renders h1 with data-slot="title" and utility classes.
+   MDC ProseH* renders bare h1/h2/h3[id] inside <main>.
+   ============================================================ */
+
+/* Page title from UPageHeader (frontmatter `title:`) */
+h1[data-slot="title"] {
+  font-size: 1.75rem !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
+}
+
+/* Content headings from MDC (markdown # / ## / ###) */
+main h1[id] {
+  font-size: 1.75rem !important;
+  line-height: 1.25 !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.75rem !important;
+  font-weight: 700 !important;
+}
+
+main h2[id] {
+  font-size: 1.25rem !important;
+  line-height: 1.35 !important;
+  margin-top: 1.75rem !important;
+  margin-bottom: 0.5rem !important;
+  font-weight: 600 !important;
+}
+
+main h3[id] {
+  font-size: 1.05rem !important;
+  line-height: 1.4 !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.4rem !important;
+  font-weight: 600 !important;
+}
+
+/* ============================================================
    Page header cover component
    ============================================================ */
 
