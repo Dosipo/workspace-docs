@@ -1,24 +1,42 @@
 ---
-title: Welcome
+title: База знаний воркспейса
+description: Центральная база знаний, документация и гайды для команды и агентов.
 navigation: false
-layout: page
-main:
-  fluid: false
 ---
-
-:ellipsis{right=0px width=75% blur=150px}
 
 ::block-hero
 ---
 cta:
-  - Get started
-  - /introduction
-snippet: npm run dev
+  - Начать работу
+  - /onboarding
+snippet: npx create-docus workspace-docs
 ---
 
 #title
-Workspace Documentation
+База знаний воркспейса
 
 #description
-Knowledge base and documentation for the workspace.
+Всё, что нужно знать команде и AI-агентам — в одном месте.
+::
+
+## Разделы
+
+::card-group
+  ::card
+  ---
+  title: Онбординг
+  icon: i-heroicons-rocket-launch
+  to: /onboarding
+  ---
+  Введение в воркспейс, быстрый старт и ключевые концепции.
+  ::
+
+  ::card
+  ---
+  title: Справочник
+  icon: i-heroicons-book-open
+  to: /reference
+  ---
+  Детальная документация по инструментам, процессам и API.
+  ::
 ::

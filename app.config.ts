@@ -1,12 +1,15 @@
 export default defineAppConfig({
   docus: {
-    title: 'Workspace Docs',
-    description: 'Knowledge base for the workspace',
+    title: 'База знаний воркспейса',
+    description: 'Центральная база знаний для команды и AI-агентов',
     socials: {},
     github: {
       owner: 'Dosipo',
       repo: 'workspace-docs',
-      branch: 'main'
+      branch: 'main',
+      root: 'content',
+      edit: true,
+      contributors: false
     },
     aside: {
       level: 0,
@@ -21,6 +24,12 @@ export default defineAppConfig({
       logo: false,
       showLinkIcon: true,
       exclude: [],
+      fluid: false
+    },
+    footer: {
+      credits: false,
+      textLinks: [],
+      iconLinks: [],
       fluid: false
     }
   }
