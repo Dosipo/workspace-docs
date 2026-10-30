@@ -4,7 +4,7 @@
       {{ icon }}
     </div>
     <div class="page-header__content">
-      <h1 class="page-header__title">{{ title }}</h1>
+      <p class="page-header__title" role="heading" aria-level="1">{{ title }}</p>
       <p v-if="description" class="page-header__description">{{ description }}</p>
     </div>
   </div>

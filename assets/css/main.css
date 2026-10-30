@@ -73,10 +73,13 @@
 
 /* ============================================================
    Heading sizes — more compact hierarchy
+   Targets Docus v5 markup (no .prose / .document-driven-page wrappers)
    ============================================================ */
 
+h1,
 .prose h1,
-.document-driven-page h1 {
+.document-driven-page h1,
+.nuxt-content h1 {
   font-size: 1.75rem !important;
   line-height: 1.25 !important;
   margin-top: 1.5rem !important;
@@ -84,8 +87,10 @@
   font-weight: 700 !important;
 }
 
+h2,
 .prose h2,
-.document-driven-page h2 {
+.document-driven-page h2,
+.nuxt-content h2 {
   font-size: 1.25rem !important;
   line-height: 1.35 !important;
   margin-top: 1.75rem !important;
@@ -93,19 +98,16 @@
   font-weight: 600 !important;
 }
 
+h3,
 .prose h3,
-.document-driven-page h3 {
+.document-driven-page h3,
+.nuxt-content h3 {
   font-size: 1.05rem !important;
   line-height: 1.4 !important;
   margin-top: 1.25rem !important;
   margin-bottom: 0.4rem !important;
   font-weight: 600 !important;
 }
-
-/* Nuxt Content / MDC prose overrides */
-.nuxt-content h1 { font-size: 1.75rem !important; }
-.nuxt-content h2 { font-size: 1.25rem !important; }
-.nuxt-content h3 { font-size: 1.05rem !important; }
 
 /* ============================================================
    Page header cover component
