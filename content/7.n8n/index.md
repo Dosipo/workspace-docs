@@ -20,3 +20,7 @@ description: Корпоративная автоматизация - workflows, 
 
 - [Загрузка данных из Data table](/n8n/demo-data-table)
 - [OCR файлов из Nextcloud](/n8n/demo-ocr-nextcloud)
+
+## Интеграции
+
+- [PLANE → Сервис Деск](/n8n/plane-servicedesk) — автоматический перенос задач с меткой `needs-human` из PLANE в сервис деск
