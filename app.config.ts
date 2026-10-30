@@ -33,6 +33,14 @@ export default defineAppConfig({
       fluid: false
     }
   },
+  ui: {
+    contentToc: {
+      defaultVariants: {
+        color: 'neutral',
+        highlightColor: 'neutral'
+      }
+    }
+  },
   assistant: {
     floatingInput: true,
     explainWithAi: true,
