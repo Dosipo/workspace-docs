@@ -31,7 +31,7 @@
     {
       "parameters": {
         "method": "GET",
-        "url": "={{ $env.PLANE_URL }}/api/v2/workspaces/{{ $env.PLANE_WORKSPACE_SLUG }}/work-items/",
+        "url": "={{ $env.PLANE_URL + '/api/v2/workspaces/' + $env.PLANE_WORKSPACE_SLUG + '/work-items/' }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -96,7 +96,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "={{ $env.SERVICE_DESK_URL }}/api/tickets",
+        "url": "={{ $env.SERVICE_DESK_URL + '/api/tickets' }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -106,7 +106,7 @@
             },
             {
               "name": "Authorization",
-              "value": "Bearer {{ $env.SERVICE_DESK_TOKEN }}"
+              "value": "=Bearer {{ $env.SERVICE_DESK_TOKEN }}"
             }
           ]
         },
@@ -126,7 +126,7 @@
     {
       "parameters": {
         "method": "PATCH",
-        "url": "={{ $env.PLANE_URL }}/api/v2/workspaces/{{ $env.PLANE_WORKSPACE_SLUG }}/projects/{{ $('Map to SD Schema').item.json._plane_project_id }}/work-items/{{ $('Map to SD Schema').item.json._plane_issue_id }}/",
+        "url": "={{ $env.PLANE_URL + '/api/v2/workspaces/' + $env.PLANE_WORKSPACE_SLUG + '/projects/' + $('Map to SD Schema').item.json._plane_project_id + '/work-items/' + $('Map to SD Schema').item.json._plane_issue_id + '/' }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -151,6 +151,9 @@
       "name": "Write Back to PLANE",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 2000,
       "position": [1320, 200]
     }
   ],
