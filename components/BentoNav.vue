@@ -124,8 +124,8 @@ const items = [
   justify-content: flex-end;
   padding: 1.25rem 1.25rem 1rem;
   border-radius: 16px;
-  border: 1px solid var(--color-gray-200, #e5e7eb);
-  background: var(--color-white, #ffffff);
+  border: 1px solid var(--border);
+  background: var(--card);
   text-decoration: none;
   overflow: hidden;
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
@@ -134,11 +134,11 @@ const items = [
 
 .bento-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 8px 32px oklch(0 0 0 / 10%);
 }
 
 .bento-card:focus-visible {
-  outline: 2px solid var(--color-primary-500, #6366f1);
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
@@ -155,7 +155,7 @@ const items = [
   display: block;
   font-size: 1rem;
   font-weight: 700;
-  color: var(--color-gray-900, #111827);
+  color: var(--card-foreground);
   margin-top: 0.75rem;
   margin-bottom: 0.2rem;
   line-height: 1.25;
@@ -166,7 +166,7 @@ const items = [
   display: block;
   font-size: 0.8rem;
   line-height: 1.45;
-  color: var(--color-gray-500, #6b7280);
+  color: var(--muted-foreground);
 }
 
 /* Arrow */
@@ -175,11 +175,11 @@ const items = [
   top: 1.1rem;
   right: 1.1rem;
   font-size: 1rem;
-  color: var(--color-gray-300, #d1d5db);
+  color: var(--border);
   transition: color 0.15s ease, transform 0.15s ease;
 }
 .bento-card:hover .bento-card__arrow {
-  color: currentColor;
+  color: var(--muted-foreground);
   transform: translate(2px, -2px);
 }
 
@@ -229,54 +229,21 @@ const items = [
 .accent-pink::after   { background: #db2777; }
 .accent-slate::after  { background: #475569; }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  .bento-card {
-    background: var(--color-gray-900, #111827);
-    border-color: var(--color-gray-700, #374151);
-  }
-  .bento-card__title {
-    color: var(--color-gray-50, #f9fafb);
-  }
-  .bento-card__desc {
-    color: var(--color-gray-400, #9ca3af);
-  }
-  .bento-card::before {
-    opacity: 0.12;
-  }
-  .bento-card:hover::before {
-    opacity: 0.18;
-  }
-  .bento-card:hover {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  }
+/* Dark mode — card uses CSS vars automatically; only adjust shadow and opacity */
+.dark .bento-card:hover,
+:root.dark .bento-card:hover,
+html.dark .bento-card:hover {
+  box-shadow: 0 8px 32px oklch(0 0 0 / 40%);
 }
-
-/* html.dark override for Docus dark mode toggle */
-:root.dark .bento-card,
-html.dark .bento-card {
-  background: var(--color-gray-900, #111827);
-  border-color: var(--color-gray-700, #374151);
-}
-:root.dark .bento-card__title,
-html.dark .bento-card__title {
-  color: var(--color-gray-50, #f9fafb);
-}
-:root.dark .bento-card__desc,
-html.dark .bento-card__desc {
-  color: var(--color-gray-400, #9ca3af);
-}
+.dark .bento-card::before,
 :root.dark .bento-card::before,
 html.dark .bento-card::before {
   opacity: 0.12;
 }
+.dark .bento-card:hover::before,
 :root.dark .bento-card:hover::before,
 html.dark .bento-card:hover::before {
   opacity: 0.18;
-}
-:root.dark .bento-card:hover,
-html.dark .bento-card:hover {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 /* Responsive */
