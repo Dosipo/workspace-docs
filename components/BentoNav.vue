@@ -239,13 +239,20 @@ html.dark .bento-card:hover {
 }
 .dark .bento-card::before,
 :root.dark .bento-card::before,
-html.dark .bento-card::before {
+html.dark .bento-card::before,
+.dark .bento-card::before {
   opacity: 0.12;
 }
 .dark .bento-card:hover::before,
 :root.dark .bento-card:hover::before,
-html.dark .bento-card:hover::before {
+html.dark .bento-card:hover::before,
+.dark .bento-card:hover::before {
   opacity: 0.18;
+}
+:root.dark .bento-card:hover,
+html.dark .bento-card:hover,
+.dark .bento-card:hover {
+  box-shadow: 0 8px 32px oklch(0 0 0 / 40%);
 }
 
 /* Responsive */

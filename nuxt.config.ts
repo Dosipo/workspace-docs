@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   extends: ['docus'],
-  css: ['~/assets/css/custom.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/custom.css'],
   content: {
     highlight: {
       langs: ['yaml']

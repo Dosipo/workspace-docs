@@ -10,8 +10,15 @@ generated: human-authored
 status: current
 ---
 
-::section-hero{icon="💬" title="ИИ-платформа" description="Корпоративная платформа для работы с ИИ — регистрация, агенты, модели, файлы и каналы." accent="emerald"}
+::PageHeader
+---
+title: "ИИ-платформа"
+description: "Корпоративная ИИ-платформа: регистрация, агенты, модели, файлы и каналы."
+icon: "💬"
+accent: emerald
+---
 ::
+
 
 Корпоративная ИИ-платформа доступна по адресу: **https://chat.geotech.user.events/**
 

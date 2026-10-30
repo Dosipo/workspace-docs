@@ -10,8 +10,15 @@ generated: human-authored
 status: current
 ---
 
-::section-hero{icon="📊" title="Excel + ИИ" description="Надстройка для Excel: чат с ИИ, функция LLM() и пакетная обработка ячеек." accent="green"}
+::PageHeader
+---
+title: "Excel + ИИ"
+description: "ИИ-надстройка для Excel: чат, формула LLM() и пакетная обработка ячеек."
+icon: "📊"
+accent: green
+---
 ::
+
 
 ИИ-надстройка позволяет работать с ИИ прямо в Excel через окно чата, формулу LLM() и пакетную обработку ячеек.
 

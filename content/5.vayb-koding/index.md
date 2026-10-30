@@ -10,8 +10,15 @@ generated: human-authored
 status: current
 ---
 
-::section-hero{icon="💻" title="Вайб-кодинг" description="Написание кода с помощью ИИ — VSCode, Claude Code, Git, SSH и работа в IDE." accent="indigo"}
+::PageHeader
+---
+title: "Вайб-кодинг"
+description: "Написание кода с ИИ: VSCode, Claude Code, Kilo Code, Git и работа в IDE."
+icon: "💻"
+accent: indigo
+---
 ::
+
 
 *Обновлено: 30 октября 2026*
 
