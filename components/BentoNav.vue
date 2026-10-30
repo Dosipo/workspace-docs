@@ -175,11 +175,13 @@ const items = [
   top: 1.1rem;
   right: 1.1rem;
   font-size: 1rem;
-  color: var(--border);
-  transition: color 0.15s ease, transform 0.15s ease;
+  color: var(--muted-foreground);
+  opacity: 0.4;
+  transition: color 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
 }
 .bento-card:hover .bento-card__arrow {
   color: var(--muted-foreground);
+  opacity: 1;
   transform: translate(2px, -2px);
 }
 

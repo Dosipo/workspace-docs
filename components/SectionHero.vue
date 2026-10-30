@@ -1,5 +1,5 @@
 <template>
-  <div class="section-hero" :class="`accent-${accent}`" role="banner">
+  <div class="section-hero" :class="`accent-${accent}`" aria-hidden="true">
     <span class="section-hero__icon" aria-hidden="true">{{ icon }}</span>
     <div class="section-hero__body">
       <p class="section-hero__title">{{ title }}</p>
