@@ -1,0 +1,16 @@
+{
+  "name": "workspace-docs",
+  "title": "База знаний воркспейса",
+  "description": "Центральная база знаний, документация и гайды для команды и агентов",
+  "licenses": [{"name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/"}],
+  "version": "1.0.0",
+  "created": "2026-10-30",
+  "resources": [
+    {
+      "name": "documentation",
+      "path": "/",
+      "mediatype": "text/html",
+      "format": "html"
+    }
+  ]
+}
