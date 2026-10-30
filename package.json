@@ -9,7 +9,7 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@nuxt-themes/docus": "latest",
+    "docus": "latest",
     "nuxt": "^3.13.0"
   }
 }
