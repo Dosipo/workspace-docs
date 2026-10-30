@@ -1,16 +1,16 @@
 <template>
   <nav class="bento-nav" aria-label="Разделы базы знаний">
-    <a
+    <NuxtLink
       v-for="item in items"
       :key="item.to"
-      :href="item.to"
+      :to="item.to"
       :class="['bento-card', item.size || 'size-1x1', `accent-${item.accent}`]"
     >
       <span class="bento-card__icon" aria-hidden="true">{{ item.emoji }}</span>
       <span class="bento-card__title">{{ item.title }}</span>
       <span class="bento-card__desc">{{ item.desc }}</span>
       <span class="bento-card__arrow" aria-hidden="true">→</span>
-    </a>
+    </NuxtLink>
   </nav>
 </template>
 
@@ -111,13 +111,6 @@ const items = [
 /* Sizing variants */
 .size-2x1 {
   grid-column: span 2;
-}
-.size-1x2 {
-  grid-row: span 2;
-}
-.size-2x2 {
-  grid-column: span 2;
-  grid-row: span 2;
 }
 .size-1x1 {
   grid-column: span 1;
@@ -272,6 +265,18 @@ html.dark .bento-card__title {
 :root.dark .bento-card__desc,
 html.dark .bento-card__desc {
   color: var(--color-gray-400, #9ca3af);
+}
+:root.dark .bento-card::before,
+html.dark .bento-card::before {
+  opacity: 0.12;
+}
+:root.dark .bento-card:hover::before,
+html.dark .bento-card:hover::before {
+  opacity: 0.18;
+}
+:root.dark .bento-card:hover,
+html.dark .bento-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 /* Responsive */
