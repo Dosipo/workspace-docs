@@ -14,17 +14,17 @@ status: current
 cta:
   - Начать работу
   - /onboarding
-snippet: npx create-docus workspace-docs
+snippet: База знаний · ArealDev workspace
 ---
 
 #title
 База знаний воркспейса
 
 #description
-Всё, что нужно знать команде и AI-агентам — в одном месте.
+Документация, гайды и справочники для команды и AI-агентов — в одном месте.
 ::
 
-## Разделы
+## Разделы базы знаний
 
 ::BentoNav
 ::

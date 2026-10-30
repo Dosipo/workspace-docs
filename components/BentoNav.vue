@@ -124,8 +124,8 @@ const items = [
   justify-content: flex-end;
   padding: 1.25rem 1.25rem 1rem;
   border-radius: 16px;
-  border: 1px solid var(--border, #e5e7eb);
-  background: var(--card, #ffffff);
+  border: 1px solid var(--border);
+  background: var(--card);
   text-decoration: none;
   overflow: hidden;
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
@@ -155,7 +155,7 @@ const items = [
   display: block;
   font-size: 1rem;
   font-weight: 700;
-  color: var(--card-foreground, #111827);
+  color: var(--card-foreground);
   margin-top: 0.75rem;
   margin-bottom: 0.2rem;
   line-height: 1.25;
@@ -166,7 +166,7 @@ const items = [
   display: block;
   font-size: 0.8rem;
   line-height: 1.45;
-  color: var(--muted-foreground, #6b7280);
+  color: var(--muted-foreground);
 }
 
 /* Arrow */
@@ -175,11 +175,13 @@ const items = [
   top: 1.1rem;
   right: 1.1rem;
   font-size: 1rem;
-  color: var(--border, #d1d5db);
-  transition: color 0.15s ease, transform 0.15s ease;
+  color: var(--muted-foreground);
+  opacity: 0.4;
+  transition: color 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
 }
 .bento-card:hover .bento-card__arrow {
   color: var(--muted-foreground);
+  opacity: 1;
   transform: translate(2px, -2px);
 }
 
@@ -229,28 +231,19 @@ const items = [
 .accent-pink::after   { background: #db2777; }
 .accent-slate::after  { background: #475569; }
 
-/* Dark mode via CSS variable (Docus uses .dark class) */
-:root.dark .bento-card,
-html.dark .bento-card,
-.dark .bento-card {
-  background: var(--card, #1f2937);
-  border-color: var(--border, #374151);
+/* Dark mode — card uses CSS vars automatically; only adjust shadow and opacity */
+.dark .bento-card:hover,
+:root.dark .bento-card:hover,
+html.dark .bento-card:hover {
+  box-shadow: 0 8px 32px oklch(0 0 0 / 40%);
 }
-:root.dark .bento-card__title,
-html.dark .bento-card__title,
-.dark .bento-card__title {
-  color: var(--card-foreground, #f9fafb);
-}
-:root.dark .bento-card__desc,
-html.dark .bento-card__desc,
-.dark .bento-card__desc {
-  color: var(--muted-foreground, #9ca3af);
-}
+.dark .bento-card::before,
 :root.dark .bento-card::before,
 html.dark .bento-card::before,
 .dark .bento-card::before {
   opacity: 0.12;
 }
+.dark .bento-card:hover::before,
 :root.dark .bento-card:hover::before,
 html.dark .bento-card:hover::before,
 .dark .bento-card:hover::before {
