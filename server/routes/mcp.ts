@@ -1,5 +1,3 @@
-import { serverQueryContent } from '#content/server'
-
 export default defineEventHandler(async (event) => {
   const method = getMethod(event)
 
@@ -84,11 +82,11 @@ export default defineEventHandler(async (event) => {
     const args = params?.arguments ?? {}
 
     if (toolName === 'list-pages') {
-      let query = serverQueryContent(event).only(['title', 'description', 'path', '_dir'])
+      let query = queryCollection(event, 'content').select('title', 'description', 'path')
       if (args.dir) {
-        query = query.where({ _dir: { $contains: args.dir } })
+        query = query.where('path', 'LIKE', `%/${args.dir}/%`)
       }
-      const pages = await query.find()
+      const pages = await query.all()
       return ok({
         content: [{ type: 'text', text: JSON.stringify(pages, null, 2) }],
       })
@@ -98,15 +96,15 @@ export default defineEventHandler(async (event) => {
       if (!args.path) {
         return err(-32602, 'Missing required argument: path')
       }
-      const pages = await serverQueryContent(event, args.path).find()
-      if (!pages.length) {
+      const page = await queryCollection(event, 'content').path(args.path).first()
+      if (!page) {
         return ok({
           content: [{ type: 'text', text: `Page not found: ${args.path}` }],
           isError: true,
         })
       }
       return ok({
-        content: [{ type: 'text', text: JSON.stringify(pages[0], null, 2) }],
+        content: [{ type: 'text', text: JSON.stringify(page, null, 2) }],
       })
     }
 
