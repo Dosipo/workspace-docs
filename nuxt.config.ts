@@ -1,8 +1,15 @@
 export default defineNuxtConfig({
-  extends: ['@nuxt-themes/docus'],
+  extends: ['docus'],
   content: {
     highlight: {
       langs: ['yaml']
+    }
+  },
+  docus: {
+    assistant: {
+      enabled: true,
+      mcpServer: '/mcp',
+      model: 'google/gemini-3-flash'
     }
   }
 })
