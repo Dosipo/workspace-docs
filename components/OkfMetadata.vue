@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { serializeOkfFields } from '../lib/okf-yaml.js'
+
 const props = defineProps<{
   page: Record<string, any>
 }>()
@@ -19,35 +21,7 @@ const okfFields = computed(() => {
 
 const hasOkfFields = computed(() => Object.keys(okfFields.value).length > 0)
 
-const needsQuotes = (v: string) => v === '' || /[:{}\[\],#"']|^\s|\s$/.test(v)
-
-const quote = (v: string) => `"${v.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`
-
-// Вложенные объекты и массивы выводим в flow-YAML ({ id: x, name: y }), как в исходном frontmatter.
-function flow(value: unknown): string {
-  if (Array.isArray(value)) return `[${value.map(flow).join(', ')}]`
-  if (value && typeof value === 'object') {
-    return `{ ${Object.entries(value as Record<string, unknown>).map(([k, v]) => `${k}: ${flow(v)}`).join(', ')} }`
-  }
-  if (typeof value === 'string') return needsQuotes(value) ? quote(value) : value
-  return String(value)
-}
-
-function serializeValue(value: unknown): string {
-  // Список объектов — блочный YAML, по одному элементу на строку
-  if (Array.isArray(value) && value.some(v => v && typeof v === 'object')) {
-    return '\n' + value.map(v => `  - ${flow(v)}`).join('\n')
-  }
-  if (Array.isArray(value) || (value && typeof value === 'object')) return flow(value)
-  if (typeof value === 'string') return needsQuotes(value) ? quote(value) : value
-  return String(value)
-}
-
-const yamlContent = computed(() =>
-  Object.entries(okfFields.value)
-    .map(([key, value]) => `${key}: ${serializeValue(value)}`)
-    .join('\n')
-)
+const yamlContent = computed(() => serializeOkfFields(okfFields.value))
 </script>
 
 <template>
