@@ -25,3 +25,7 @@ timestamp: "2026-10-22T00:00:00Z"
 
 - [Загрузка данных из Data table](/instrumenty/n8n/demo-data-table)
 - [OCR файлов из Nextcloud](/instrumenty/n8n/demo-ocr-nextcloud)
+
+## Интеграции
+
+- [PLANE → Сервис деск](/instrumenty/n8n/plane-servicedesk) — polling инцидентов с лейблом `needs-human`
