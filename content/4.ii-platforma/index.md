@@ -10,16 +10,6 @@ status: current
 timestamp: "2026-10-30T00:00:00Z"
 ---
 
-::PageHeader
----
-title: "ИИ-платформа"
-description: "Корпоративная ИИ-платформа: регистрация, агенты, модели, файлы и каналы."
-icon: ""
-accent: emerald
----
-::
-
-
 Корпоративная ИИ-платформа доступна по адресу: **https://chat.geotech.user.events/**
 
 ## Разделы

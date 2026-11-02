@@ -1,72 +1,31 @@
 /* ============================================================
-   CSS Design Tokens — Notion-style colour scheme
+   Design tokens (AREA-120)
+   Palette lives in Nuxt UI tokens: neutral = stone (warm grey,
+   set in app.config.ts). Legacy shadcn-style names used by custom
+   components are aliases to those tokens, so both themes share
+   one source of truth.
    ============================================================ */
 
 :root {
-  /* Notion light palette */
-  --background:         oklch(1 0 0);
-  --foreground:         oklch(0.355 0.012 82);      /* #37352f — Notion warm near-black */
-  --card:               oklch(1 0 0);
-  --card-foreground:    oklch(0.355 0.012 82);
-  --popover:            oklch(1 0 0);
-  --popover-foreground: oklch(0.355 0.012 82);
-  --primary:            oklch(0.355 0.012 82);
-  --primary-foreground: oklch(1 0 0);
-  --secondary:          oklch(0.977 0.001 80);      /* #f7f7f5 — Notion sidebar/muted */
-  --secondary-foreground: oklch(0.355 0.012 82);
-  --muted:              oklch(0.977 0.001 80);
-  --muted-foreground:   oklch(0.556 0.01 82);       /* ~rgba(55,53,47,0.65) */
-  --accent:             oklch(0.96 0.002 80);
-  --accent-foreground:  oklch(0.355 0.012 82);
-  --destructive:        oklch(0.577 0.245 27.325);
-  --border:             oklch(0.925 0.002 80);      /* #e9e9e7 — Notion warm light border */
-  --input:              oklch(0.925 0.002 80);
-  --ring:               oklch(0.7 0.005 80);
-  --radius:             0.25rem;
-  --sidebar:            oklch(0.977 0.001 80);
-  --sidebar-foreground: oklch(0.355 0.012 82);
-  --sidebar-primary:    oklch(0.355 0.012 82);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent:     oklch(0.355 0.012 82 / 8%);
-  --sidebar-accent-foreground: oklch(0.355 0.012 82);
-  --sidebar-border:     oklch(0.925 0.002 80);
-  --sidebar-ring:       oklch(0.7 0.005 80);
+  --background:         var(--ui-bg);
+  --foreground:         var(--ui-text-highlighted);
+  --card:               var(--ui-bg);
+  --card-foreground:    var(--ui-text-highlighted);
+  --secondary:          var(--ui-bg-muted);
+  --muted:              var(--ui-bg-muted);
+  --muted-foreground:   var(--ui-text-muted);
+  --accent:             var(--ui-bg-elevated);
+  --border:             var(--ui-border);
+  --input:              var(--ui-border);
+  --ring:               var(--ui-border-inverted);
+  --radius:             var(--ui-radius);
 
-  /* Override Nuxt UI primary to neutral zinc */
-  --ui-primary: oklch(21% 0.006 285.885);
+  /* Monochrome primary: near-black in light, near-white in dark */
+  --ui-primary: var(--ui-color-neutral-900);
 }
 
 .dark {
-  /* Notion dark palette */
-  --background:         oklch(0.135 0 0);           /* #191919 */
-  --foreground:         oklch(0.895 0 0);            /* rgba(255,255,255,0.81) */
-  --card:               oklch(0.155 0 0);            /* #202020 */
-  --card-foreground:    oklch(0.895 0 0);
-  --popover:            oklch(0.19 0 0);
-  --popover-foreground: oklch(0.895 0 0);
-  --primary:            oklch(0.895 0 0);
-  --primary-foreground: oklch(0.135 0 0);
-  --secondary:          oklch(0.19 0 0);
-  --secondary-foreground: oklch(0.895 0 0);
-  --muted:              oklch(0.19 0 0);
-  --muted-foreground:   oklch(0.62 0 0);             /* rgba(255,255,255,0.44) */
-  --accent:             oklch(0.22 0 0);
-  --accent-foreground:  oklch(0.895 0 0);
-  --destructive:        oklch(0.704 0.191 22.216);
-  --border:             oklch(1 0 0 / 9%);           /* rgba(255,255,255,0.09) */
-  --input:              oklch(1 0 0 / 12%);
-  --ring:               oklch(0.5 0 0);
-  --sidebar:            oklch(0.155 0 0);
-  --sidebar-foreground: oklch(0.895 0 0);
-  --sidebar-primary:    oklch(0.895 0 0);
-  --sidebar-primary-foreground: oklch(0.135 0 0);
-  --sidebar-accent:     oklch(1 0 0 / 6%);
-  --sidebar-accent-foreground: oklch(0.895 0 0);
-  --sidebar-border:     oklch(1 0 0 / 9%);
-  --sidebar-ring:       oklch(0.5 0 0);
-
-  /* Override Nuxt UI primary to light neutral in dark mode */
-  --ui-primary: oklch(92.2% 0.004 286.32);
+  --ui-primary: var(--ui-color-neutral-100);
 }
 
 /* ============================================================
