@@ -1,17 +1,9 @@
 <template>
-  <div class="section-hero" :class="`accent-${accent}`" aria-hidden="true">
-    <svg class="section-hero__bg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" preserveAspectRatio="xMaxYMid meet">
-      <circle cx="258" cy="-5" r="68" fill="var(--hero-accent-color, #7c3aed)" fill-opacity="0.14"/>
-      <circle cx="208" cy="62" r="52" fill="var(--hero-accent-color, #7c3aed)" fill-opacity="0.09"/>
-      <circle cx="292" cy="72" r="34" fill="var(--hero-accent-color, #7c3aed)" fill-opacity="0.12"/>
-      <rect x="148" y="6" width="52" height="52" rx="10" transform="rotate(28 174 32)" fill="var(--hero-accent-color, #7c3aed)" fill-opacity="0.06"/>
-      <polygon points="158,80 196,12 234,80" fill="var(--hero-accent-color, #7c3aed)" fill-opacity="0.05"/>
-      <circle cx="170" cy="12" r="20" fill="var(--hero-accent-color, #7c3aed)" fill-opacity="0.09"/>
-    </svg>
-    <span class="section-hero__icon" aria-hidden="true">{{ icon }}</span>
-    <div class="section-hero__body">
-      <p class="section-hero__title">{{ title }}</p>
-      <p v-if="description" class="section-hero__desc">{{ description }}</p>
+  <div class="section-banner" role="banner">
+    <span v-if="icon" class="section-banner__icon" aria-hidden="true">{{ icon }}</span>
+    <div class="section-banner__body">
+      <p class="section-banner__title">{{ title }}</p>
+      <p v-if="description" class="section-banner__desc">{{ description }}</p>
     </div>
   </div>
 </template>
@@ -29,72 +21,39 @@ withDefaults(defineProps<{
 </script>
 
 <style scoped>
-.section-hero {
-  position: relative;
+.section-banner {
   display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 1.75rem 2rem;
-  margin-bottom: 2rem;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--muted);
-  overflow: hidden;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 2rem 0 1.5rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.section-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.07;
-  border-radius: inherit;
-  background: var(--hero-accent-color, transparent);
-}
-
-.section-hero__bg {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: auto;
-  pointer-events: none;
-}
-
-.section-hero__icon {
-  position: relative;
-  font-size: 2.75rem;
+.section-banner__icon {
+  font-size: 2.5rem;
   line-height: 1;
   flex-shrink: 0;
+  margin-top: 0.125rem;
 }
 
-.section-hero__body {
-  position: relative;
+.section-banner__body {
+  min-width: 0;
 }
 
-.section-hero__title {
-  font-size: 1.35rem;
+.section-banner__title {
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--foreground);
-  margin: 0 0 0.2rem;
-  line-height: 1.3;
+  margin: 0 0 0.375rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
-.section-hero__desc {
-  font-size: 0.9rem;
+.section-banner__desc {
+  font-size: 0.9375rem;
   color: var(--muted-foreground);
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
-
-/* Accent color tokens */
-.accent-violet { --hero-accent-color: #7c3aed; }
-.accent-blue   { --hero-accent-color: #2563eb; }
-.accent-emerald{ --hero-accent-color: #059669; }
-.accent-orange { --hero-accent-color: #ea580c; }
-.accent-yellow { --hero-accent-color: #ca8a04; }
-.accent-indigo { --hero-accent-color: #4f46e5; }
-.accent-green  { --hero-accent-color: #16a34a; }
-.accent-red    { --hero-accent-color: #dc2626; }
-.accent-pink   { --hero-accent-color: #db2777; }
-.accent-slate  { --hero-accent-color: #475569; }
 </style>
