@@ -22,12 +22,6 @@ const items = [
     to: '/onboarding',
   },
   {
-    title: 'Справочник',
-    desc: 'Детальная документация по инструментам, процессам и API',
-    icon: 'heroicons:book-open',
-    to: '/reference',
-  },
-  {
     title: 'ИИ-платформа',
     desc: 'Регистрация, агенты, модели, работа с файлами и каналами',
     icon: 'heroicons:chat-bubble-left-right',
