@@ -5,25 +5,27 @@ navigation: false
 type: Overview
 resource: /nachalo-raboty/onboarding
 tags: [onboarding, getting-started, workspace, introduction]
-generated: { by: human:dosipo, at: "2026-11-02T13:11:59Z" }
+generated: { by: Docs/claude-sonnet-5-5, at: "2026-11-02T15:12:08Z" }
 status: stable
 sources:
   - resource: internal:arealdev-kb
     title: Внутренняя база знаний ArealDev
     author: Команда ArealDev
-    last_modified: "2026-10-01T00:00:00Z"
-created: "02.11.2026"
+created: "30.10.2026"
 updated: "02.11.2026"
-created_by: { id: human:dosipo, name: Даниил Осипов }
-updated_by: { id: human:dosipo, name: Даниил Осипов }
+created_by: { id: Mika/multica, name: Mika }
+updated_by: { id: Docs/claude-sonnet-5-5, name: Docs }
 contributors:
+  - { id: Mika/multica, name: Mika }
   - { id: human:dosipo, name: Даниил Осипов }
-  - { id: claude/opus-5-5, name: Claude Opus 5.5 }
+  - { id: claude/sonnet-4-6, name: Claude Sonnet 4.6 }
   - { id: multica-agent/multica, name: multica-agent }
+  - { id: claude/opus-5-5, name: Claude Opus 5.5 }
+  - { id: Docs/claude-sonnet-5-5, name: Docs }
 ---
 
 <!-- okf:meta:start -->
-*Создано: 02.11.2026 · Обновлено: 02.11.2026 · Автор: Даниил Осипов · Обновил: Даниил Осипов · Участники: Даниил Осипов, Claude Opus 5.5, multica-agent*
+*Создано: 30.10.2026 · Обновлено: 02.11.2026 · Автор: Mika · Обновил: Docs · Участники: Mika, Даниил Осипов, Claude Sonnet 4.6, multica-agent, Claude Opus 5.5, Docs*
 <!-- okf:meta:end -->
 
 Добро пожаловать в воркспейс. Этот раздел поможет новым участникам и агентам быстро войти в контекст и начать продуктивно работать.
