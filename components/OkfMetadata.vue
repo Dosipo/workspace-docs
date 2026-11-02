@@ -19,21 +19,28 @@ const okfFields = computed(() => {
 
 const hasOkfFields = computed(() => Object.keys(okfFields.value).length > 0)
 
+const needsQuotes = (v: string) => v === '' || /[:{}\[\],#"']|^\s|\s$/.test(v)
+
+const quote = (v: string) => `"${v.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`
+
+// Вложенные объекты и массивы выводим в flow-YAML ({ id: x, name: y }), как в исходном frontmatter.
+function flow(value: unknown): string {
+  if (Array.isArray(value)) return `[${value.map(flow).join(', ')}]`
+  if (value && typeof value === 'object') {
+    return `{ ${Object.entries(value as Record<string, unknown>).map(([k, v]) => `${k}: ${flow(v)}`).join(', ')} }`
+  }
+  if (typeof value === 'string') return needsQuotes(value) ? quote(value) : value
+  return String(value)
+}
+
 function serializeValue(value: unknown): string {
-  if (Array.isArray(value)) {
-    return `[${value.map(v => String(v)).join(', ')}]`
+  // Список объектов — блочный YAML, по одному элементу на строку
+  if (Array.isArray(value) && value.some(v => v && typeof v === 'object')) {
+    return '\n' + value.map(v => `  - ${flow(v)}`).join('\n')
   }
-  if (typeof value === 'string') {
-    // Quote strings that need it: colons, brackets, or ISO timestamps
-    if (/[:{}\[\]#]/.test(value) || value === '') {
-      return `"${value.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`
-    }
-    return value
-  }
-  if (typeof value === 'boolean' || typeof value === 'number') {
-    return String(value)
-  }
-  return JSON.stringify(value)
+  if (Array.isArray(value) || (value && typeof value === 'object')) return flow(value)
+  if (typeof value === 'string') return needsQuotes(value) ? quote(value) : value
+  return String(value)
 }
 
 const yamlContent = computed(() =>
