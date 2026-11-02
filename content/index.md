@@ -12,13 +12,13 @@ timestamp: "2026-11-02T00:00:00Z"
 
 ::u-page-hero
 #title
-База знаний воркспейса
+База знаний ИИ Ареал
 
 #description
-Централизованная документация для команды и AI-агентов. Гайды, инструкции и справочники по корпоративным ИИ-инструментам.
+Всё, что нужно для работы с корпоративными ИИ-инструментами: платформа, вайб-кодинг, автоматизация, Excel, лучшие практики и ответы на частые вопросы.
 
 #links
-  :::u-button{to="/onboarding" size="lg" trailing-icon="i-lucide-arrow-right" color="neutral" variant="outline"}
+  :::u-button{to="/onboarding" size="lg" icon="i-lucide-arrow-right" color="neutral" variant="outline"}
   Начать работу
   :::
 ::
@@ -43,7 +43,7 @@ timestamp: "2026-11-02T00:00:00Z"
 Инструменты
 
 #default
-  :::u-page-grid
+  :::u-page-grid{class="lg:grid-cols-4"}
     ::::u-page-card{to="/ii-platforma" icon="i-lucide-message-square" title="ИИ-платформа" description="Регистрация, агенты, модели, работа с файлами и каналами" variant="outline"}
     ::::
     ::::u-page-card{to="/vayb-koding" icon="i-lucide-code-2" title="Вайб-кодинг" description="VSCode, Claude Code, Kilo Code, Git, SSH и работа с ИИ в IDE" variant="outline"}
