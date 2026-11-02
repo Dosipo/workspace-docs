@@ -94,7 +94,12 @@ export default defineAppConfig({
     },
     prose: {
       a: {
-        base: 'border-primary/30'
+        // wrap-anywhere: long URLs must not cause horizontal scroll on mobile (AREA-124)
+        base: 'border-primary/30 wrap-anywhere'
+      },
+      code: {
+        // inline code is inline-block: allow breaking long tokens so it fits 375 px (AREA-124)
+        base: 'max-w-full wrap-anywhere'
       }
     }
   },
