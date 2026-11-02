@@ -8,7 +8,7 @@ definePageMeta({
 })
 
 const route = useRoute()
-const { locale, isEnabled, t } = useDocusI18n()
+const { locale, isEnabled } = useDocusI18n()
 const { isOpen } = useAssistant()
 const appConfig = useAppConfig()
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
@@ -116,10 +116,10 @@ const editLink = computed(() => {
             icon="i-lucide-pen"
             :ui="{ leadingIcon: 'size-4' }"
           >
-            {{ t('docs.edit') }}
+            Edit this page
           </UButton>
           <template v-if="github?.url">
-            <span>{{ t('common.or') }}</span>
+            <span>or</span>
             <UButton
               variant="link"
               color="neutral"
@@ -128,7 +128,7 @@ const editLink = computed(() => {
               icon="i-lucide-alert-circle"
               :ui="{ leadingIcon: 'size-4' }"
             >
-              {{ t('docs.report') }}
+              Report an issue
             </UButton>
           </template>
         </div>
