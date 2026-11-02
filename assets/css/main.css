@@ -1,210 +1,160 @@
 /* ============================================================
-   CSS Design Tokens — AREA-43 colour scheme
+   CSS Design Tokens — Notion-style colour scheme
    ============================================================ */
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* Notion light palette */
+  --background:         oklch(1 0 0);
+  --foreground:         oklch(0.355 0.012 82);      /* #37352f — Notion warm near-black */
+  --card:               oklch(1 0 0);
+  --card-foreground:    oklch(0.355 0.012 82);
+  --popover:            oklch(1 0 0);
+  --popover-foreground: oklch(0.355 0.012 82);
+  --primary:            oklch(0.355 0.012 82);
+  --primary-foreground: oklch(1 0 0);
+  --secondary:          oklch(0.977 0.001 80);      /* #f7f7f5 — Notion sidebar/muted */
+  --secondary-foreground: oklch(0.355 0.012 82);
+  --muted:              oklch(0.977 0.001 80);
+  --muted-foreground:   oklch(0.556 0.01 82);       /* ~rgba(55,53,47,0.65) */
+  --accent:             oklch(0.96 0.002 80);
+  --accent-foreground:  oklch(0.355 0.012 82);
+  --destructive:        oklch(0.577 0.245 27.325);
+  --border:             oklch(0.925 0.002 80);      /* #e9e9e7 — Notion warm light border */
+  --input:              oklch(0.925 0.002 80);
+  --ring:               oklch(0.7 0.005 80);
+  --radius:             0.25rem;
+  --sidebar:            oklch(0.977 0.001 80);
+  --sidebar-foreground: oklch(0.355 0.012 82);
+  --sidebar-primary:    oklch(0.355 0.012 82);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent:     oklch(0.355 0.012 82 / 8%);
+  --sidebar-accent-foreground: oklch(0.355 0.012 82);
+  --sidebar-border:     oklch(0.925 0.002 80);
+  --sidebar-ring:       oklch(0.7 0.005 80);
+
+  /* Override Nuxt UI primary to neutral zinc */
+  --ui-primary: oklch(21% 0.006 285.885);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Notion dark palette */
+  --background:         oklch(0.135 0 0);           /* #191919 */
+  --foreground:         oklch(0.895 0 0);            /* rgba(255,255,255,0.81) */
+  --card:               oklch(0.155 0 0);            /* #202020 */
+  --card-foreground:    oklch(0.895 0 0);
+  --popover:            oklch(0.19 0 0);
+  --popover-foreground: oklch(0.895 0 0);
+  --primary:            oklch(0.895 0 0);
+  --primary-foreground: oklch(0.135 0 0);
+  --secondary:          oklch(0.19 0 0);
+  --secondary-foreground: oklch(0.895 0 0);
+  --muted:              oklch(0.19 0 0);
+  --muted-foreground:   oklch(0.62 0 0);             /* rgba(255,255,255,0.44) */
+  --accent:             oklch(0.22 0 0);
+  --accent-foreground:  oklch(0.895 0 0);
+  --destructive:        oklch(0.704 0.191 22.216);
+  --border:             oklch(1 0 0 / 9%);           /* rgba(255,255,255,0.09) */
+  --input:              oklch(1 0 0 / 12%);
+  --ring:               oklch(0.5 0 0);
+  --sidebar:            oklch(0.155 0 0);
+  --sidebar-foreground: oklch(0.895 0 0);
+  --sidebar-primary:    oklch(0.895 0 0);
+  --sidebar-primary-foreground: oklch(0.135 0 0);
+  --sidebar-accent:     oklch(1 0 0 / 6%);
+  --sidebar-accent-foreground: oklch(0.895 0 0);
+  --sidebar-border:     oklch(1 0 0 / 9%);
+  --sidebar-ring:       oklch(0.5 0 0);
+
+  /* Override Nuxt UI primary to light neutral in dark mode */
+  --ui-primary: oklch(92.2% 0.004 286.32);
 }
 
 /* ============================================================
-   Heading sizes — more compact hierarchy
+   Heading sizes — Notion-scale hierarchy
    ============================================================ */
 
 .prose h1,
 .document-driven-page h1 {
-  font-size: 1.75rem !important;
-  line-height: 1.25 !important;
+  font-size: 2rem !important;
+  line-height: 1.2 !important;
   margin-top: 1.5rem !important;
-  margin-bottom: 0.75rem !important;
+  margin-bottom: 0.5rem !important;
   font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
 }
 
 .prose h2,
 .document-driven-page h2 {
-  font-size: 1.25rem !important;
-  line-height: 1.35 !important;
-  margin-top: 1.75rem !important;
+  font-size: 1.375rem !important;
+  line-height: 1.3 !important;
+  margin-top: 2rem !important;
   margin-bottom: 0.5rem !important;
   font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
 }
 
 .prose h3,
 .document-driven-page h3 {
-  font-size: 1.05rem !important;
-  line-height: 1.4 !important;
-  margin-top: 1.25rem !important;
-  margin-bottom: 0.4rem !important;
+  font-size: 1.125rem !important;
+  line-height: 1.35 !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.375rem !important;
   font-weight: 600 !important;
 }
 
 /* Nuxt Content / MDC prose overrides */
-.nuxt-content h1 { font-size: 1.75rem !important; }
-.nuxt-content h2 { font-size: 1.25rem !important; }
-.nuxt-content h3 { font-size: 1.05rem !important; }
+.nuxt-content h1 { font-size: 2rem !important; }
+.nuxt-content h2 { font-size: 1.375rem !important; }
+.nuxt-content h3 { font-size: 1.125rem !important; }
 
 /* ============================================================
-   Page header cover component
+   Page header cover component — Notion style
    ============================================================ */
 
 .page-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.75rem;
-  padding: 2rem 2.5rem;
-  margin: -1.5rem -1.5rem 2rem;
-  border-radius: 0 0 1rem 1rem;
-  background: var(--background);
+  gap: 0.5rem;
+  padding: 2.5rem 0 1.75rem;
+  margin-bottom: 1.75rem;
   border-bottom: 1px solid var(--border);
-  position: relative;
-  overflow: hidden;
-}
-
-.page-header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg,
-    oklch(0.97 0 0 / 60%) 0%,
-    oklch(0.985 0 0 / 0%) 70%
-  );
-  pointer-events: none;
-}
-
-.dark .page-header::before {
-  background: linear-gradient(135deg,
-    oklch(0.205 0 0 / 60%) 0%,
-    oklch(0.145 0 0 / 0%) 70%
-  );
 }
 
 .page-header__icon {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   line-height: 1;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 0.875rem;
-  background: var(--secondary);
-  border: 1px solid var(--border);
+  margin-bottom: 0.5rem;
 }
 
 .page-header__content {
-  position: relative;
-  z-index: 1;
+  width: 100%;
 }
 
 .page-header__title {
-  font-size: 1.6rem !important;
+  font-size: 2rem !important;
   font-weight: 700 !important;
   line-height: 1.2 !important;
-  margin: 0 0 0.25rem !important;
+  margin: 0 0 0.375rem !important;
   color: var(--foreground) !important;
+  letter-spacing: -0.02em !important;
 }
 
 .page-header__description {
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
   color: var(--muted-foreground);
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-/* Accent stripes per section */
-.page-header--violet { border-bottom-color: #7c3aed; }
-.page-header--violet .page-header__icon { background: #7c3aed18; border-color: #7c3aed40; }
-
-.page-header--blue { border-bottom-color: #2563eb; }
-.page-header--blue .page-header__icon { background: #2563eb18; border-color: #2563eb40; }
-
-.page-header--emerald { border-bottom-color: #059669; }
-.page-header--emerald .page-header__icon { background: #05966918; border-color: #05966940; }
-
-.page-header--orange { border-bottom-color: #ea580c; }
-.page-header--orange .page-header__icon { background: #ea580c18; border-color: #ea580c40; }
-
-.page-header--yellow { border-bottom-color: #ca8a04; }
-.page-header--yellow .page-header__icon { background: #ca8a0418; border-color: #ca8a0440; }
-
-.page-header--indigo { border-bottom-color: #4f46e5; }
-.page-header--indigo .page-header__icon { background: #4f46e518; border-color: #4f46e540; }
-
-.page-header--green { border-bottom-color: #16a34a; }
-.page-header--green .page-header__icon { background: #16a34a18; border-color: #16a34a40; }
-
-.page-header--red { border-bottom-color: #dc2626; }
-.page-header--red .page-header__icon { background: #dc262618; border-color: #dc262640; }
-
-.page-header--pink { border-bottom-color: #db2777; }
-.page-header--pink .page-header__icon { background: #db277718; border-color: #db277740; }
-
-.page-header--slate { border-bottom-color: #475569; }
-.page-header--slate .page-header__icon { background: #47556918; border-color: #47556940; }
+/* Accent variants stripped to neutral — Notion has no colored borders */
+.page-header--violet,
+.page-header--blue,
+.page-header--emerald,
+.page-header--orange,
+.page-header--yellow,
+.page-header--indigo,
+.page-header--green,
+.page-header--red,
+.page-header--pink,
+.page-header--slate { }

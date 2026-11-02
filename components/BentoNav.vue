@@ -1,16 +1,14 @@
 <template>
-  <nav class="bento-nav" aria-label="Разделы базы знаний">
+  <nav class="page-nav" aria-label="Разделы базы знаний">
     <NuxtLink
       v-for="item in items"
       :key="item.to"
       :to="item.to"
-      :class="['bento-card', item.size || 'size-1x1', `accent-${item.accent}`]"
+      class="page-nav__card"
     >
-      <span class="bento-card__bg" aria-hidden="true"></span>
-      <span class="bento-card__icon" aria-hidden="true">{{ item.emoji }}</span>
-      <span class="bento-card__title">{{ item.title }}</span>
-      <span class="bento-card__desc">{{ item.desc }}</span>
-      <span class="bento-card__arrow" aria-hidden="true">→</span>
+      <span class="page-nav__icon" aria-hidden="true">{{ item.emoji }}</span>
+      <span class="page-nav__title">{{ item.title }}</span>
+      <span class="page-nav__desc">{{ item.desc }}</span>
     </NuxtLink>
   </nav>
 </template>
@@ -22,295 +20,127 @@ const items = [
     desc: 'Введение в воркспейс, быстрый старт и ключевые концепции',
     emoji: '🚀',
     to: '/onboarding',
-    size: 'size-2x1',
-    accent: 'violet',
   },
   {
     title: 'Справочник',
     desc: 'Детальная документация по инструментам, процессам и API',
     emoji: '📖',
     to: '/reference',
-    size: 'size-1x1',
-    accent: 'blue',
   },
   {
     title: 'ИИ-платформа',
     desc: 'Регистрация, агенты, модели, работа с файлами и каналами',
     emoji: '💬',
     to: '/ii-platforma',
-    size: 'size-1x1',
-    accent: 'emerald',
   },
   {
     title: 'Обзор ИИ-инструментов',
     desc: 'Корпоративные инструменты ИИ: платформа, VSCode, Excel, n8n',
     emoji: '🤖',
     to: '/obzor',
-    size: 'size-1x1',
-    accent: 'orange',
   },
   {
     title: 'Лучшие практики',
     desc: 'Как писать промпты, выбирать модели и работать с ИИ эффективно',
     emoji: '💡',
     to: '/luchshie-praktiki',
-    size: 'size-1x1',
-    accent: 'yellow',
   },
   {
     title: 'Вайб-кодинг',
     desc: 'VSCode, Claude Code, Kilo Code, Git, SSH и работа с ИИ в IDE',
     emoji: '💻',
     to: '/vayb-koding',
-    size: 'size-2x1',
-    accent: 'indigo',
   },
   {
     title: 'Excel + ИИ',
     desc: 'Надстройка для Excel: чат, функция LLM(), пакетная обработка',
     emoji: '📊',
     to: '/excel',
-    size: 'size-1x1',
-    accent: 'green',
   },
   {
     title: 'n8n',
     desc: 'Автоматизация: workflows, credentials, PostgreSQL, демо-сценарии',
     emoji: '⚡',
     to: '/n8n',
-    size: 'size-1x1',
-    accent: 'red',
   },
   {
     title: 'Частые вопросы',
     desc: 'Ответы на самые частые вопросы по всем инструментам',
     emoji: '❓',
     to: '/faq',
-    size: 'size-1x1',
-    accent: 'pink',
   },
   {
     title: 'Список моделей',
     desc: 'Доступные ИИ-модели для платформы, n8n и вайб-кодинга',
     emoji: '🧩',
     to: '/modeli',
-    size: 'size-1x1',
-    accent: 'slate',
   },
 ]
 </script>
 
 <style scoped>
-.bento-nav {
+.page-nav {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 180px;
-  gap: 12px;
-  margin: 2rem 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.625rem;
+  margin: 1.5rem 0 2rem;
 }
 
-/* Sizing variants */
-.size-2x1 {
-  grid-column: span 2;
-}
-.size-1x1 {
-  grid-column: span 1;
-}
-
-/* Base card */
-.bento-card {
-  position: relative;
+.page-nav__card {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.25rem 1.25rem 1rem;
-  border-radius: 16px;
-  border: 1px solid var(--border);
+  gap: 0.25rem;
+  padding: 1.125rem 1.125rem 0.875rem;
   background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
   text-decoration: none;
-  overflow: hidden;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease;
 }
 
-.bento-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px oklch(0 0 0 / 10%);
+.page-nav__card:hover {
+  background: var(--secondary);
+  border-color: var(--muted-foreground);
+  border-color: oklch(from var(--border) calc(l - 0.08) c h);
 }
 
-.bento-card:focus-visible {
+.page-nav__card:focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
-/* Icon */
-.bento-card__icon {
-  font-size: 2rem;
+.page-nav__icon {
+  font-size: 1.375rem;
   line-height: 1;
-  margin-bottom: auto;
+  margin-bottom: 0.5rem;
   display: block;
 }
 
-/* Title */
-.bento-card__title {
+.page-nav__title {
   display: block;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9375rem;
+  font-weight: 600;
   color: var(--card-foreground);
-  margin-top: 0.75rem;
-  margin-bottom: 0.2rem;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
-/* Description */
-.bento-card__desc {
+.page-nav__desc {
   display: block;
-  font-size: 0.8rem;
-  line-height: 1.45;
+  font-size: 0.8125rem;
+  line-height: 1.5;
   color: var(--muted-foreground);
+  margin-top: 0.125rem;
 }
 
-/* Arrow */
-.bento-card__arrow {
-  position: absolute;
-  top: 1.1rem;
-  right: 1.1rem;
-  font-size: 1rem;
-  color: var(--muted-foreground);
-  opacity: 0.4;
-  transition: color 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
-}
-.bento-card:hover .bento-card__arrow {
-  color: var(--muted-foreground);
-  opacity: 1;
-  transform: translate(2px, -2px);
-}
-
-/* Accent color token per card (used by bg pattern) */
-.accent-violet { --bento-accent-color: #7c3aed; }
-.accent-blue   { --bento-accent-color: #2563eb; }
-.accent-emerald{ --bento-accent-color: #059669; }
-.accent-orange { --bento-accent-color: #ea580c; }
-.accent-yellow { --bento-accent-color: #ca8a04; }
-.accent-indigo { --bento-accent-color: #4f46e5; }
-.accent-green  { --bento-accent-color: #16a34a; }
-.accent-red    { --bento-accent-color: #dc2626; }
-.accent-pink   { --bento-accent-color: #db2777; }
-.accent-slate  { --bento-accent-color: #475569; }
-
-/* Abstract geometric background pattern */
-.bento-card__bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
-  opacity: 0.09;
-  background:
-    radial-gradient(circle at 88% 18%, var(--bento-accent-color, #475569) 0%, transparent 45%),
-    radial-gradient(ellipse at 30% 0%, var(--bento-accent-color, #475569) 0%, transparent 38%),
-    linear-gradient(142deg, transparent 42%, var(--bento-accent-color, #475569) 145%);
-  transition: opacity 0.18s ease;
-}
-
-.bento-card:hover .bento-card__bg {
-  opacity: 0.14;
-}
-
-/* Accent backgrounds — subtle tint on the card */
-.bento-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.06;
-  border-radius: inherit;
-  transition: opacity 0.18s ease;
-}
-.bento-card:hover::before {
-  opacity: 0.1;
-}
-
-.accent-violet::before { background: #7c3aed; }
-.accent-blue::before   { background: #2563eb; }
-.accent-emerald::before{ background: #059669; }
-.accent-orange::before { background: #ea580c; }
-.accent-yellow::before { background: #ca8a04; }
-.accent-indigo::before { background: #4f46e5; }
-.accent-green::before  { background: #16a34a; }
-.accent-red::before    { background: #dc2626; }
-.accent-pink::before   { background: #db2777; }
-.accent-slate::before  { background: #475569; }
-
-/* Accent left border stripe */
-.bento-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  border-radius: 16px 0 0 16px;
-  opacity: 0.7;
-}
-.accent-violet::after { background: #7c3aed; }
-.accent-blue::after   { background: #2563eb; }
-.accent-emerald::after{ background: #059669; }
-.accent-orange::after { background: #ea580c; }
-.accent-yellow::after { background: #ca8a04; }
-.accent-indigo::after { background: #4f46e5; }
-.accent-green::after  { background: #16a34a; }
-.accent-red::after    { background: #dc2626; }
-.accent-pink::after   { background: #db2777; }
-.accent-slate::after  { background: #475569; }
-
-/* Dark mode — card uses CSS vars automatically; only adjust shadow and opacity */
-.dark .bento-card:hover,
-:root.dark .bento-card:hover,
-html.dark .bento-card:hover {
-  box-shadow: 0 8px 32px oklch(0 0 0 / 40%);
-}
-.dark .bento-card::before,
-:root.dark .bento-card::before,
-html.dark .bento-card::before,
-.dark .bento-card::before {
-  opacity: 0.12;
-}
-.dark .bento-card:hover::before,
-:root.dark .bento-card:hover::before,
-html.dark .bento-card:hover::before,
-.dark .bento-card:hover::before {
-  opacity: 0.18;
-}
-.dark .bento-card__bg,
-:root.dark .bento-card__bg,
-html.dark .bento-card__bg {
-  opacity: 0.14;
-}
-.dark .bento-card:hover .bento-card__bg,
-:root.dark .bento-card:hover .bento-card__bg,
-html.dark .bento-card:hover .bento-card__bg {
-  opacity: 0.2;
-}
-
-/* Responsive */
 @media (max-width: 900px) {
-  .bento-nav {
+  .page-nav {
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 160px;
   }
 }
 
 @media (max-width: 480px) {
-  .bento-nav {
+  .page-nav {
     grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-  }
-  .size-2x1,
-  .size-2x2 {
-    grid-column: span 1;
-  }
-  .bento-card {
-    padding: 1rem;
-    min-height: 120px;
   }
 }
 </style>
