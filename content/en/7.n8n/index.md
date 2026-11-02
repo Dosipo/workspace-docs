@@ -15,7 +15,7 @@ timestamp: "2026-10-22T00:00:00Z"
 ---
 title: "n8n"
 description: "Корпоративная автоматизация: workflows, credentials, PostgreSQL, демо-сценарии."
-icon: "⚡"
+icon: ""
 accent: red
 ---
 ::

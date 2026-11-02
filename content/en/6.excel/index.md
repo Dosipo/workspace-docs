@@ -15,7 +15,7 @@ timestamp: "2026-09-23T00:00:00Z"
 ---
 title: "Excel + ИИ"
 description: "ИИ-надстройка для Excel: чат, формула LLM() и пакетная обработка ячеек."
-icon: "📊"
+icon: ""
 accent: green
 ---
 ::
