@@ -1,8 +1,7 @@
 ---
 title: Вайб-кодинг
 description: Написание кода с помощью ИИ - VSCode, Claude Code, Kilo Code, Git и работа в IDE.
-navigation:
-  icon: heroicons:code-bracket
+navigation: false
 type: index
 resource: /vayb-koding
 tags: [vibe-coding, ai-coding, vscode, ide]
@@ -10,16 +9,6 @@ generated: human-authored
 status: current
 timestamp: "2026-10-30T00:00:00Z"
 ---
-
-::PageHeader
----
-title: "Вайб-кодинг"
-description: "Написание кода с ИИ: VSCode, Claude Code, Kilo Code, Git и работа в IDE."
-icon: "💻"
-accent: indigo
----
-::
-
 
 *Обновлено: 30 октября 2026*
 

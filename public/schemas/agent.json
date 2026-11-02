@@ -1,0 +1,156 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agent",
+  "description": "Агент воркспейса Multica — автономный исполнитель задач с заданными инструкциями, моделью и скиллами.",
+  "type": "object",
+  "required": ["id", "name", "workspace_id", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Уникальный идентификатор агента."
+    },
+    "name": {
+      "type": "string",
+      "description": "Отображаемое имя агента."
+    },
+    "description": {
+      "type": "string",
+      "description": "Краткое описание специализации и зоны ответственности агента (на русском языке)."
+    },
+    "instructions": {
+      "type": "string",
+      "description": "Системные инструкции агента — определяют его поведение в рамках задач."
+    },
+    "system_instructions": {
+      "type": ["string", "null"],
+      "description": "Платформенные системные инструкции (генерируются Multica, не редактируются вручную)."
+    },
+    "system_key": {
+      "type": ["string", "null"],
+      "description": "Системный ключ встроенного агента (например, «mika»). Для пользовательских агентов — null."
+    },
+    "model": {
+      "type": "string",
+      "description": "Идентификатор языковой модели (например, «claude-sonnet-4-6»). Пустая строка означает наследование дефолтной модели воркспейса."
+    },
+    "thinking_level": {
+      "type": "string",
+      "description": "Уровень цепочки рассуждений: «auto», «low», «medium», «high» или пустая строка."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["idle", "active", "disabled"],
+      "description": "Текущий статус агента."
+    },
+    "avatar_url": {
+      "type": ["string", "null"],
+      "description": "URL аватара или эмодзи-ярлык (например, «emoji:👩»)."
+    },
+    "workspace_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID воркспейса, которому принадлежит агент."
+    },
+    "owner_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID участника-владельца агента."
+    },
+    "runtime_id": {
+      "type": ["string", "null"],
+      "format": "uuid",
+      "description": "ID рантайма, в котором запускается агент."
+    },
+    "runtime_mode": {
+      "type": "string",
+      "enum": ["local", "cloud"],
+      "description": "Режим запуска: «local» — на машине разработчика, «cloud» — в облаке Multica."
+    },
+    "runtime_bound": {
+      "type": "boolean",
+      "description": "Если true, агент привязан к конкретному рантайму."
+    },
+    "runtime_config": {
+      "type": "object",
+      "description": "Дополнительная конфигурация рантайма."
+    },
+    "permission_mode": {
+      "type": "string",
+      "enum": ["private", "public", "workspace"],
+      "description": "Видимость агента."
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["private", "public", "workspace"],
+      "description": "Видимость агента для участников воркспейса."
+    },
+    "max_concurrent_tasks": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Максимальное количество одновременно выполняемых задач."
+    },
+    "skills": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Список ключей установленных скиллов."
+    },
+    "disabled_runtime_skills": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Скиллы, отключённые для этого агента."
+    },
+    "custom_args": {
+      "type": "array",
+      "description": "Дополнительные аргументы командной строки для рантайма."
+    },
+    "custom_env_key_count": {
+      "type": "integer",
+      "description": "Количество кастомных переменных окружения."
+    },
+    "has_custom_env": {
+      "type": "boolean",
+      "description": "Есть ли у агента кастомные переменные окружения."
+    },
+    "mcp_config": {
+      "type": ["object", "null"],
+      "description": "Конфигурация MCP-серверов агента."
+    },
+    "mcp_config_redacted": {
+      "type": "boolean",
+      "description": "Если true, секретные поля MCP-конфигурации скрыты."
+    },
+    "invocation_targets": {
+      "type": "array",
+      "description": "Цели вызова агента (вебхуки, автопилоты и т.д.)."
+    },
+    "conversation_starters": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Предложения для начала разговора с агентом в чате."
+    },
+    "service_tier": {
+      "type": "string",
+      "description": "Сервисный уровень (для управления приоритетом очереди)."
+    },
+    "archived_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Дата и время архивации агента (null — не архивирован)."
+    },
+    "archived_by": {
+      "type": ["string", "null"],
+      "description": "ID участника, выполнившего архивацию."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Дата и время создания агента (RFC 3339)."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Дата и время последнего обновления (RFC 3339)."
+    }
+  }
+}

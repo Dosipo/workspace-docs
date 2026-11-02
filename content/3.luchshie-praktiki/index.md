@@ -1,8 +1,7 @@
 ---
 title: Лучшие практики
 description: Как эффективно работать с ИИ - написание промптов, выбор моделей, оптимизация запросов.
-navigation:
-  icon: heroicons:light-bulb
+navigation: false
 type: index
 resource: /luchshie-praktiki
 tags: [best-practices, prompting, ai-usage]
@@ -10,16 +9,6 @@ generated: human-authored
 status: current
 timestamp: "2026-07-02T00:00:00Z"
 ---
-
-::PageHeader
----
-title: "Лучшие практики"
-description: "Как эффективно работать с ИИ — написание промптов, выбор моделей, оптимизация запросов."
-icon: "💡"
-accent: yellow
----
-::
-
 
 Руководства по эффективной работе с ИИ-инструментами.
 
