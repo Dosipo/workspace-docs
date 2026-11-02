@@ -1,7 +1,7 @@
 export default defineAppConfig({
   docus: {
-    title: 'База знаний воркспейса',
-    description: 'Центральная база знаний для команды и AI-агентов',
+    title: 'База знаний ИИ Ареал',
+    description: 'Центральная база знаний по корпоративным ИИ-инструментам для команды и агентов',
     socials: {},
     github: {
       owner: 'Dosipo',
@@ -45,6 +45,14 @@ export default defineAppConfig({
         base: 'border-primary/30'
       }
     }
+  },
+  header: {
+    title: 'База знаний ИИ Ареал',
+    logo: {
+      light: '/logo-light.svg',
+      dark: '/logo-dark.svg',
+      alt: 'База знаний ИИ Ареал',
+    },
   },
   assistant: {
     floatingInput: true,
