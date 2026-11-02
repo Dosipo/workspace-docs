@@ -15,7 +15,8 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'alternate', type: 'application/json', href: '/datapackage.json' }
+        { rel: 'alternate', type: 'application/json', href: '/datapackage.json' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }
       ]
     }
   },

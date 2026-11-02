@@ -2,10 +2,10 @@
   <div class="ws-home">
     <!-- Welcome header -->
     <header class="ws-home__header">
-      <h1 class="ws-home__title">База знаний воркспейса</h1>
+      <h1 class="ws-home__title">База знаний ИИ Ареал</h1>
       <p class="ws-home__lead">
-        Централизованная документация для команды и AI-агентов. Здесь собраны гайды,
-        инструкции и справочники по всем корпоративным ИИ-инструментам.
+        Всё, что нужно для работы с корпоративными ИИ-инструментами: платформа, вайб-кодинг,
+        автоматизация, Excel, лучшие практики и ответы на частые вопросы.
       </p>
       <NuxtLink to="/onboarding" class="ws-home__cta">
         <Icon name="i-lucide-arrow-right" class="ws-home__cta-icon" />
@@ -93,14 +93,8 @@ const groups = [
     ],
   },
   {
-    label: 'Справочники',
+    label: 'Помощь',
     items: [
-      {
-        title: 'Справочник',
-        desc: 'Детальная документация по инструментам, процессам и скиллам',
-        icon: 'i-lucide-book-open',
-        to: '/reference',
-      },
       {
         title: 'Частые вопросы',
         desc: 'Ответы на самые частые вопросы по всем инструментам',
@@ -180,7 +174,7 @@ const groups = [
 
 .ws-home__cta:hover {
   background: var(--secondary);
-  border-color: oklch(from var(--border) calc(l - 0.06) c h);
+  border-color: color-mix(in oklch, var(--border), black 6%);
 }
 
 .ws-home__cta:focus-visible {
@@ -238,7 +232,7 @@ const groups = [
 
 .ws-home__card:hover {
   background: var(--secondary);
-  border-color: oklch(from var(--border) calc(l - 0.07) c h);
+  border-color: color-mix(in oklch, var(--border), black 7%);
 }
 
 .ws-home__card:focus-visible {
