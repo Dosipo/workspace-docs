@@ -17,15 +17,9 @@
 const items = [
   {
     title: 'Онбординг',
-    desc: 'Введение в воркспейс, быстрый старт и ключевые концепции',
+    desc: 'Введение в воркспейс и ключевые концепции',
     icon: 'heroicons:rocket-launch',
     to: '/onboarding',
-  },
-  {
-    title: 'Справочник',
-    desc: 'Детальная документация по инструментам, процессам и API',
-    icon: 'heroicons:book-open',
-    to: '/reference',
   },
   {
     title: 'ИИ-платформа',

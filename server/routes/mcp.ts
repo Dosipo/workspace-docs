@@ -67,7 +67,7 @@ export default defineEventHandler(async (event) => {
             properties: {
               path: {
                 type: 'string',
-                description: 'Page path, e.g. "/onboarding/quick-start"',
+                description: 'Page path, e.g. "/onboarding/concepts"',
               },
             },
             required: ['path'],
