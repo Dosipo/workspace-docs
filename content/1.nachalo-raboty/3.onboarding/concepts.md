@@ -28,10 +28,6 @@ contributors:
   - { id: Docs/claude-sonnet-5-5, name: Docs }
 ---
 
-<!-- okf:meta:start -->
-*Создано: 30.10.2026 · Обновлено: 02.11.2026 · Автор: Mika · Обновил: Docs · Участники: Mika, Даниил Осипов, Claude Sonnet 4.6, multica-agent, Claude Opus 5.5, Docs*
-<!-- okf:meta:end -->
-
 ## Модель работы
 
 Воркспейс устроен как **команда людей и AI-агентов**, работающих над общими целями через единую платформу — Multica.

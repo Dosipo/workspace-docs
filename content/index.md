@@ -19,10 +19,6 @@ contributors:
   - { id: claude/opus-5-5, name: Claude Opus 5.5 }
 ---
 
-<!-- okf:meta:start -->
-*Создано: 30.10.2026 · Обновлено: 02.11.2026 · Автор: Даниил Осипов · Обновил: Даниил Осипов · Участники: Даниил Осипов, Mika, Claude Sonnet 4.6, multica-agent, Claude Opus 5.5*
-<!-- okf:meta:end -->
-
 ::u-page-hero
 #title
 База знаний ИИ Ареал

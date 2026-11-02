@@ -17,10 +17,6 @@ contributors:
   - { id: multica-agent/multica, name: multica-agent }
 ---
 
-<!-- okf:meta:start -->
-*Создано: 02.11.2026 · Обновлено: 02.11.2026 · Автор: Даниил Осипов · Обновил: Даниил Осипов · Участники: Даниил Осипов, Claude Opus 5.5, multica-agent*
-<!-- okf:meta:end -->
-
 Корпоративный n8n доступен по адресу: **https://n8n.geotech.user.events/**
 
 Доступ через SSO (доменная авторизация).
