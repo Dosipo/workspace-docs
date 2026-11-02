@@ -8,6 +8,7 @@ resource: /excel
 tags: [excel, ai-integration]
 generated: human-authored
 status: current
+timestamp: "2026-09-23T00:00:00Z"
 ---
 
 ::PageHeader

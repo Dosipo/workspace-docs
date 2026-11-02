@@ -8,6 +8,7 @@ resource: /vayb-koding/git
 tags: [git, version-control]
 generated: human-authored
 status: current
+timestamp: "2026-10-21T00:00:00Z"
 ---
 
 # Git

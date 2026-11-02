@@ -8,6 +8,7 @@ resource: /n8n
 tags: [n8n, automation, workflows]
 generated: human-authored
 status: current
+timestamp: "2026-10-22T00:00:00Z"
 ---
 
 ::PageHeader
