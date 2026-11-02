@@ -42,13 +42,13 @@ timestamp: "2026-10-30T00:00:00Z"
 
 ## Разделы
 
-- [Что такое вайб-кодинг](/vayb-koding/chto-takoe) — концепция и возможности
-- [VSCode](/vayb-koding/vscode) — установка и настройка ИИ-инструментов
-- [Git](/vayb-koding/git) — управление репозиториями
-- [SSH-ключ для Git](/vayb-koding/ssh-klyuch) — настройка SSH-доступа
-- [OpenCode](/vayb-koding/opencode) — терминальный ИИ-ассистент
-- [Работа с ИИ в IDE](/vayb-koding/ii-v-ide) — полное руководство по IDE и ИИ
-- [Делаем игру «Золотая жила»](/vayb-koding/igra-zolotaya-zhila) — практический пример
+- [Что такое вайб-кодинг](/instrumenty/vayb-koding/chto-takoe) — концепция и возможности
+- [VSCode](/instrumenty/vayb-koding/vscode) — установка и настройка ИИ-инструментов
+- [Git](/instrumenty/vayb-koding/git) — управление репозиториями
+- [SSH-ключ для Git](/instrumenty/vayb-koding/ssh-klyuch) — настройка SSH-доступа
+- [OpenCode](/instrumenty/vayb-koding/opencode) — терминальный ИИ-ассистент
+- [Работа с ИИ в IDE](/instrumenty/vayb-koding/ii-v-ide) — полное руководство по IDE и ИИ
+- [Делаем игру «Золотая жила»](/instrumenty/vayb-koding/igra-zolotaya-zhila) — практический пример
 
 ## Безопасность
 

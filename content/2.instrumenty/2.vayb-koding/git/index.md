@@ -17,5 +17,5 @@ timestamp: "2026-10-21T00:00:00Z"
 
 ## Инструкции
 
-- [SSH-ключ для Git](/vayb-koding/ssh-klyuch) — создание и добавление SSH-ключа
-- [Приватный репозиторий и доступ](/vayb-koding/git/privatnyy-repozitoriy) — как создать и настроить доступ
+- [SSH-ключ для Git](/instrumenty/vayb-koding/ssh-klyuch) — создание и добавление SSH-ключа
+- [Приватный репозиторий и доступ](/instrumenty/vayb-koding/git/privatnyy-repozitoriy) — как создать и настроить доступ
