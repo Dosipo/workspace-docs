@@ -34,12 +34,16 @@ export default defineNuxtConfig({
   },
   vite: {
     build: {
+      minify: 'esbuild',
       rollupOptions: {
         onwarn(warning, warn) {
           if (warning.code === 'INEFFECTIVE_DYNAMIC_IMPORT') return
           warn(warning)
         }
       }
+    },
+    optimizeDeps: {
+      include: ['defu', 'ufo', 'pathe']
     }
   }
 })
