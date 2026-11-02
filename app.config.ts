@@ -39,6 +39,11 @@ export default defineAppConfig({
         color: 'neutral',
         highlightColor: 'neutral'
       }
+    },
+    prose: {
+      a: {
+        base: 'border-primary/30'
+      }
     }
   },
   assistant: {
