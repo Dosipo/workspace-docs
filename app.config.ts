@@ -36,7 +36,7 @@ export default defineAppConfig({
   ui: {
     // AREA-120: warm neutral palette from the reference (stone ≈ Notion greys)
     colors: {
-      primary: 'neutral',
+      primary: 'stone',
       neutral: 'stone'
     },
     // Homepage (content/index.md) — compact, left-aligned layout from the reference
@@ -72,10 +72,7 @@ export default defineAppConfig({
         orientation: {
           vertical: { title: 'text-left' }
         }
-      },
-      compoundVariants: [
-        { orientation: 'vertical', title: true, class: { body: 'mt-3' } }
-      ]
+      }
     },
     pageGrid: {
       base: 'gap-2 sm:gap-2'
