@@ -1,8 +1,7 @@
 ---
 title: Excel + ИИ
 description: Надстройка для Excel с ИИ - чат, функция LLM(), пакетная обработка ячеек.
-navigation:
-  icon: heroicons:table-cells
+navigation: false
 type: index
 resource: /excel
 tags: [excel, ai-integration]
