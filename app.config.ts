@@ -1,7 +1,4 @@
 export default defineAppConfig({
-  navigation: {
-    sub: 'header',
-  },
   // AREA-145: right-hand table of contents title (Docus toc.title)
   toc: {
     title: 'На этой странице'
@@ -95,6 +92,15 @@ export default defineAppConfig({
     },
     // AREA-145: TOC typography/spacing; title icon is in components/DocsAsideRight.vue (#leading).
     // Active item stays monochrome (AREA-120): neutral color + neutral indicator.
+    // AREA-147: left sidebar — pill for the active page, collapsible sub-folders with a chevron
+    // (Docus hides linkTrailing by default because its sidebar is not collapsible).
+    contentNavigation: {
+      slots: {
+        trigger: 'font-normal',
+        linkTrailing: 'ms-auto inline-flex gap-1.5 items-center',
+        linkTrailingIcon: 'size-4 text-dimmed'
+      }
+    },
     contentToc: {
       slots: {
         trigger: 'gap-2 lg:mb-2',
