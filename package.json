@@ -2,6 +2,7 @@
   "name": "workspace-docs",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
@@ -13,5 +14,8 @@
     "@iconify-json/logos": "^1.2.18",
     "docus": "^5.0.0",
     "nuxt": "^4.0.0"
+  },
+  "overrides": {
+    "nuxt-agent-discovery": "0.8.1"
   }
 }
