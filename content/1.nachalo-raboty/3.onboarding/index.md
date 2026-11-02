@@ -20,6 +20,7 @@ sources:
 ## Что здесь есть
 
 - [Ключевые концепции](/nachalo-raboty/onboarding/concepts) — как устроена работа в воркспейсе
+- [Правила оформления страниц](/nachalo-raboty/onboarding/authoring) — шаблон страницы, заголовок без H1, `navigation.title` и строка `:page-updated`
 
 ## Кому это нужно
 
