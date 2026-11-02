@@ -9,6 +9,15 @@ tags: [onboarding, concepts, workspace, multica, agents, issues]
 generated: human-authored
 status: current
 timestamp: "2026-11-02T00:00:00Z"
+sources:
+  - title: "Внутренняя база знаний ArealDev"
+    author: "Команда ArealDev"
+    date: "2026-10"
+    type: "internal"
+  - title: "Платформа Multica — документация"
+    author: "Команда Multica"
+    date: "2026-10"
+    type: "external"
 ---
 
 # Ключевые концепции
