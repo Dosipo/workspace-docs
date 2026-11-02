@@ -6,7 +6,7 @@
       :to="item.to"
       class="page-nav__card"
     >
-      <span class="page-nav__icon" aria-hidden="true">{{ item.emoji }}</span>
+      <Icon :name="item.icon" class="page-nav__icon" aria-hidden="true" />
       <span class="page-nav__title">{{ item.title }}</span>
       <span class="page-nav__desc">{{ item.desc }}</span>
     </NuxtLink>
@@ -18,61 +18,61 @@ const items = [
   {
     title: 'Онбординг',
     desc: 'Введение в воркспейс, быстрый старт и ключевые концепции',
-    emoji: '🚀',
+    icon: 'heroicons:rocket-launch',
     to: '/onboarding',
   },
   {
     title: 'Справочник',
     desc: 'Детальная документация по инструментам, процессам и API',
-    emoji: '📖',
+    icon: 'heroicons:book-open',
     to: '/reference',
   },
   {
     title: 'ИИ-платформа',
     desc: 'Регистрация, агенты, модели, работа с файлами и каналами',
-    emoji: '💬',
+    icon: 'heroicons:chat-bubble-left-right',
     to: '/ii-platforma',
   },
   {
     title: 'Обзор ИИ-инструментов',
     desc: 'Корпоративные инструменты ИИ: платформа, VSCode, Excel, n8n',
-    emoji: '🤖',
+    icon: 'heroicons:squares-2x2',
     to: '/obzor',
   },
   {
     title: 'Лучшие практики',
     desc: 'Как писать промпты, выбирать модели и работать с ИИ эффективно',
-    emoji: '💡',
+    icon: 'heroicons:light-bulb',
     to: '/luchshie-praktiki',
   },
   {
     title: 'Вайб-кодинг',
     desc: 'VSCode, Claude Code, Kilo Code, Git, SSH и работа с ИИ в IDE',
-    emoji: '💻',
+    icon: 'heroicons:code-bracket',
     to: '/vayb-koding',
   },
   {
     title: 'Excel + ИИ',
     desc: 'Надстройка для Excel: чат, функция LLM(), пакетная обработка',
-    emoji: '📊',
+    icon: 'heroicons:table-cells',
     to: '/excel',
   },
   {
     title: 'n8n',
     desc: 'Автоматизация: workflows, credentials, PostgreSQL, демо-сценарии',
-    emoji: '⚡',
+    icon: 'heroicons:bolt',
     to: '/n8n',
   },
   {
     title: 'Частые вопросы',
     desc: 'Ответы на самые частые вопросы по всем инструментам',
-    emoji: '❓',
+    icon: 'heroicons:question-mark-circle',
     to: '/faq',
   },
   {
     title: 'Список моделей',
     desc: 'Доступные ИИ-модели для платформы, n8n и вайб-кодинга',
-    emoji: '🧩',
+    icon: 'heroicons:cube',
     to: '/modeli',
   },
 ]
@@ -100,8 +100,7 @@ const items = [
 
 .page-nav__card:hover {
   background: var(--secondary);
-  border-color: var(--muted-foreground);
-  border-color: oklch(from var(--border) calc(l - 0.08) c h);
+  border-color: color-mix(in oklch, var(--border), black 8%);
 }
 
 .page-nav__card:focus-visible {
@@ -110,10 +109,11 @@ const items = [
 }
 
 .page-nav__icon {
-  font-size: 1.375rem;
-  line-height: 1;
+  width: 1.375rem;
+  height: 1.375rem;
   margin-bottom: 0.5rem;
   display: block;
+  color: var(--muted-foreground);
 }
 
 .page-nav__title {
