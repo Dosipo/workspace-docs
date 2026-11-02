@@ -2,6 +2,10 @@ export default defineAppConfig({
   navigation: {
     sub: 'header',
   },
+  // AREA-145: right-hand table of contents title (Docus toc.title)
+  toc: {
+    title: 'На этой странице'
+  },
   docus: {
     title: 'База знаний ИИ Ареал',
     description: 'Центральная база знаний по корпоративным ИИ-инструментам для команды и агентов',
@@ -89,7 +93,14 @@ export default defineAppConfig({
         description: 'text-sm/6'
       }
     },
+    // AREA-145: TOC typography/spacing; title icon is in components/DocsAsideRight.vue (#leading).
+    // Active item stays monochrome (AREA-120): neutral color + neutral indicator.
     contentToc: {
+      slots: {
+        trigger: 'gap-2 lg:mb-2',
+        title: 'text-highlighted',
+        link: 'leading-5'
+      },
       defaultVariants: {
         color: 'neutral',
         highlightColor: 'neutral'
