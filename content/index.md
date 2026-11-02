@@ -10,22 +10,5 @@ status: current
 timestamp: "2026-11-02T00:00:00Z"
 ---
 
-::block-hero
----
-cta:
-  - Начать работу
-  - /onboarding
-snippet: База знаний · ArealDev workspace
----
-
-#title
-База знаний воркспейса
-
-#description
-Документация, гайды и справочники для команды и AI-агентов — в одном месте.
-::
-
-## Разделы базы знаний
-
-::BentoNav
+::WorkspaceHome
 ::
