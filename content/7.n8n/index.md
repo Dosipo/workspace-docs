@@ -1,8 +1,7 @@
 ---
 title: n8n
 description: Корпоративная автоматизация - workflows, credentials, PostgreSQL, демо-сценарии.
-navigation:
-  icon: heroicons:arrow-path
+navigation: false
 type: index
 resource: /n8n
 tags: [n8n, automation, workflows]
