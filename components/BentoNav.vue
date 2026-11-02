@@ -6,6 +6,7 @@
       :to="item.to"
       :class="['bento-card', item.size || 'size-1x1', `accent-${item.accent}`]"
     >
+      <span class="bento-card__bg" aria-hidden="true"></span>
       <span class="bento-card__icon" aria-hidden="true">{{ item.emoji }}</span>
       <span class="bento-card__title">{{ item.title }}</span>
       <span class="bento-card__desc">{{ item.desc }}</span>
@@ -185,6 +186,36 @@ const items = [
   transform: translate(2px, -2px);
 }
 
+/* Accent color token per card (used by bg pattern) */
+.accent-violet { --bento-accent-color: #7c3aed; }
+.accent-blue   { --bento-accent-color: #2563eb; }
+.accent-emerald{ --bento-accent-color: #059669; }
+.accent-orange { --bento-accent-color: #ea580c; }
+.accent-yellow { --bento-accent-color: #ca8a04; }
+.accent-indigo { --bento-accent-color: #4f46e5; }
+.accent-green  { --bento-accent-color: #16a34a; }
+.accent-red    { --bento-accent-color: #dc2626; }
+.accent-pink   { --bento-accent-color: #db2777; }
+.accent-slate  { --bento-accent-color: #475569; }
+
+/* Abstract geometric background pattern */
+.bento-card__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.09;
+  background:
+    radial-gradient(circle at 88% 18%, var(--bento-accent-color, #475569) 0%, transparent 45%),
+    radial-gradient(ellipse at 30% 0%, var(--bento-accent-color, #475569) 0%, transparent 38%),
+    linear-gradient(142deg, transparent 42%, var(--bento-accent-color, #475569) 145%);
+  transition: opacity 0.18s ease;
+}
+
+.bento-card:hover .bento-card__bg {
+  opacity: 0.14;
+}
+
 /* Accent backgrounds — subtle tint on the card */
 .bento-card::before {
   content: '';
@@ -249,10 +280,15 @@ html.dark .bento-card:hover::before,
 .dark .bento-card:hover::before {
   opacity: 0.18;
 }
-:root.dark .bento-card:hover,
-html.dark .bento-card:hover,
-.dark .bento-card:hover {
-  box-shadow: 0 8px 32px oklch(0 0 0 / 40%);
+.dark .bento-card__bg,
+:root.dark .bento-card__bg,
+html.dark .bento-card__bg {
+  opacity: 0.14;
+}
+.dark .bento-card:hover .bento-card__bg,
+:root.dark .bento-card:hover .bento-card__bg,
+html.dark .bento-card:hover .bento-card__bg {
+  opacity: 0.2;
 }
 
 /* Responsive */
