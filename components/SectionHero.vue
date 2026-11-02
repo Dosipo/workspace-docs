@@ -1,6 +1,6 @@
 <template>
   <div class="section-banner" role="banner">
-    <span v-if="icon" class="section-banner__icon" aria-hidden="true">{{ icon }}</span>
+    <Icon v-if="icon" :name="icon" class="section-banner__icon" aria-hidden="true" />
     <div class="section-banner__body">
       <p class="section-banner__title">{{ title }}</p>
       <p v-if="description" class="section-banner__desc">{{ description }}</p>
@@ -15,7 +15,7 @@ withDefaults(defineProps<{
   description?: string
   accent?: string
 }>(), {
-  icon: '📄',
+  icon: 'heroicons:document',
   accent: 'neutral',
 })
 </script>
@@ -31,10 +31,11 @@ withDefaults(defineProps<{
 }
 
 .section-banner__icon {
-  font-size: 2.5rem;
-  line-height: 1;
+  width: 2.5rem;
+  height: 2.5rem;
   flex-shrink: 0;
   margin-top: 0.125rem;
+  color: var(--muted-foreground);
 }
 
 .section-banner__body {
