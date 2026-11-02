@@ -3,22 +3,33 @@ title: Ключевые концепции
 description: Как устроена работа в воркспейсе — модель, инструменты, принципы.
 navigation:
   icon: heroicons:light-bulb
-type: concept
+type: Concept
 resource: /nachalo-raboty/onboarding/concepts
 tags: [onboarding, concepts, workspace, multica, agents, issues]
-generated: human-authored
-status: current
-timestamp: "2026-11-02T00:00:00Z"
+generated: { by: human:dosipo, at: "2026-11-02T13:11:59Z" }
+status: stable
 sources:
-  - title: "Внутренняя база знаний ArealDev"
-    author: "Команда ArealDev"
-    date: "2026-10"
-    type: "internal"
-  - title: "Платформа Multica — документация"
-    author: "Команда Multica"
-    date: "2026-10"
-    type: "external"
+  - resource: internal:arealdev-kb
+    title: Внутренняя база знаний ArealDev
+    author: Команда ArealDev
+    last_modified: "2026-10-01T00:00:00Z"
+  - resource: internal:arealdev-kb
+    title: Платформа Multica — документация
+    author: Команда Multica
+    last_modified: "2026-10-01T00:00:00Z"
+created: "02.11.2026"
+updated: "02.11.2026"
+created_by: { id: human:dosipo, name: Даниил Осипов }
+updated_by: { id: human:dosipo, name: Даниил Осипов }
+contributors:
+  - { id: human:dosipo, name: Даниил Осипов }
+  - { id: claude/opus-5-5, name: Claude Opus 5.5 }
+  - { id: multica-agent/multica, name: multica-agent }
 ---
+
+<!-- okf:meta:start -->
+*Создано: 02.11.2026 · Обновлено: 02.11.2026 · Автор: Даниил Осипов · Обновил: Даниил Осипов · Участники: Даниил Осипов, Claude Opus 5.5, multica-agent*
+<!-- okf:meta:end -->
 
 ## Модель работы
 

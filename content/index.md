@@ -2,13 +2,26 @@
 title: База знаний ИИ Ареал
 description: Центральная база знаний по корпоративным ИИ-инструментам для команды и агентов.
 navigation: false
-type: index
+type: Overview
 resource: /
 tags: [index, documentation, knowledge-base, workspace]
-generated: human-authored
-status: current
-timestamp: "2026-11-02T00:00:00Z"
+generated: { by: human:dosipo, at: "2026-11-02T13:11:59Z" }
+status: stable
+created: "30.10.2026"
+updated: "02.11.2026"
+created_by: { id: human:dosipo, name: Даниил Осипов }
+updated_by: { id: human:dosipo, name: Даниил Осипов }
+contributors:
+  - { id: human:dosipo, name: Даниил Осипов }
+  - { id: Mika/multica, name: Mika }
+  - { id: claude/sonnet-4-6, name: Claude Sonnet 4.6 }
+  - { id: multica-agent/multica, name: multica-agent }
+  - { id: claude/opus-5-5, name: Claude Opus 5.5 }
 ---
+
+<!-- okf:meta:start -->
+*Создано: 30.10.2026 · Обновлено: 02.11.2026 · Автор: Даниил Осипов · Обновил: Даниил Осипов · Участники: Даниил Осипов, Mika, Claude Sonnet 4.6, multica-agent, Claude Opus 5.5*
+<!-- okf:meta:end -->
 
 ::u-page-hero
 #title
