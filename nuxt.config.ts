@@ -12,6 +12,13 @@ export default defineNuxtConfig({
       collections: ['heroicons', 'lucide', 'logos']
     }
   },
+  app: {
+    head: {
+      link: [
+        { rel: 'alternate', type: 'application/json', href: '/datapackage.json' }
+      ]
+    }
+  },
   content: {
     highlight: {
       langs: ['yaml']
