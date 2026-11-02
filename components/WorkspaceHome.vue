@@ -120,8 +120,25 @@ const groups = [
 
 <style scoped>
 .ws-home {
-  padding: 2.5rem 0 3rem;
-  max-width: 900px;
+  padding: 3rem 1.25rem 4rem;
+  max-width: 960px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .ws-home {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ws-home {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 /* Header */
