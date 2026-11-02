@@ -6,6 +6,11 @@ export default defineNuxtConfig({
       primary: 'zinc',
     },
   },
+  icon: {
+    serverBundle: {
+      collections: ['heroicons', 'lucide']
+    }
+  },
   content: {
     highlight: {
       langs: ['yaml']
