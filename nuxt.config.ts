@@ -17,5 +17,17 @@ export default defineNuxtConfig({
       mcpServer: '/mcp',
       model: 'google/gemini-3-flash'
     }
+  },
+  vite: {
+    esbuild: {
+      target: 'es2022'
+    }
+  },
+  nitro: {
+    esbuild: {
+      options: {
+        target: 'es2022'
+      }
+    }
   }
 })
