@@ -29,3 +29,28 @@ for (const [name, input] of Object.entries(cases)) {
 }
 assert.equal(serializeOkfFields({ a: null, b: undefined }), '')
 console.log('ok  null/undefined пропускаются')
+
+// Проверки самого вывода (формата), а не только round-trip
+const lines = s => s.split('\n')
+const people = [
+  { id: 'Mika/multica', name: 'Mika' },
+  { id: 'human:dosipo', name: 'Даниил Осипов' },
+  { id: 'claude/opus-5-5', name: 'Claude Opus 5.5' },
+]
+const c = serializeOkfFields({ contributors: people })
+assert.deepEqual(lines(c), [
+  'contributors:',
+  '  - { id: Mika/multica, name: Mika }',
+  '  - { id: human:dosipo, name: Даниил Осипов }',
+  '  - { id: claude/opus-5-5, name: Claude Opus 5.5 }',
+], c)
+console.log('ok  формат: один участник = одна строка')
+
+const t = serializeOkfFields({ tags: ['overview', 'n8n'] })
+assert.equal(t, 'tags: [ overview, n8n ]', t)
+console.log('ok  формат: tags в flow')
+
+const g = serializeOkfFields({ generated: { by: 'human:dosipo', at: '2026-11-02T13:11:59Z' } })
+assert.equal(lines(g).length, 1, g)
+assert.match(g, /^generated: \{ by: .*, at: .* \}$/, g)
+console.log('ok  формат: вложенный объект в одну строку (flow)')
