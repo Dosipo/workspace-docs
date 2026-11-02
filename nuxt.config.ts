@@ -22,5 +22,15 @@ export default defineNuxtConfig({
       mcpServer: '/mcp',
       model: 'google/gemini-3-flash'
     }
+  },
+  vite: {
+    build: {
+      rollupOptions: {
+        onwarn(warning, warn) {
+          if (warning.code === 'INEFFECTIVE_DYNAMIC_IMPORT') return
+          warn(warning)
+        }
+      }
+    }
   }
 })
