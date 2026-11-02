@@ -3,7 +3,7 @@ title: Онбординг
 description: Введение в воркспейс — всё необходимое для начала работы.
 navigation: false
 type: index
-resource: /onboarding
+resource: /nachalo-raboty/onboarding
 tags: [onboarding, getting-started, workspace, introduction]
 generated: human-authored
 status: current

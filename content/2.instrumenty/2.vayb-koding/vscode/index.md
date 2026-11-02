@@ -4,7 +4,7 @@ description: Настройка Visual Studio Code для работы с ИИ -
 navigation:
   icon: heroicons:wrench-screwdriver
 type: index
-resource: /vayb-koding/vscode
+resource: /instrumenty/vayb-koding/vscode
 tags: [vscode, ide, ai-extensions]
 generated: human-authored
 status: current

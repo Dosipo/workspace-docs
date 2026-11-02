@@ -3,7 +3,7 @@ title: Вайб-кодинг
 description: Написание кода с помощью ИИ - VSCode, Claude Code, Kilo Code, Git и работа в IDE.
 navigation: false
 type: index
-resource: /vayb-koding
+resource: /instrumenty/vayb-koding
 tags: [vibe-coding, ai-coding, vscode, ide]
 generated: human-authored
 status: current

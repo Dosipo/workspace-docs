@@ -3,7 +3,7 @@ title: ИИ-платформа
 description: Корпоративная ИИ-платформа - регистрация, агенты, модели, работа с файлами и каналами.
 navigation: false
 type: index
-resource: /ii-platforma
+resource: /instrumenty/ii-platforma
 tags: [ai-platform, corporate-ai]
 generated: human-authored
 status: current

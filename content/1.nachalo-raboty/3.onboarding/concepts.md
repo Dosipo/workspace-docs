@@ -4,7 +4,7 @@ description: Как устроена работа в воркспейсе — м
 navigation:
   icon: heroicons:light-bulb
 type: concept
-resource: /onboarding/concepts
+resource: /nachalo-raboty/onboarding/concepts
 tags: [onboarding, concepts, workspace, multica, agents, issues]
 generated: human-authored
 status: current

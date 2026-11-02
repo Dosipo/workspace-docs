@@ -4,7 +4,7 @@ description: Управление репозиториями Git - создан�
 navigation:
   icon: heroicons:code-bracket-square
 type: index
-resource: /vayb-koding/git
+resource: /instrumenty/vayb-koding/git
 tags: [git, version-control]
 generated: human-authored
 status: current
