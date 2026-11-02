@@ -61,8 +61,6 @@ timestamp: "2026-11-02T00:00:00Z"
 
 #default
   :::u-page-grid
-    ::::u-page-card{to="/reference" icon="i-lucide-book-open" title="Справочник" description="Детальная документация по инструментам, процессам и скиллам" variant="outline"}
-    ::::
     ::::u-page-card{to="/faq" icon="i-lucide-help-circle" title="Частые вопросы" description="Ответы на самые частые вопросы по всем инструментам" variant="outline"}
     ::::
     ::::u-page-card{to="/modeli" icon="i-lucide-cpu" title="Список моделей" description="Доступные ИИ-модели для платформы, n8n и вайб-кодинга" variant="outline"}
