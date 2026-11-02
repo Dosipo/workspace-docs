@@ -17,63 +17,57 @@
 const items = [
   {
     title: 'Онбординг',
-    desc: 'Введение в воркспейс, быстрый старт и ключевые концепции',
+    desc: 'Введение в воркспейс и ключевые концепции',
     icon: 'heroicons:rocket-launch',
-    to: '/onboarding',
-  },
-  {
-    title: 'Справочник',
-    desc: 'Детальная документация по инструментам, процессам и API',
-    icon: 'heroicons:book-open',
-    to: '/reference',
+    to: '/nachalo-raboty/onboarding',
   },
   {
     title: 'ИИ-платформа',
     desc: 'Регистрация, агенты, модели, работа с файлами и каналами',
     icon: 'heroicons:chat-bubble-left-right',
-    to: '/ii-platforma',
+    to: '/instrumenty/ii-platforma',
   },
   {
     title: 'Обзор ИИ-инструментов',
     desc: 'Корпоративные инструменты ИИ: платформа, VSCode, Excel, n8n',
     icon: 'heroicons:squares-2x2',
-    to: '/obzor',
+    to: '/nachalo-raboty/obzor',
   },
   {
     title: 'Лучшие практики',
     desc: 'Как писать промпты, выбирать модели и работать с ИИ эффективно',
     icon: 'heroicons:light-bulb',
-    to: '/luchshie-praktiki',
+    to: '/praktiki',
   },
   {
     title: 'Вайб-кодинг',
     desc: 'VSCode, Claude Code, Kilo Code, Git, SSH и работа с ИИ в IDE',
     icon: 'heroicons:code-bracket',
-    to: '/vayb-koding',
+    to: '/instrumenty/vayb-koding',
   },
   {
     title: 'Excel + ИИ',
     desc: 'Надстройка для Excel: чат, функция LLM(), пакетная обработка',
     icon: 'heroicons:table-cells',
-    to: '/excel',
+    to: '/instrumenty/excel',
   },
   {
     title: 'n8n',
     desc: 'Автоматизация: workflows, credentials, PostgreSQL, демо-сценарии',
     icon: 'heroicons:bolt',
-    to: '/n8n',
+    to: '/instrumenty/n8n',
   },
   {
     title: 'Частые вопросы',
     desc: 'Ответы на самые частые вопросы по всем инструментам',
     icon: 'heroicons:question-mark-circle',
-    to: '/faq',
+    to: '/spravochnik/faq',
   },
   {
     title: 'Список моделей',
     desc: 'Доступные ИИ-модели для платформы, n8n и вайб-кодинга',
     icon: 'heroicons:cube',
-    to: '/modeli',
+    to: '/spravochnik/modeli',
   },
 ]
 </script>

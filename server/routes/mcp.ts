@@ -54,7 +54,7 @@ export default defineEventHandler(async (event) => {
             properties: {
               dir: {
                 type: 'string',
-                description: 'Filter by directory prefix, e.g. "onboarding" (optional)',
+                description: 'Filter by directory prefix, e.g. "nachalo-raboty/onboarding" (optional)',
               },
             },
           },
@@ -67,7 +67,7 @@ export default defineEventHandler(async (event) => {
             properties: {
               path: {
                 type: 'string',
-                description: 'Page path, e.g. "/onboarding/quick-start"',
+                description: 'Page path, e.g. "/nachalo-raboty/onboarding/concepts"',
               },
             },
             required: ['path'],

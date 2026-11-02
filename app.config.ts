@@ -1,4 +1,7 @@
 export default defineAppConfig({
+  navigation: {
+    sub: 'header',
+  },
   docus: {
     title: 'База знаний ИИ Ареал',
     description: 'Центральная база знаний по корпоративным ИИ-инструментам для команды и агентов',

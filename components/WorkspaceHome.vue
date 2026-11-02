@@ -7,7 +7,7 @@
         Всё, что нужно для работы с корпоративными ИИ-инструментами: платформа, вайб-кодинг,
         автоматизация, Excel, лучшие практики и ответы на частые вопросы.
       </p>
-      <NuxtLink to="/onboarding" class="ws-home__cta">
+      <NuxtLink to="/nachalo-raboty/onboarding" class="ws-home__cta">
         <Icon name="i-lucide-arrow-right" class="ws-home__cta-icon" />
         Начать работу
       </NuxtLink>
@@ -47,19 +47,19 @@ const groups = [
         title: 'Онбординг',
         desc: 'Первые шаги для новых участников команды и агентов',
         icon: 'i-lucide-rocket',
-        to: '/onboarding',
+        to: '/nachalo-raboty/onboarding',
       },
       {
         title: 'Обзор ИИ-инструментов',
         desc: 'Сравнение корпоративных инструментов: платформа, VSCode, Excel, n8n',
         icon: 'i-lucide-layout-grid',
-        to: '/obzor',
+        to: '/nachalo-raboty/obzor',
       },
       {
         title: 'Лучшие практики',
         desc: 'Как писать промпты, выбирать модели и работать с ИИ эффективно',
         icon: 'i-lucide-lightbulb',
-        to: '/luchshie-praktiki',
+        to: '/praktiki',
       },
     ],
   },
@@ -70,25 +70,25 @@ const groups = [
         title: 'ИИ-платформа',
         desc: 'Регистрация, агенты, модели, работа с файлами и каналами',
         icon: 'i-lucide-message-square',
-        to: '/ii-platforma',
+        to: '/instrumenty/ii-platforma',
       },
       {
         title: 'Вайб-кодинг',
         desc: 'VSCode, Claude Code, Kilo Code, Git, SSH и работа с ИИ в IDE',
         icon: 'i-lucide-code-2',
-        to: '/vayb-koding',
+        to: '/instrumenty/vayb-koding',
       },
       {
         title: 'Excel + ИИ',
         desc: 'Надстройка для Excel: чат, функция LLM(), пакетная обработка',
         icon: 'i-lucide-table-2',
-        to: '/excel',
+        to: '/instrumenty/excel',
       },
       {
         title: 'n8n',
         desc: 'Автоматизация: workflows, credentials, PostgreSQL, демо-сценарии',
         icon: 'i-lucide-workflow',
-        to: '/n8n',
+        to: '/instrumenty/n8n',
       },
     ],
   },
@@ -99,13 +99,13 @@ const groups = [
         title: 'Частые вопросы',
         desc: 'Ответы на самые частые вопросы по всем инструментам',
         icon: 'i-lucide-help-circle',
-        to: '/faq',
+        to: '/spravochnik/faq',
       },
       {
         title: 'Список моделей',
         desc: 'Доступные ИИ-модели для платформы, n8n и вайб-кодинга',
         icon: 'i-lucide-cpu',
-        to: '/modeli',
+        to: '/spravochnik/modeli',
       },
     ],
   },
