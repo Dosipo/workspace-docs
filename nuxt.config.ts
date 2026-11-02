@@ -21,8 +21,6 @@ export default defineNuxtConfig({
     // Справочник
     '/faq': { redirect: '/spravochnik/faq' },
     '/modeli': { redirect: '/spravochnik/modeli' },
-    '/reference': { redirect: '/spravochnik/reference' },
-    '/reference/**': { redirect: '/spravochnik/reference/**' },
   },
   css: ['~/assets/css/main.css', '~/assets/css/custom.css'],
   icon: {
