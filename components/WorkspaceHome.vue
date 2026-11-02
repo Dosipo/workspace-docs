@@ -180,7 +180,7 @@ const groups = [
 
 .ws-home__cta:hover {
   background: var(--secondary);
-  border-color: oklch(from var(--border) calc(l - 0.06) c h);
+  border-color: color-mix(in oklch, var(--border), black 6%);
 }
 
 .ws-home__cta:focus-visible {
@@ -238,7 +238,7 @@ const groups = [
 
 .ws-home__card:hover {
   background: var(--secondary);
-  border-color: oklch(from var(--border) calc(l - 0.07) c h);
+  border-color: color-mix(in oklch, var(--border), black 7%);
 }
 
 .ws-home__card:focus-visible {
