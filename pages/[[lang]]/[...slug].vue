@@ -116,10 +116,10 @@ const editLink = computed(() => {
             icon="i-lucide-pen"
             :ui="{ leadingIcon: 'size-4' }"
           >
-            Edit this page
+            Предложить правку
           </UButton>
           <template v-if="github?.url">
-            <span>or</span>
+            <span>или</span>
             <UButton
               variant="link"
               color="neutral"
@@ -128,7 +128,7 @@ const editLink = computed(() => {
               icon="i-lucide-alert-circle"
               :ui="{ leadingIcon: 'size-4' }"
             >
-              Report an issue
+              Сообщить о проблеме
             </UButton>
           </template>
         </div>
