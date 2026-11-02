@@ -9,7 +9,8 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "@iconify-json/heroicons": "^1.2.0"
+    "@iconify-json/heroicons": "^1.2.0",
+    "@iconify-json/logos": "^1.2.18"
   },
   "devDependencies": {
     "@iconify-json/heroicons": "^1.2.0",
