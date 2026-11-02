@@ -8,6 +8,7 @@ resource: /onboarding/quick-start
 tags: [onboarding, quick-start, getting-started, workspace, mika]
 generated: human-authored
 status: current
+timestamp: "2026-11-02T00:00:00Z"
 ---
 
 # Быстрый старт

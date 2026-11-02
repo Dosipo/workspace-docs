@@ -8,6 +8,7 @@ resource: /reference
 tags: [reference, documentation, workspace, tools, processes]
 generated: human-authored
 status: current
+timestamp: "2026-11-02T00:00:00Z"
 ---
 
 Этот раздел содержит детальную документацию для тех, кто уже знаком с базовым онбордингом.

@@ -8,6 +8,7 @@ resource: /ii-platforma
 tags: [ai-platform, corporate-ai]
 generated: human-authored
 status: current
+timestamp: "2026-10-30T00:00:00Z"
 ---
 
 ::PageHeader

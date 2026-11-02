@@ -3,6 +3,12 @@ title: Статусы задач
 description: Полный список статусов issue в воркспейсе ArealDev — встроенные и кастомные.
 navigation:
   icon: heroicons:tag
+type: reference
+resource: /reference/statuses
+tags: [multica, issues, statuses, workflow, reference]
+generated: human-authored
+status: current
+timestamp: "2026-11-02T00:00:00Z"
 ---
 
 ## Встроенные статусы

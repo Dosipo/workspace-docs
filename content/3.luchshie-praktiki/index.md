@@ -8,6 +8,7 @@ resource: /luchshie-praktiki
 tags: [best-practices, prompting, ai-usage]
 generated: human-authored
 status: current
+timestamp: "2026-07-02T00:00:00Z"
 ---
 
 ::PageHeader

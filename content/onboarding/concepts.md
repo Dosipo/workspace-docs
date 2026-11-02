@@ -8,6 +8,7 @@ resource: /onboarding/concepts
 tags: [onboarding, concepts, workspace, multica, agents, issues]
 generated: human-authored
 status: current
+timestamp: "2026-11-02T00:00:00Z"
 ---
 
 # Ключевые концепции
