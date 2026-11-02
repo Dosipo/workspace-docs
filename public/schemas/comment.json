@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Comment",
+  "description": "Комментарий к задаче (issue) в воркспейсе Multica.",
+  "type": "object",
+  "required": ["id", "issue_id", "author_id", "author_type", "content", "type"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Уникальный идентификатор комментария."
+    },
+    "issue_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID задачи, к которой относится комментарий."
+    },
+    "parent_id": {
+      "type": ["string", "null"],
+      "format": "uuid",
+      "description": "ID родительского комментария (для вложенных ответов). null — корневой комментарий."
+    },
+    "author_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID автора комментария."
+    },
+    "author_type": {
+      "type": "string",
+      "enum": ["agent", "member"],
+      "description": "Тип автора: «agent» (агент) или «member» (участник)."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["comment", "activity"],
+      "description": "Тип записи: «comment» — обычный комментарий, «activity» — запись об изменении статуса или другом событии."
+    },
+    "content": {
+      "type": "string",
+      "description": "Текст комментария в формате Markdown. Поддерживает MDX-упоминания вида `[text](mention://issue/<id>)`."
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "name": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "content_type": { "type": "string" },
+          "size": { "type": "integer" }
+        }
+      },
+      "description": "Файлы, прикреплённые к комментарию."
+    },
+    "reactions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "emoji": { "type": "string" },
+          "count": { "type": "integer" },
+          "actor_ids": {
+            "type": "array",
+            "items": { "type": "string", "format": "uuid" }
+          }
+        }
+      },
+      "description": "Реакции участников на комментарий."
+    },
+    "resolved_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Дата и время разрешения комментария (RFC 3339). null — не разрешён."
+    },
+    "resolved_by_id": {
+      "type": ["string", "null"],
+      "format": "uuid",
+      "description": "ID участника, разрешившего комментарий."
+    },
+    "resolved_by_type": {
+      "type": ["string", "null"],
+      "enum": ["agent", "member", null],
+      "description": "Тип участника, разрешившего комментарий."
+    },
+    "source_task_id": {
+      "type": ["string", "null"],
+      "format": "uuid",
+      "description": "ID задачи агентского рана, создавшего комментарий."
+    },
+    "revision": {
+      "type": "integer",
+      "description": "Версия записи (увеличивается при редактировании)."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Дата и время создания комментария (RFC 3339)."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Дата и время последнего редактирования (RFC 3339)."
+    }
+  }
+}
