@@ -8,9 +8,8 @@ resource: /reference/skills
 tags: [reference, skills, agents, multica, workspace]
 generated: human-authored
 status: current
+timestamp: "2026-11-02T00:00:00Z"
 ---
-
-# Скиллы воркспейса
 
 **Скилл** — это специализированная инструкция, которую агент Multica загружает перед выполнением задачи. Скилл добавляет экспертизу: знание библиотеки, стандарт оформления, набор критериев проверки.
 
