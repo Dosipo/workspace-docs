@@ -7,9 +7,9 @@
           class="site-logo__hex"
           stroke-width="0"
         />
-        <line x1="16" y1="6" x2="16" y2="17" stroke="white" stroke-width="3" stroke-linecap="round"/>
-        <line x1="16" y1="17" x2="8" y2="25" stroke="white" stroke-width="3" stroke-linecap="round"/>
-        <line x1="16" y1="17" x2="24" y2="25" stroke="white" stroke-width="3" stroke-linecap="round"/>
+        <line x1="16" y1="6" x2="16" y2="17" stroke="var(--background)" stroke-width="3" stroke-linecap="round"/>
+        <line x1="16" y1="17" x2="8" y2="25" stroke="var(--background)" stroke-width="3" stroke-linecap="round"/>
+        <line x1="16" y1="17" x2="24" y2="25" stroke="var(--background)" stroke-width="3" stroke-linecap="round"/>
       </svg>
     </span>
     <span class="site-logo__text">База знаний ИИ Ареал</span>
