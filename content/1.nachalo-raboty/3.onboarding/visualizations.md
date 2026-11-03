@@ -21,8 +21,6 @@ sources:
     author: Даниил Осипов
 ---
 
-:page-updated{date="3 ноября 2026" author="Claude Opus 5.5"}
-
 Схемы, карты, графики и календарные планы пишутся прямо в Markdown — блоком кода с нужным языком. Сайт превращает такой блок в интерактивную визуализацию, а под ней выводит текстовую таблицу для поиска и доступности. Блоки дают слой [docus-viz](https://github.com/Dosipo/docus-viz), подключённый к базе в `layers/docus-viz`.
 
 ::warning
@@ -128,6 +126,6 @@ unit: тыс. руб.
 <!-- okf:related:start -->
 ## Связанные материалы
 
-- [Правила оформления страниц](/nachalo-raboty/onboarding/authoring) — шаблон страницы, frontmatter и строка обновления.
+- [Правила оформления страниц](/nachalo-raboty/onboarding/authoring) — шаблон страницы, frontmatter и блок «О странице».
 - [Ключевые концепции](/nachalo-raboty/onboarding/concepts) — как устроена работа в воркспейсе.
 <!-- okf:related:end -->

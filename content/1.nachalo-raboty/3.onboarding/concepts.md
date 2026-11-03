@@ -100,5 +100,5 @@ contributors:
 <!-- okf:related:start -->
 ## Связанные материалы
 
-- [Правила оформления страниц](/nachalo-raboty/onboarding/authoring) — Как оформить страницу базы знаний — frontmatter, заголовок без H1, короткое имя в сайдбаре через navigation.title и строка обновления через :page-updated. Шаблон новой страницы.
+- [Правила оформления страниц](/nachalo-raboty/onboarding/authoring) — Как оформить страницу базы знаний — frontmatter, заголовок без H1, короткое имя в сайдбаре через navigation.title, формат sources и блок «О странице» с метаданными OKF. Шаблон новой страницы.
 <!-- okf:related:end -->
