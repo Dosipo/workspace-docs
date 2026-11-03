@@ -145,3 +145,9 @@ sources:
 - [ ] `npm run build` проходит без ошибок MDC.
 
 Поля frontmatter следуют стандарту Open Knowledge Format (OKF): обязательны `type`, `title`, `description` и поля авторства; дату и автора записывает `generated: { by, at }` (поле `timestamp` устарело).  Поле `verified` ставит только человек. Проверка: `python3 validate.py content --profile docus` из скилла `okf-convert`.
+
+<!-- okf:related:start -->
+## Связанные материалы
+
+- [Ключевые концепции](/nachalo-raboty/onboarding/concepts) — Как устроена работа в воркспейсе — модель, инструменты, принципы.
+<!-- okf:related:end -->
