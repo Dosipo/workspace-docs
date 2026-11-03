@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { serializeOkfFields } from '../lib/okf-yaml.js'
+
 const props = defineProps<{
   page: Record<string, any>
 }>()
@@ -19,28 +21,7 @@ const okfFields = computed(() => {
 
 const hasOkfFields = computed(() => Object.keys(okfFields.value).length > 0)
 
-function serializeValue(value: unknown): string {
-  if (Array.isArray(value)) {
-    return `[${value.map(v => String(v)).join(', ')}]`
-  }
-  if (typeof value === 'string') {
-    // Quote strings that need it: colons, brackets, or ISO timestamps
-    if (/[:{}\[\]#]/.test(value) || value === '') {
-      return `"${value.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`
-    }
-    return value
-  }
-  if (typeof value === 'boolean' || typeof value === 'number') {
-    return String(value)
-  }
-  return JSON.stringify(value)
-}
-
-const yamlContent = computed(() =>
-  Object.entries(okfFields.value)
-    .map(([key, value]) => `${key}: ${serializeValue(value)}`)
-    .join('\n')
-)
+const yamlContent = computed(() => serializeOkfFields(okfFields.value))
 </script>
 
 <template>

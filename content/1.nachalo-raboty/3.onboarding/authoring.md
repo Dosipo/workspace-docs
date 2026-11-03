@@ -4,12 +4,20 @@ description: Как оформить страницу базы знаний — 
 navigation:
   title: Оформление страниц
   icon: heroicons:pencil-square
-type: guide
+type: Guide
 resource: /nachalo-raboty/onboarding/authoring
 tags: [onboarding, authoring, frontmatter, mdc, search, okf, template]
-generated: human-authored
-status: current
-timestamp: "2026-11-02T00:00:00Z"
+generated: { by: Docs/claude-sonnet-5-5, at: "2026-11-02T15:12:08Z" }
+status: stable
+created: "02.11.2026"
+updated: "02.11.2026"
+created_by: { id: human:dosipo, name: Даниил Осипов }
+updated_by: { id: Docs/claude-sonnet-5-5, name: Docs }
+contributors:
+  - { id: human:dosipo, name: Даниил Осипов }
+  - { id: claude/opus-5-5, name: Claude Opus 5.5 }
+  - { id: multica-agent/multica, name: multica-agent }
+  - { id: Docs/claude-sonnet-5-5, name: Docs }
 ---
 
 Эти правила нужны, чтобы страница один раз попадала во внутренний поиск (Ctrl+K), правильно подписывалась в сайдбаре и попадала в `llms.txt`. Следуйте им при создании и правке любой страницы в `content/`.
@@ -29,12 +37,17 @@ description: Одно-два предложения о том, что читат
 navigation:
   title: "Короткое имя"   # только если title длинный
   icon: heroicons:document-text
-type: guide               # guide | reference | index | ...
+type: Guide               # Guide | Reference | Playbook | Dataset | ... (с заглавной буквы)
 resource: /<раздел>/<slug>
 tags: [tag1, tag2]
-generated: human-authored
-status: current
-timestamp: "2026-11-02T00:00:00Z"
+status: draft             # draft | stable | deprecated
+generated: { by: Имя/модель, at: "2026-11-02T10:00:00Z" }
+created: "02.11.2026"
+updated: "02.11.2026"
+created_by: { id: Имя/модель, name: Имя }
+updated_by: { id: Имя/модель, name: Имя }
+contributors:
+  - { id: Имя/модель, name: Имя }
 ---
 
 :page-updated{date="2 ноября 2026" author="Имя"}
@@ -93,9 +106,9 @@ timestamp: "2026-11-02T00:00:00Z"
 
 ## Чек-лист перед PR
 
-- [ ] Во frontmatter есть `title`, `description`, `type`, `tags`, `timestamp`.
+- [ ] Во frontmatter есть `title`, `description`, `type`, `tags`, поля авторства (`generated`, `created`, `updated`, `created_by`, `updated_by`, `contributors`).
 - [ ] В тексте нет `# H1`; короткое имя для меню задано в `navigation.title`.
 - [ ] Строка обновления оформлена как `:page-updated{...}`.
 - [ ] `npm run build` проходит без ошибок MDC.
 
-Поля frontmatter следуют стандарту Open Knowledge Format (OKF): `type`, `title`, `description`, `tags` и `timestamp` обязательны, источники перечисляются в `sources`.
+Поля frontmatter следуют стандарту Open Knowledge Format (OKF): обязательны `type`, `title`, `description` и поля авторства; дату и автора записывает `generated: { by, at }` (поле `timestamp` устарело). Источники перечисляются в `sources`, у каждого есть `resource`. Поле `verified` ставит только человек. Проверка: `python3 validate.py content --profile docus` из скилла `okf-convert`.
