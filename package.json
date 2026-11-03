@@ -8,7 +8,8 @@
     "build": "nuxt build",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "test:okf-yaml": "node scripts/test-okf-yaml.mjs"
+    "test:okf-yaml": "node scripts/test-okf-yaml.mjs",
+    "test:okf-actor": "node scripts/test-okf-actor.mjs"
   },
   "dependencies": {
     "yaml": "^2.9.1"
