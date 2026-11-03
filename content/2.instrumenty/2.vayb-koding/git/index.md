@@ -20,8 +20,6 @@ contributors:
   - { id: claude/opus-5-5, name: Claude Opus 5.5 }
 ---
 
-:page-updated{date="21 октября 2026"}
-
 ## Инструкции
 
 - [SSH-ключ для Git](/instrumenty/vayb-koding/ssh-klyuch) — создание и добавление SSH-ключа
