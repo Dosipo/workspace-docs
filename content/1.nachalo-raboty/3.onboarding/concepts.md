@@ -12,9 +12,6 @@ sources:
   - resource: internal:arealdev-kb
     title: Внутренняя база знаний ArealDev
     author: Команда ArealDev
-  - resource: https://multica.ai/docs
-    title: Платформа Multica — документация
-    author: Команда Multica
 created: "30.10.2026"
 updated: "02.11.2026"
 created_by: { id: Mika/multica, name: Mika }
