@@ -1,0 +1,179 @@
+/* Flow diagram — styled with Nuxt UI tokens so it follows Docus light/dark theme. */
+
+.flow-diagram {
+  margin: 1.5rem 0;
+  border: 1px solid var(--ui-border);
+  border-radius: calc(var(--ui-radius) * 2);
+  background: var(--ui-bg);
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+
+.flow-diagram__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem 0.5rem 1rem;
+  border-bottom: 1px solid var(--ui-border);
+  background: var(--ui-bg-muted);
+}
+.flow-diagram__badge {
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--ui-radius);
+  background: color-mix(in oklab, var(--ui-primary) 12%, transparent);
+  color: var(--ui-primary);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.flow-diagram__title { color: var(--ui-text-muted); }
+.flow-diagram__actions { margin-left: auto; display: flex; gap: 0.25rem; }
+
+.flow-diagram__errors {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--ui-border);
+  color: var(--ui-error, #dc2626);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.75rem;
+}
+.flow-diagram__errors p { display: flex; gap: 0.375rem; align-items: center; margin: 0.125rem 0; }
+
+.flow-diagram__canvas {
+  position: relative;
+  margin: 0.75rem;
+  border: 1px dashed var(--ui-border);
+  border-radius: var(--ui-radius);
+  background-color: color-mix(in oklab, var(--ui-bg-muted) 50%, var(--ui-bg));
+  background-image: radial-gradient(var(--ui-border) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+.flow-diagram__skeleton { animation: flow-pulse 1.5s ease-in-out infinite; }
+@keyframes flow-pulse { 50% { opacity: 0.5; } }
+
+/* --- nodes ---------------------------------------------------------------- */
+.flow-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  height: 40px;
+  padding: 0 0.875rem;
+  border: 1px solid var(--ui-border-accented);
+  border-radius: var(--ui-radius);
+  background: var(--ui-bg);
+  color: var(--ui-text-highlighted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.flow-node:hover { border-color: var(--ui-primary); }
+.flow-node-icon { flex-shrink: 0; width: 1rem; height: 1rem; color: var(--ui-text-muted); }
+
+.flow-node.kind-store { border-radius: 999px; }
+.flow-node.kind-decision { border-style: double; border-width: 3px; }
+.flow-node.kind-external { border-style: dashed; }
+.flow-node.kind-start,
+.flow-node.kind-end { border-radius: 999px; background: var(--ui-bg-elevated); }
+
+.flow-node.is-active {
+  background: var(--ui-primary);
+  border-color: var(--ui-primary);
+  color: var(--ui-bg);
+  box-shadow: 0 0 0 6px color-mix(in oklab, var(--ui-primary) 18%, transparent);
+}
+.flow-node.is-active .flow-node-icon { color: inherit; }
+.flow-node.is-neighbor {
+  border-color: var(--ui-primary);
+  background: color-mix(in oklab, var(--ui-primary) 10%, var(--ui-bg));
+}
+.flow-node.is-done { border-color: color-mix(in oklab, var(--ui-primary) 50%, var(--ui-border)); }
+.flow-node.is-dim { opacity: 0.4; }
+
+.flow-hint {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--ui-primary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  pointer-events: none;
+  animation: flow-bounce 1.2s ease-in-out infinite;
+}
+@keyframes flow-bounce { 50% { transform: translate(-50%, -4px); } }
+
+.flow-handle { opacity: 0; pointer-events: none; width: 1px !important; height: 1px !important; min-width: 0 !important; min-height: 0 !important; border: 0 !important; }
+
+/* --- groups ---------------------------------------------------------------- */
+.flow-group {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed var(--ui-border-accented);
+  border-radius: calc(var(--ui-radius) * 1.5);
+  background: color-mix(in oklab, var(--ui-bg-elevated) 55%, transparent);
+  pointer-events: none;
+}
+.flow-group__label {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  color: var(--ui-text-dimmed);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.flow-diagram .vue-flow__node-cluster { pointer-events: none; cursor: default; }
+
+/* --- edges ----------------------------------------------------------------- */
+.flow-diagram .vue-flow__edge-path { stroke: var(--ui-border-accented); stroke-width: 1.25; transition: stroke 0.25s, opacity 0.25s; }
+.flow-diagram .flow-edge.style-dashed .vue-flow__edge-path { stroke-dasharray: 6 4; }
+.flow-diagram .flow-edge.style-dotted .vue-flow__edge-path { stroke-dasharray: 2 4; }
+.flow-diagram .flow-edge.is-active .vue-flow__edge-path { stroke: var(--ui-primary); stroke-width: 2; }
+.flow-diagram .flow-edge.is-done .vue-flow__edge-path { stroke: color-mix(in oklab, var(--ui-primary) 60%, var(--ui-border)); stroke-width: 1.5; }
+.flow-diagram .flow-edge.is-dim { opacity: 0.35; }
+
+.flow-diagram .vue-flow__edge-textbg { fill: var(--ui-bg); }
+.flow-diagram .vue-flow__edge-text { fill: var(--ui-text-muted); font-size: 11px; }
+.flow-diagram .flow-edge.is-active .vue-flow__edge-text { fill: var(--ui-primary); font-weight: 500; }
+
+/* --- controls -------------------------------------------------------------- */
+.flow-diagram .vue-flow__controls { box-shadow: none; border: 1px solid var(--ui-border); border-radius: var(--ui-radius); overflow: hidden; }
+.flow-diagram .vue-flow__controls-button { background: var(--ui-bg); border-bottom: 1px solid var(--ui-border); fill: var(--ui-text-muted); }
+.flow-diagram .vue-flow__controls-button:hover { background: var(--ui-bg-elevated); }
+.flow-diagram .vue-flow__controls-button svg { fill: currentColor; color: var(--ui-text-muted); }
+
+/* --- detail card + footer -------------------------------------------------- */
+.flow-diagram__card {
+  margin: 0 0.75rem 0.75rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius);
+  background: var(--ui-bg-muted);
+}
+.flow-diagram__card-title { margin: 0; font-weight: 600; color: var(--ui-text-highlighted); font-size: 1rem; }
+.flow-diagram__card-desc { margin: 0.25rem 0 0; color: var(--ui-text-muted); line-height: 1.5; }
+.flow-diagram__relations { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 0.375rem; }
+.flow-diagram__relations li { display: flex; gap: 0.5rem; align-items: flex-start; color: var(--ui-text-toned); }
+.flow-diagram__relations b { color: var(--ui-text-highlighted); font-weight: 500; }
+.flow-diagram__relations em { color: var(--ui-text-dimmed); }
+.flow-diagram__rel-icon { margin-top: 0.15rem; flex-shrink: 0; color: var(--ui-primary); }
+.flow-diagram__card-link { margin: 0.75rem 0 0; color: var(--ui-text-muted); }
+.flow-diagram__card-link a { color: var(--ui-primary); }
+
+.flow-diagram__footer {
+  padding: 0.5rem 1rem;
+  border-top: 1px solid var(--ui-border);
+  background: var(--ui-bg-muted);
+  color: var(--ui-text-muted);
+}
+
+.flow-diagram__source { padding: 0 1rem 0.5rem; background: var(--ui-bg-muted); color: var(--ui-text-dimmed); font-size: 0.75rem; }
+.flow-diagram__source summary { cursor: pointer; padding: 0.25rem 0; }
+.flow-diagram__source ol { margin: 0.25rem 0 0.25rem 1.25rem; list-style: decimal; }
+
+.flow-fade-enter-active, .flow-fade-leave-active { transition: opacity 0.2s, transform 0.2s; }
+.flow-fade-enter-from, .flow-fade-leave-to { opacity: 0; transform: translateY(4px); }
+
+.flow-node > span:last-of-type { overflow: hidden; text-overflow: ellipsis; }

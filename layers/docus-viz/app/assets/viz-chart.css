@@ -1,0 +1,40 @@
+/* Chart + Gantt — Nuxt UI tokens, same chrome as flow-diagram / geo-map. */
+.viz-chart, .viz-gantt { margin: 1.5rem 0; border: 1px solid var(--ui-border); border-radius: calc(var(--ui-radius) * 2); background: var(--ui-bg); overflow: hidden; font-size: 0.875rem; }
+.viz-chart__header, .viz-gantt__header { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-bottom: 1px solid var(--ui-border); background: var(--ui-bg-muted); }
+.viz-chart__badge, .viz-gantt__badge { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.125rem 0.5rem; border-radius: var(--ui-radius); background: color-mix(in oklab, var(--ui-primary) 12%, transparent); color: var(--ui-primary); font-size: 0.75rem; font-weight: 500; }
+.viz-chart__title, .viz-gantt__title { color: var(--ui-text-muted); }
+.viz-chart__src, .viz-gantt__src { margin-left: auto; display: inline-flex; align-items: center; gap: 0.25rem; color: var(--ui-text-dimmed); font-size: 0.75rem; font-family: var(--font-mono, ui-monospace, monospace); max-width: 50%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.viz-chart__errors, .viz-gantt__errors { padding: 0.5rem 1rem; border-bottom: 1px solid var(--ui-border); color: var(--ui-error, #dc2626); font-family: var(--font-mono, ui-monospace, monospace); font-size: 0.75rem; }
+.viz-chart__errors p, .viz-gantt__errors p { display: flex; gap: 0.375rem; align-items: center; margin: 0.125rem 0; }
+
+.viz-chart__body { position: relative; padding: 0.75rem; }
+.viz-chart__svg { display: block; width: 100%; height: auto; overflow: visible; }
+.viz-chart__grid line { stroke: var(--ui-border); stroke-width: 1; }
+.viz-chart__grid line.zero { stroke: var(--ui-border-accented); }
+.viz-chart__grid text, .viz-chart__cats text { fill: var(--ui-text-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.viz-chart__value { fill: var(--ui-text-toned); font-size: 11px; font-variant-numeric: tabular-nums; }
+.viz-chart__bar, .viz-chart__slice { transition: opacity 0.15s; cursor: default; }
+.viz-chart__bar.dim, .viz-chart__slice.dim { opacity: 0.35; }
+.viz-chart__line { fill: none; stroke-width: 2.25; stroke-linejoin: round; stroke-linecap: round; }
+.viz-chart__area { opacity: 0.14; }
+.viz-chart__dot { stroke: var(--ui-bg); stroke-width: 1.5; transition: r 0.1s; }
+.viz-chart__slice { stroke: var(--ui-bg); stroke-width: 2; }
+.viz-chart__pie-total { fill: var(--ui-text-highlighted); font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.viz-chart__pie-unit { fill: var(--ui-text-muted); font-size: 12px; }
+.viz-chart__pie-legend text { fill: var(--ui-text-toned); font-size: 13px; }
+.viz-chart__pie-legend text.num { fill: var(--ui-text-highlighted); font-variant-numeric: tabular-nums; }
+
+.viz-chart__tip { position: absolute; top: 0.75rem; right: 0.75rem; display: grid; gap: 0.125rem; min-width: 10rem; max-width: 60%; padding: 0.5rem 0.75rem; border: 1px solid var(--ui-border); border-radius: var(--ui-radius); background: var(--ui-bg-elevated); color: var(--ui-text-toned); font-size: 0.75rem; box-shadow: 0 4px 16px rgb(0 0 0 / 0.08); pointer-events: none; }
+.viz-chart__tip strong { color: var(--ui-text-highlighted); }
+.viz-chart__tip b { color: var(--ui-text-highlighted); font-variant-numeric: tabular-nums; }
+.viz-chart__tip i, .viz-chart__legend i { display: inline-block; width: 8px; height: 8px; margin-right: 0.375rem; border-radius: 2px; }
+
+.viz-chart__legend { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; margin: -0.25rem 1rem 0.75rem; padding: 0; list-style: none; color: var(--ui-text-muted); font-size: 0.75rem; }
+.viz-chart__notes { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; padding: 0.375rem 1rem; border-top: 1px solid var(--ui-border); background: var(--ui-bg-muted); color: var(--ui-text-dimmed); font-size: 0.75rem; }
+.viz-chart__notes .warn { color: var(--ui-warning, #d97706); }
+
+.viz-chart__source, .viz-gantt__source { padding: 0 1rem 0.5rem; background: var(--ui-bg-muted); border-top: 1px solid var(--ui-border); color: var(--ui-text-dimmed); font-size: 0.75rem; }
+.viz-chart__source summary, .viz-gantt__source summary { cursor: pointer; padding: 0.375rem 0; }
+.viz-chart__source table, .viz-gantt__source table { width: 100%; border-collapse: collapse; margin: 0.25rem 0; }
+.viz-chart__source th, .viz-chart__source td, .viz-gantt__source th, .viz-gantt__source td { padding: 0.125rem 0.5rem 0.125rem 0; border-bottom: 1px solid var(--ui-border); text-align: left; }
+.viz-chart__source td + td, .viz-chart__source th + th { text-align: right; font-variant-numeric: tabular-nums; }
