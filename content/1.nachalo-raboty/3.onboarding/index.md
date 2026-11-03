@@ -30,6 +30,7 @@ contributors:
 
 - [Ключевые концепции](/nachalo-raboty/onboarding/concepts) — как устроена работа в воркспейсе
 - [Правила оформления страниц](/nachalo-raboty/onboarding/authoring) — шаблон страницы, заголовок без H1, `navigation.title`, формат `sources` и блок «О странице»
+- [Визуализации на страницах](/nachalo-raboty/onboarding/visualizations) — схемы процессов, графы, карты, графики и календарные планы блоками docus-viz
 
 ## Кому это нужно
 
