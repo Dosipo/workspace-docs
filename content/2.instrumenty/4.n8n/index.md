@@ -2,12 +2,19 @@
 title: n8n
 description: Корпоративная автоматизация - workflows, credentials, PostgreSQL, демо-сценарии.
 navigation: false
-type: index
+type: Overview
 resource: /instrumenty/n8n
 tags: [n8n, automation, workflows]
-generated: human-authored
-status: current
-timestamp: "2026-10-22T00:00:00Z"
+generated: { by: human:dosipo, at: "2026-11-02T13:11:59Z" }
+status: stable
+created: "02.11.2026"
+updated: "02.11.2026"
+created_by: { id: human:dosipo, name: Даниил Осипов }
+updated_by: { id: human:dosipo, name: Даниил Осипов }
+contributors:
+  - { id: human:dosipo, name: Даниил Осипов }
+  - { id: claude/opus-5-5, name: Claude Opus 5.5 }
+  - { id: multica-agent/multica, name: multica-agent }
 ---
 
 Корпоративный n8n доступен по адресу: **https://n8n.geotech.user.events/**

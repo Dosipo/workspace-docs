@@ -1,0 +1,9 @@
+# Карта git-идентичностей -> акторы OKF (§7)
+authors:
+  "127217213+dosipo@users.noreply.github.com": { id: human:dosipo, name: "Даниил Осипов" }
+  "dosipovscience@gmail.com":                  { id: human:dosipo, name: "Даниил Осипов" }
+  "Daniil Osipov":                             { id: human:dosipo, name: "Даниил Осипов" }
+  "Dosipo":                                    { id: human:dosipo, name: "Даниил Осипов" }
+  "mika@multica.ai":                           { id: Mika/multica, name: "Mika" }
+  "noreply@multica.ai":                        { id: Mika/multica, name: "Mika" }
+  "github@multica.ai":                         { id: multica-agent/multica, name: "multica-agent" }
