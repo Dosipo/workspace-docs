@@ -31,8 +31,12 @@ const yamlContent = computed(() => serializeOkfFields(okfFields.value))
 // Относительное время («вчера», «осталось N дней») — только в браузере.
 // На сервере и при гидрации выводится абсолютная дата, иначе на сгенерированном сайте она застынет.
 const today = ref<number | null>(null)
+// Текущий адрес сайта — тоже адрес базы: ссылки на него не показываются в «Источниках».
+// Известные адреса (прод, staging, превью) проверяются и на сервере, см. isKbUrl().
+const origins = ref<string[]>([])
 onMounted(() => {
   today.value = todayUtc()
+  origins.value = [window.location.origin]
 })
 
 type Actor = { id: string, name: string }
@@ -60,7 +64,7 @@ const view = computed(() => {
     created: created !== null || createdBy ? { day: created, by: createdBy } : null,
     updated: !sameAsCreated && (updated !== null || updatedBy) ? { day: updated, by: updatedBy } : null,
     staleAfter,
-    sources: sourceViews(m.sources),
+    sources: sourceViews(m.sources, { origins: origins.value }),
     tags: (Array.isArray(m.tags) ? m.tags : []).filter((t: unknown) => typeof t === 'string' && t.trim()),
     groups: groupActors(m.contributors, m.created_by, m.updated_by),
     resource: typeof m.resource === 'string' && m.resource.trim() ? m.resource.trim() : null,

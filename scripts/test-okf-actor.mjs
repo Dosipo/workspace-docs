@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict'
 import { parseActor, groupActors } from '../lib/okf-actor.js'
 import {
-  typeLabel, statusView, parseOkfDate, formatOkfDate, timeAgo, staleView, sourceView, sourceViews,
+  typeLabel, statusView, parseOkfDate, formatOkfDate, timeAgo, staleView, sourceView, sourceViews, isKbUrl,
 } from '../lib/okf-view.js'
 
 let count = 0
@@ -61,6 +61,23 @@ test('прочие форматы — «Другие», не агенты', () =
     assert.equal(a.kind, 'other', String(id))
     assert.equal(a.icon, 'i-lucide-circle-help')
   }
+})
+
+test('ключи прототипа не считаются вендорами', () => {
+  for (const id of ['constructor/x', '__proto__/x', 'toString/x', 'hasOwnProperty/x']) {
+    const a = parseActor(id)
+    assert.equal(a.kind, 'agent', id)
+    assert.equal(a.icon, 'i-lucide-bot', id)
+    assert.equal(a.vendorIcon, null, id)
+  }
+  assert.equal(parseActor('Helper/constructor-1').vendorIcon, null)
+})
+
+test('формат проверяется по всей строке', () => {
+  for (const id of ['human:anna/extra', 'human:anna extra', 'human: anna', 'human:anna\tx', 'human:anna:x/y', 'claude/opus 5', 'Mika/multica/x', 'internal:x/y']) {
+    assert.equal(parseActor(id).kind, 'other', id)
+  }
+  assert.equal(parseActor('  human:anna  ').kind, 'human', 'пробелы по краям обрезаются')
 })
 
 // --- groupActors --------------------------------------------------------
@@ -127,6 +144,15 @@ test('даты: оба формата и формат вывода', () => {
   assert.equal(formatOkfDate(Date.UTC(2026, 8, 1)), '1 сент. 2026')
 })
 
+test('несуществующие даты отклоняются, а не переносятся', () => {
+  for (const v of ['2026-02-31', '31.02.2026', '2026-13-01', '01.13.2026', '2026-00-10', '00.10.2026', '2026-04-31', '2025-02-29', '2026-11-03junk', new Date('x')]) {
+    assert.equal(parseOkfDate(v), null, String(v))
+  }
+  assert.equal(parseOkfDate('2024-02-29'), Date.UTC(2024, 1, 29), 'високосный год')
+  assert.equal(parseOkfDate('29.02.2024'), Date.UTC(2024, 1, 29))
+  assert.equal(parseOkfDate('2026-12-31T23:59:59Z'), Date.UTC(2026, 11, 31))
+})
+
 test('относительное время', () => {
   const today = Date.UTC(2026, 10, 3)
   assert.equal(timeAgo(today, today), 'сегодня')
@@ -168,6 +194,34 @@ test('источники: файлы и ссылки показываются, i
   assert.equal(sourceView({ resource: 'https://www.figma.com/file/1' }).icon, 'i-logos-figma')
   assert.equal(sourceView({ resource: 'https://notion.so/p' }).icon, 'i-logos-notion-icon')
   assert.deepEqual(sourceViews(undefined), [])
+})
+
+test('источники: ссылки на саму базу скрыты, внешние видны', () => {
+  const internal = [
+    'https://workspace-docs-git-agent-designer479d6baec118-dosipos-projects.vercel.app/nachalo-raboty/obzor',
+    'https://workspace-docs-abc123xyz-dosipos-projects.vercel.app/',
+    'https://workspace-docs-staging.vercel.app/praktiki',
+    'https://workspace-docs-rho.vercel.app/spravochnik/faq',
+    'HTTPS://Workspace-Docs-Staging.vercel.app/x',
+  ]
+  for (const resource of internal) {
+    assert.equal(sourceView({ resource }), null, resource)
+    assert.equal(isKbUrl(resource), true, resource)
+  }
+  assert.notEqual(sourceView({ resource: 'https://other-dosipos-projects.vercel.app/x' }), null, 'чужой проект на Vercel — внешний')
+  assert.notEqual(sourceView({ resource: 'https://workspace-docs-staging.vercel.app.evil.com/x' }), null)
+  assert.notEqual(sourceView({ resource: 'https://example.com/workspace-docs-staging.vercel.app' }), null)
+  // текущий origin после монтирования
+  assert.equal(sourceView({ resource: 'https://docs.arealdev.ru/x' }, { origins: ['https://docs.arealdev.ru'] }), null)
+  assert.equal(sourceView({ resource: 'https://docs.arealdev.ru/x' }).type, 'link')
+  assert.deepEqual(
+    sourceViews([
+      { resource: 'https://workspace-docs-staging.vercel.app/a' },
+      { resource: 'https://github.com/Dosipo/workspace-docs' },
+      { resource: 'http://localhost:3000/a' },
+    ], { origins: ['http://localhost:3000'] }).map(s => s.href),
+    ['https://github.com/Dosipo/workspace-docs'],
+  )
 })
 
 console.log(`\n${count} тестов прошло`)
