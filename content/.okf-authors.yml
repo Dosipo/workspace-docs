@@ -1,0 +1,15 @@
+# Карта git-идентичностей -> акторы OKF (§7). Скопируйте в корень бандла как .okf-authors.yml.
+# Ключ — e-mail или имя автора коммита (регистр не важен); значение — {id, name}.
+# Люди: id = human:<логин>; агенты: id = <агент>/<модель или платформа>.
+authors:
+  # Даниил Осипов — все его адреса и написания имени
+  "127217213+dosipo@users.noreply.github.com": { id: human:dosipo, name: "Даниил Осипов" }
+  "dosipovscience@gmail.com":                  { id: human:dosipo, name: "Даниил Осипов" }
+  "Daniil Osipov":                             { id: human:dosipo, name: "Даниил Осипов" }
+  "Dosipo":                                    { id: human:dosipo, name: "Даниил Осипов" }
+  # Агенты Multica
+  "github@multica.ai":                         { id: multica-agent/multica, name: "multica-agent" }
+  "mika@multica.ai":                           { id: Mika/multica, name: "Mika" }
+  "noreply@multica.ai":                        { id: Mika/multica, name: "Mika" }
+  # Пример коллеги (e-mail тоже допустим как id: human:alsu@example.com)
+  "alsu@example.com":                          { id: human:alsu, name: "Алсу" }

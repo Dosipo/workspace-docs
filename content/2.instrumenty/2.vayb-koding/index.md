@@ -2,15 +2,22 @@
 title: Вайб-кодинг
 description: Написание кода с помощью ИИ - VSCode, Claude Code, Kilo Code, Git и работа в IDE.
 navigation: false
-type: index
+type: Overview
 resource: /instrumenty/vayb-koding
 tags: [vibe-coding, ai-coding, vscode, ide]
-generated: human-authored
-status: current
-timestamp: "2026-10-30T00:00:00Z"
+generated: { by: human:dosipo, at: "2026-11-02T13:11:59Z" }
+status: stable
+created: "30.10.2026"
+updated: "02.11.2026"
+created_by: { id: Mika/multica, name: Mika }
+updated_by: { id: human:dosipo, name: Даниил Осипов }
+contributors:
+  - { id: Mika/multica, name: Mika }
+  - { id: multica-agent/multica, name: multica-agent }
+  - { id: human:dosipo, name: Даниил Осипов }
+  - { id: claude/sonnet-4-6, name: Claude Sonnet 4.6 }
+  - { id: claude/opus-5-5, name: Claude Opus 5.5 }
 ---
-
-:page-updated{date="30 октября 2026"}
 
 Вайб-кодинг — это работа с ИИ, при которой вы описываете задачу обычным языком, а ИИ сам пишет код, создаёт файлы и запускает команды.
 
