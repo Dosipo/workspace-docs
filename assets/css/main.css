@@ -153,3 +153,14 @@ main h3[id] {
 .page-header--red,
 .page-header--pink,
 .page-header--slate { }
+
+/* ============================================================
+   AREA-147: no top header on desktop — navigation is in the left
+   sidebar, so sticky offsets (TOC, UMain min-height) start at 0.
+   On mobile the compact top bar keeps the default 4rem.
+   ============================================================ */
+@media (min-width: 1024px) {
+  :root {
+    --ui-header-height: 0px;
+  }
+}

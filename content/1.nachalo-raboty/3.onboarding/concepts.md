@@ -3,21 +3,26 @@ title: Ключевые концепции
 description: Как устроена работа в воркспейсе — модель, инструменты, принципы.
 navigation:
   icon: heroicons:light-bulb
-type: concept
+type: Concept
 resource: /nachalo-raboty/onboarding/concepts
 tags: [onboarding, concepts, workspace, multica, agents, issues]
-generated: human-authored
-status: current
-timestamp: "2026-11-02T00:00:00Z"
+generated: { by: Docs/claude-sonnet-5-5, at: "2026-11-02T15:12:08Z" }
+status: stable
 sources:
-  - title: "Внутренняя база знаний ArealDev"
-    author: "Команда ArealDev"
-    date: "2026-10"
-    type: "internal"
-  - title: "Платформа Multica — документация"
-    author: "Команда Multica"
-    date: "2026-10"
-    type: "external"
+  - resource: internal:arealdev-kb
+    title: Внутренняя база знаний ArealDev
+    author: Команда ArealDev
+created: "30.10.2026"
+updated: "02.11.2026"
+created_by: { id: Mika/multica, name: Mika }
+updated_by: { id: Docs/claude-sonnet-5-5, name: Docs }
+contributors:
+  - { id: Mika/multica, name: Mika }
+  - { id: human:dosipo, name: Даниил Осипов }
+  - { id: claude/sonnet-4-6, name: Claude Sonnet 4.6 }
+  - { id: multica-agent/multica, name: multica-agent }
+  - { id: claude/opus-5-5, name: Claude Opus 5.5 }
+  - { id: Docs/claude-sonnet-5-5, name: Docs }
 ---
 
 ## Модель работы
@@ -91,3 +96,9 @@ sources:
 ## Языковые правила
 
 Все сущности воркспейса (агенты, скиллы, проекты, issues) создаются и обновляются **на русском языке**. Коммуникация — на языке собеседника.
+
+<!-- okf:related:start -->
+## Связанные материалы
+
+- [Правила оформления страниц](/nachalo-raboty/onboarding/authoring) — Как оформить страницу базы знаний — frontmatter, заголовок без H1, короткое имя в сайдбаре через navigation.title, формат sources и блок «О странице» с метаданными OKF. Шаблон новой страницы.
+<!-- okf:related:end -->
