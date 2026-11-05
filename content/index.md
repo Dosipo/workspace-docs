@@ -61,6 +61,8 @@ contributors:
     ::::
     ::::u-page-card{to="/instrumenty/n8n" icon="i-lucide-workflow" title="n8n" description="Автоматизация: workflows, credentials, PostgreSQL, демо-сценарии" variant="outline"}
     ::::
+    ::::u-page-card{to="/instrumenty/multica" icon="i-lucide-bot" title="Multica" description="Платформа, где люди и ИИ-агенты работают над задачами вместе" variant="outline"}
+    ::::
   :::
 ::
 
