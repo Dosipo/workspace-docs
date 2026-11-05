@@ -15,6 +15,11 @@ const links = computed(() => appConfig.github?.url
   ? [{ label: 'GitHub', icon: 'i-lucide-github', to: appConfig.github.url }]
   : [])
 
+// AREA-180: corporate services — the list lives in app.config.ts (toc.bottom), shared with the right TOC
+const services = computed(() => appConfig.toc?.bottom?.links || [])
+const servicesTitleId = useId()
+const servicesTitle = computed(() => appConfig.toc?.bottom?.title || 'Сервисы')
+
 const assistantIcon = computed(() => appConfig.assistant?.icons?.trigger || 'i-custom-ai')
 </script>
 
@@ -63,6 +68,33 @@ const assistantIcon = computed(() => appConfig.assistant?.icons?.trigger || 'i-c
           :ui="{ leadingIcon: 'size-4', trailingIcon: 'size-3.5 text-dimmed' }"
         />
       </div>
+
+      <section
+        v-if="services.length"
+        :aria-labelledby="servicesTitleId"
+        class="flex flex-col"
+      >
+        <p
+          :id="servicesTitleId"
+          class="mb-1 text-xs/5 font-semibold text-muted"
+        >
+          {{ servicesTitle }}
+        </p>
+        <UButton
+          v-for="service in services"
+          :key="service.to"
+          :label="service.label"
+          :icon="service.icon"
+          :to="service.to"
+          target="_blank"
+          rel="noopener noreferrer"
+          trailing-icon="i-lucide-arrow-up-right"
+          color="neutral"
+          variant="ghost"
+          class="-mx-2.5 text-muted hover:text-highlighted"
+          :ui="{ leadingIcon: 'size-4', trailingIcon: 'size-3.5 text-dimmed' }"
+        />
+      </section>
     </div>
 
     <nav
