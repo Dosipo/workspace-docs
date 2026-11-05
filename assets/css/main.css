@@ -26,6 +26,30 @@
 
 .dark {
   --ui-primary: var(--ui-color-neutral-100);
+
+  /* AREA-190: dark theme — warm stone surfaces with a visible hierarchy.
+     page (900) < muted: code, callouts, inline code < elevated: active pill,
+     hover < accented. Borders are lifted above the elevated surface so cards,
+     sidebar and tables stay separated from the page. */
+  --ui-bg:          var(--ui-color-neutral-900);
+  --ui-bg-muted:    color-mix(in oklab, var(--ui-color-neutral-900), var(--ui-color-neutral-800) 65%);
+  --ui-bg-elevated: var(--ui-color-neutral-800);
+  --ui-bg-accented: var(--ui-color-neutral-700);
+
+  --ui-border:          color-mix(in oklab, var(--ui-color-neutral-800), var(--ui-color-neutral-700) 55%);
+  --ui-border-muted:    color-mix(in oklab, var(--ui-color-neutral-800), var(--ui-color-neutral-700) 40%);
+  --ui-border-accented: var(--ui-color-neutral-700);
+
+  /* Contrast on --ui-bg: text 13.9:1, highlighted 16.7:1, muted 6.9:1,
+     dimmed 5.1:1 (was neutral-500, 3.6:1). */
+  --ui-text-highlighted: var(--ui-color-neutral-50);
+  --ui-text-dimmed:      color-mix(in oklab, var(--ui-color-neutral-500), var(--ui-color-neutral-400) 50%);
+}
+
+/* AREA-190: docus-viz Gantt — bar labels are white by default, which is
+   unreadable on the light bars of the dark theme; use the page colour. */
+.dark .viz-gantt__bar-text {
+  fill: var(--ui-bg);
 }
 
 /* ============================================================
