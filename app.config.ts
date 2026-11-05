@@ -1,7 +1,29 @@
 export default defineAppConfig({
   // AREA-145: right-hand table of contents title (Docus toc.title)
+  // AREA-180 (GitHub #38): links to corporate services — the single source.
+  // Docus renders them under the right-hand TOC; components/AppSidebar.vue reads the same list
+  // for the left sidebar (desktop) and the mobile menu.
   toc: {
-    title: 'На этой странице'
+    title: 'На этой странице',
+    bottom: {
+      title: 'Сервисы',
+      links: [
+        {
+          icon: 'i-lucide-bot',
+          label: 'Корпоративный ИИ-агент',
+          to: 'https://chat.geotech.user.events/',
+          target: '_blank',
+          rel: 'noopener noreferrer'
+        },
+        {
+          icon: 'i-lucide-users',
+          label: 'Платформа амбассадоров',
+          to: 'https://ambassadors.geotech.user.events',
+          target: '_blank',
+          rel: 'noopener noreferrer'
+        }
+      ]
+    }
   },
   docus: {
     title: 'База знаний ИИ Ареал',
