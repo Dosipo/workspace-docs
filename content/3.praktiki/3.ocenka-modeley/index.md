@@ -17,9 +17,6 @@ updated_by: { id: Docs/claude-sonnet-5-5, name: Docs }
 contributors:
   - { id: Docs/claude-sonnet-5-5, name: Docs }
   - { id: Analyst/multica, name: Analyst }
-sources:
-  - resource: file:eval-research.md
-    title: "Фактура по оценке моделей (Analyst, снимок 05.11.2026)"
 ---
 
 Публичные бенчмарки помогают отобрать кандидатов, но выбор модели для вашей задачи подтверждает только проверка на ваших данных. Раздел объясняет, как её провести и не обмануться цифрами.
