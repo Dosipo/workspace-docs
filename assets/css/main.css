@@ -26,6 +26,41 @@
 
 .dark {
   --ui-primary: var(--ui-color-neutral-100);
+
+  /* AREA-190: dark theme — warm stone surfaces with a visible hierarchy.
+     page (900) < muted: code, callouts, inline code < elevated: active pill,
+     hover < accented. Borders are lifted above the elevated surface so cards,
+     sidebar and tables stay separated from the page. */
+  --ui-bg:          var(--ui-color-neutral-900);
+  --ui-bg-muted:    color-mix(in oklab, var(--ui-color-neutral-900), var(--ui-color-neutral-800) 65%);
+  --ui-bg-elevated: var(--ui-color-neutral-800);
+  --ui-bg-accented: var(--ui-color-neutral-700);
+
+  --ui-border:          color-mix(in oklab, var(--ui-color-neutral-800), var(--ui-color-neutral-700) 55%);
+  --ui-border-muted:    color-mix(in oklab, var(--ui-color-neutral-800), var(--ui-color-neutral-700) 40%);
+  --ui-border-accented: var(--ui-color-neutral-700);
+
+  /* Contrast, measured on computed (oklch/color-mix → sRGB) values,
+     page / bg-muted / bg-elevated:
+     text 13.9 / 12.7 / 12.1, highlighted 16.7 / 15.3 / 14.5,
+     muted 6.8 / 6.2 / 5.9, dimmed 5.6 / 5.2 / 4.9 (was neutral-500, 3.6:1). */
+  --ui-text-highlighted: var(--ui-color-neutral-50);
+  --ui-text-dimmed:      color-mix(in oklab, var(--ui-color-neutral-500), var(--ui-color-neutral-400) 70%);
+}
+
+/* AREA-190: docus-viz Gantt — bar labels are white by default, unreadable on
+   the light bars of the dark theme. One label colour per bar state:
+   normal bar (primary 70%) → page colour, 7.7:1
+   crit bar (#ea580c)       → page colour, 4.9:1
+   done bar (border-accented, dark) → highlighted text, 9.9:1.
+   The label <text> directly follows its <rect> in VizGantt.vue; done wins
+   over crit, matching the bar fill order in the component. */
+.dark .viz-gantt__bar-text {
+  fill: var(--ui-bg);
+}
+
+.dark .viz-gantt__bar.done + .viz-gantt__bar-text {
+  fill: var(--ui-text-highlighted);
 }
 
 /* ============================================================

@@ -42,6 +42,16 @@ export default defineNuxtConfig({
       langs: ['yaml']
     }
   },
+  // AREA-190: dark code theme. Nuxt UI defaults to material-theme-palenight (bluish,
+  // clashes with the warm stone palette, comments 3.3:1). github-dark-default keeps
+  // comments ≥ 5:1 on the code-block surface. Light/default themes are left as is.
+  mdc: {
+    highlight: {
+      theme: {
+        dark: 'github-dark-default'
+      }
+    }
+  },
   docus: {
     assistant: {
       enabled: true,

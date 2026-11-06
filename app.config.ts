@@ -136,8 +136,9 @@ export default defineAppConfig({
     },
     prose: {
       a: {
+        // AREA-190: stronger underline in dark so links differ from body text without hover
         // wrap-anywhere: long URLs must not cause horizontal scroll on mobile (AREA-124)
-        base: 'border-primary/30 wrap-anywhere'
+        base: 'border-primary/30 dark:border-primary/50 wrap-anywhere'
       },
       code: {
         // inline code is inline-block: allow breaking long tokens so it fits 375 px (AREA-124)
