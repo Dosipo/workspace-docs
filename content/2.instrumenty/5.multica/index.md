@@ -47,6 +47,15 @@ Multica — платформа для работы смешанных коман
 
   ::card
   ---
+  title: Пространства и проекты
+  icon: heroicons:rectangle-group
+  to: /instrumenty/multica/prostranstva-proekty
+  ---
+  Пространства, проекты, репозитории и жизненный цикл задачи.
+  ::
+
+  ::card
+  ---
   title: Как начать
   icon: heroicons:play-circle
   to: /instrumenty/multica/kak-nachat
