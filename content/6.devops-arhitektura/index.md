@@ -36,16 +36,22 @@ contributors:
 
 ## Связи
 
-```mermaid
-flowchart LR
-  K8s[Kubernetes] -->|запускает| Harbor
-  Harbor --> GitLab[gitlab]
-  ext([внешний вход]) -->|TCP/8443| Harbor
-  K8s -.->|уточнить| SeaweedFS
-  K8s -.->|уточнить| PostgreSQL
+```graph
+title: Связи стека
+ext [external] Внешний вход
+harbor [service] Harbor
+gitlab [service] GitLab
+seaweed [store] SeaweedFS
+  | Нет на схеме, уточнить.
+pg [store] PostgreSQL
+  | Нет на схеме, уточнить.
+ext -> harbor : TCP/8443
+harbor -> gitlab
+harbor ..> seaweed : уточнить
+harbor ..> pg : уточнить
 ```
 
-Сплошные связи взяты со схемы. Пунктирные — предположение о месте компонентов в стеке, уточнить.
+Сплошные связи взяты со схемы. Пунктирные связи с SeaweedFS и PostgreSQL — предположение, уточнить у DevOps (Лев Ткач).
 
 ## Дальше
 
