@@ -57,5 +57,5 @@ contributors:
 
 Эти страницы не дублируют таблицы с результатами: они быстро устаревают.
 
-- Claude: [Бенчмарки Claude](/instrumenty/claude/benchmarki) и [Какую модель Claude выбрать](/instrumenty/claude/vybor-modeli).
+- Claude: [Бенчмарки Claude](/instrumenty/claude/benchmarki) и [Выбор модели Claude](/instrumenty/claude/vybor-modeli).
 - Все вендоры, доступные у нас: [Список моделей](/spravochnik/modeli) и [Какую выбрать модель](/instrumenty/ii-platforma/vybor-modeli).
