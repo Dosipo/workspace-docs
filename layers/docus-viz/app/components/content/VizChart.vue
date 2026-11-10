@@ -24,8 +24,8 @@ const doc = computed(() => {
 })
 const ok = computed(() => !doc.value.errors.length && doc.value.categories.length > 0)
 
-// Categorical palette from Nuxt UI tokens first, then fixed hues that read in both themes.
-const PALETTE = ['var(--ui-primary)', '#3b82f6', '#f59e0b', '#8b5cf6', '#ef4444', '#06b6d4', '#84cc16', '#ec4899']
+// Categorical palette from the site theme: Nuxt UI chart tokens (--ui-chart-1..6), set per theme.
+const PALETTE = [1, 2, 3, 4, 5, 6].map(i => `var(--ui-chart-${i})`)
 const color = (i: number) => PALETTE[i % PALETTE.length]
 
 const W = 720

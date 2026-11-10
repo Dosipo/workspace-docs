@@ -94,7 +94,7 @@ const items = [
 
 .page-nav__card:hover {
   background: var(--secondary);
-  border-color: color-mix(in oklch, var(--border), black 8%);
+  border-color: var(--border-hover);
 }
 
 .page-nav__card:focus-visible {

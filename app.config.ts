@@ -60,10 +60,11 @@ export default defineAppConfig({
     }
   },
   ui: {
-    // AREA-120: warm neutral palette from the reference (stone ≈ Notion greys)
+    // AREA-206: graphite & old gold. Scales are defined once in app.css (@theme),
+    // semantic tokens per theme in assets/css/main.css.
     colors: {
-      primary: 'stone',
-      neutral: 'stone'
+      primary: 'gold',
+      neutral: 'graphite'
     },
     // Homepage (content/index.md) — compact, left-aligned layout from the reference
     pageHero: {
@@ -113,7 +114,7 @@ export default defineAppConfig({
       }
     },
     // AREA-145: TOC typography/spacing; title icon is in components/DocsAsideRight.vue (#leading).
-    // Active item stays monochrome (AREA-120): neutral color + neutral indicator.
+    // AREA-206: active item and indicator use the gold primary.
     // AREA-147: left sidebar — pill for the active page, collapsible sub-folders with a chevron
     // (Docus hides linkTrailing by default because its sidebar is not collapsible).
     contentNavigation: {
@@ -130,8 +131,8 @@ export default defineAppConfig({
         link: 'leading-5'
       },
       defaultVariants: {
-        color: 'neutral',
-        highlightColor: 'neutral'
+        color: 'primary',
+        highlightColor: 'primary'
       }
     },
     prose: {

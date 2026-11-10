@@ -184,24 +184,24 @@ const depsPaths = computed(() => {
 .viz-gantt__row:hover .viz-gantt__hit, .viz-gantt__row.sel .viz-gantt__hit { fill: color-mix(in oklab, var(--ui-primary) 6%, transparent); }
 .viz-gantt__label { fill: var(--ui-text-toned); font-size: 12.5px; pointer-events: none; }
 .viz-gantt__bar { fill: color-mix(in oklab, var(--ui-primary) 70%, var(--ui-bg)); pointer-events: none; }
-.viz-gantt__bar.crit { fill: #ea580c; }
+.viz-gantt__bar.crit { fill: var(--viz-crit, var(--ui-error)); }
 .viz-gantt__bar.done { fill: var(--ui-border-accented); }
 .viz-gantt__bar.active { stroke: var(--ui-primary); stroke-width: 2; }
-.viz-gantt__bar-text { fill: #fff; font-size: 11px; font-weight: 500; pointer-events: none; font-variant-numeric: tabular-nums; }
+.viz-gantt__bar-text { fill: var(--ui-text-highlighted); font-size: 11px; font-weight: 500; pointer-events: none; font-variant-numeric: tabular-nums; }
 .viz-gantt__aside { fill: var(--ui-text-muted); font-size: 11px; pointer-events: none; font-variant-numeric: tabular-nums; }
 .viz-gantt__milestone { fill: var(--ui-text-highlighted); pointer-events: none; }
-.viz-gantt__milestone.crit { fill: #ea580c; }
+.viz-gantt__milestone.crit { fill: var(--viz-crit, var(--ui-error)); }
 .viz-gantt__milestone.done { fill: var(--ui-border-accented); }
 .viz-gantt__dep { fill: none; stroke: var(--ui-text-dimmed); stroke-width: 1.25; }
-.viz-gantt__dep.crit { stroke: #ea580c; }
+.viz-gantt__dep.crit { stroke: var(--viz-crit, var(--ui-error)); }
 .viz-gantt__arrowhead { fill: var(--ui-text-dimmed); }
-.viz-gantt__today { stroke: #dc2626; stroke-width: 1.5; stroke-dasharray: 4 3; }
-.viz-gantt__today-label { fill: #dc2626; font-size: 11px; }
+.viz-gantt__today { stroke: var(--viz-crit, var(--ui-error)); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.viz-gantt__today-label { fill: var(--viz-crit, var(--ui-error)); font-size: 11px; }
 .viz-gantt__card { margin: 0 0.75rem 0.75rem; padding: 0.625rem 0.875rem; border: 1px solid var(--ui-border); border-radius: var(--ui-radius); background: var(--ui-bg-muted); }
 .viz-gantt__card-title { margin: 0; font-weight: 600; color: var(--ui-text-highlighted); }
 .viz-gantt__card-meta { margin: 0.125rem 0 0; color: var(--ui-text-muted); font-size: 0.8125rem; font-variant-numeric: tabular-nums; }
 .viz-gantt__card-desc { margin: 0.375rem 0 0; color: var(--ui-text-toned); }
 .viz-gantt__footer { padding: 0.5rem 1rem; border-top: 1px solid var(--ui-border); background: var(--ui-bg-muted); color: var(--ui-text-muted); font-size: 0.8125rem; }
-.viz-gantt__footer .crit-key { display: inline-block; width: 10px; height: 6px; border-radius: 2px; background: #ea580c; vertical-align: middle; }
+.viz-gantt__footer .crit-key { display: inline-block; width: 10px; height: 6px; border-radius: 2px; background: var(--viz-crit, var(--ui-error)); vertical-align: middle; }
 .viz-gantt__footer .warn { color: var(--ui-warning, #d97706); }
 </style>

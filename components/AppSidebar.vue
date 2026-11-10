@@ -105,7 +105,7 @@ const assistantIcon = computed(() => appConfig.assistant?.icons?.trigger || 'i-c
         v-if="pages.length"
         :navigation="pages"
         variant="pill"
-        color="neutral"
+        color="primary"
         :highlight="false"
         as="div"
         class="mb-6"
@@ -122,7 +122,7 @@ const assistantIcon = computed(() => appConfig.assistant?.icons?.trigger || 'i-c
         <UContentNavigation
           :navigation="group.children"
           variant="pill"
-          color="neutral"
+          color="primary"
           :highlight="false"
           :default-open="true"
           as="div"

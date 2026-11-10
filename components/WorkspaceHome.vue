@@ -174,7 +174,7 @@ const groups = [
 
 .ws-home__cta:hover {
   background: var(--secondary);
-  border-color: color-mix(in oklch, var(--border), black 6%);
+  border-color: var(--border-hover);
 }
 
 .ws-home__cta:focus-visible {
@@ -232,7 +232,7 @@ const groups = [
 
 .ws-home__card:hover {
   background: var(--secondary);
-  border-color: color-mix(in oklch, var(--border), black 7%);
+  border-color: var(--border-hover);
 }
 
 .ws-home__card:focus-visible {

@@ -1,64 +1,130 @@
 /* ============================================================
-   Design tokens (AREA-120)
-   Palette lives in Nuxt UI tokens: neutral = stone (warm grey,
-   set in app.config.ts). Legacy shadcn-style names used by custom
-   components are aliases to those tokens, so both themes share
-   one source of truth.
+   Design tokens (AREA-206): Manrope + graphite & old gold
+   Single source of truth for the palette. app.config.ts points
+   ui.colors at these scales (primary: gold, neutral: graphite);
+   below, Nuxt UI semantic tokens are mapped per theme.
+   Brand colours: #262626 graphite, #9E8446 old gold, #D3B46D light
+   gold, #6B6B6B secondary text, #A5A5A5 / #DBDBDB borders,
+   #F3F0EC warm background, #FFFFFF white. Intermediate shades
+   only fill the 50–950 scale. The scales themselves (@theme) live
+   in /app.css — Docus imports it into its Tailwind entry, which is
+   the only place @theme is compiled.
    ============================================================ */
 
+
 :root {
+  /* Light: warm page, white cards and code, graphite text.
+     Contrast (WCAG): text 13.3:1 on page / 15.1:1 on white,
+     muted #6B6B6B 4.7:1 on page / 5.3:1 on white,
+     primary (links, active items) gold-700 5.4:1 on page, 4.9:1 on
+     elevated; #9E8446 itself is only 3.2:1 on the page, so it is
+     kept for non-text accents (charts, focus rings via primary/25). */
+  --ui-primary: var(--ui-color-primary-700);
+
+  --ui-bg:          var(--ui-color-neutral-50);
+  --ui-bg-muted:    #FFFFFF;
+  /* between 50 and 100 so muted text stays ≥ 4.5:1 on hover/active surfaces */
+  --ui-bg-elevated: color-mix(in oklab, var(--ui-color-neutral-50), var(--ui-color-neutral-100) 40%);
+  --ui-bg-accented: var(--ui-color-neutral-200);
+  --ui-bg-inverted: var(--ui-color-neutral-900);
+
+  --ui-text-dimmed:      var(--ui-color-neutral-600);
+  --ui-text-muted:       var(--ui-color-neutral-600);
+  --ui-text-toned:       var(--ui-color-neutral-700);
+  --ui-text:             var(--ui-color-neutral-900);
+  --ui-text-highlighted: var(--ui-color-neutral-900);
+  --ui-text-inverted:    #FFFFFF;
+
+  --ui-border:          var(--ui-color-neutral-200);
+  --ui-border-muted:    var(--ui-color-neutral-200);
+  --ui-border-accented: var(--ui-color-neutral-400);
+  --ui-border-inverted: var(--ui-color-neutral-900);
+
+  /* docus-viz chart series: palette only — gold, graphite, greys */
+  --ui-chart-1: var(--ui-color-primary-500);
+  --ui-chart-2: var(--ui-color-neutral-900);
+  --ui-chart-3: var(--ui-color-primary-300);
+  --ui-chart-4: var(--ui-color-neutral-400);
+  --ui-chart-5: var(--ui-color-primary-800);
+  --ui-chart-6: var(--ui-color-neutral-600);
+
+  /* Legacy shadcn-style aliases used by custom components */
   --background:         var(--ui-bg);
   --foreground:         var(--ui-text-highlighted);
-  --card:               var(--ui-bg);
+  --card:               #FFFFFF;
   --card-foreground:    var(--ui-text-highlighted);
-  --secondary:          var(--ui-bg-muted);
+  --secondary:          var(--ui-bg-elevated);
   --muted:              var(--ui-bg-muted);
   --muted-foreground:   var(--ui-text-muted);
   --accent:             var(--ui-bg-elevated);
   --border:             var(--ui-border);
   --input:              var(--ui-border);
-  --ring:               var(--ui-border-inverted);
+  --ring:               var(--ui-primary);
+  --border-hover:       var(--ui-color-primary-400); /* brand light gold */
   --radius:             var(--ui-radius);
-
-  /* Monochrome primary: near-black in light, near-white in dark */
-  --ui-primary: var(--ui-color-neutral-900);
 }
 
 .dark {
-  --ui-primary: var(--ui-color-neutral-100);
+  /* Dark: graphite page with a visible surface hierarchy,
+     page (#262626) < muted: code, callouts < elevated: active pill,
+     hover < accented. Light gold is the accent.
+     Contrast: highlighted #F3F0EC 13.3:1, text #DBDBDB 10.9:1,
+     muted #A5A5A5 6.1:1 on page / 5.1:1 on elevated,
+     dimmed 5.4:1 on page, primary #D3B46D 7.6:1 on page /
+     6.3:1 on elevated; solid buttons: #262626 on #D3B46D 7.6:1. */
+  --ui-primary: var(--ui-color-primary-400);
 
-  /* AREA-190: dark theme — warm stone surfaces with a visible hierarchy.
-     page (900) < muted: code, callouts, inline code < elevated: active pill,
-     hover < accented. Borders are lifted above the elevated surface so cards,
-     sidebar and tables stay separated from the page. */
   --ui-bg:          var(--ui-color-neutral-900);
-  --ui-bg-muted:    color-mix(in oklab, var(--ui-color-neutral-900), var(--ui-color-neutral-800) 65%);
+  --ui-bg-muted:    color-mix(in oklab, var(--ui-color-neutral-900), var(--ui-color-neutral-800) 50%);
   --ui-bg-elevated: var(--ui-color-neutral-800);
-  --ui-bg-accented: var(--ui-color-neutral-700);
+  --ui-bg-accented: color-mix(in oklab, var(--ui-color-neutral-800), var(--ui-color-neutral-700) 40%);
+  --ui-bg-inverted: var(--ui-color-neutral-50);
+
+  --ui-text-dimmed:      color-mix(in oklab, var(--ui-color-neutral-500), var(--ui-color-neutral-400) 50%);
+  --ui-text-muted:       var(--ui-color-neutral-400);
+  --ui-text-toned:       var(--ui-color-neutral-200);
+  --ui-text:             var(--ui-color-neutral-200);
+  --ui-text-highlighted: var(--ui-color-neutral-50);
+  --ui-text-inverted:    var(--ui-color-neutral-900);
 
   --ui-border:          color-mix(in oklab, var(--ui-color-neutral-800), var(--ui-color-neutral-700) 55%);
   --ui-border-muted:    color-mix(in oklab, var(--ui-color-neutral-800), var(--ui-color-neutral-700) 40%);
   --ui-border-accented: var(--ui-color-neutral-700);
+  --ui-border-inverted: var(--ui-color-neutral-50);
 
-  /* Contrast, measured on computed (oklch/color-mix → sRGB) values,
-     page / bg-muted / bg-elevated:
-     text 13.9 / 12.7 / 12.1, highlighted 16.7 / 15.3 / 14.5,
-     muted 6.8 / 6.2 / 5.9, dimmed 5.6 / 5.2 / 4.9 (was neutral-500, 3.6:1). */
-  --ui-text-highlighted: var(--ui-color-neutral-50);
-  --ui-text-dimmed:      color-mix(in oklab, var(--ui-color-neutral-500), var(--ui-color-neutral-400) 70%);
+  --ui-chart-1: var(--ui-color-primary-400);
+  --ui-chart-2: var(--ui-color-neutral-200);
+  --ui-chart-3: var(--ui-color-primary-600);
+  --ui-chart-4: var(--ui-color-neutral-500);
+  --ui-chart-5: var(--ui-color-primary-200);
+  --ui-chart-6: var(--ui-color-neutral-400);
+
+  --card: var(--ui-bg);
 }
 
-/* AREA-190: docus-viz Gantt — bar labels are white by default, unreadable on
-   the light bars of the dark theme. One label colour per bar state:
-   normal bar (primary 70%) → page colour, 7.7:1
-   crit bar (#ea580c)       → page colour, 4.9:1
-   done bar (border-accented, dark) → highlighted text, 9.9:1.
-   The label <text> directly follows its <rect> in VizGantt.vue; done wins
-   over crit, matching the bar fill order in the component. */
+/* docus-viz Gantt: bars are a tint of primary, critical bars use
+   --viz-crit. Labels take the colour that stays ≥ 4.5:1 on the bar:
+   light — graphite on gold tint, white on error-700 (6.5:1);
+   dark — page colour on light-gold tint and on error-400 (5.5:1),
+   highlighted text on done bars. Label <text> directly follows its
+   <rect> in VizGantt.vue; done wins over crit. */
+:root {
+  --viz-crit: var(--ui-color-error-700);
+}
+
+.dark {
+  --viz-crit: var(--ui-error);
+}
+
+.viz-gantt__bar.crit + .viz-gantt__bar-text {
+  fill: var(--ui-text-inverted);
+}
+
 .dark .viz-gantt__bar-text {
   fill: var(--ui-bg);
 }
 
+.viz-gantt__bar.done + .viz-gantt__bar-text,
 .dark .viz-gantt__bar.done + .viz-gantt__bar-text {
   fill: var(--ui-text-highlighted);
 }

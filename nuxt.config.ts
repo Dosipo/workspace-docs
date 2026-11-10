@@ -23,6 +23,19 @@ export default defineNuxtConfig({
     '/modeli': { redirect: '/spravochnik/modeli' },
   },
   css: ['~/assets/css/main.css', '~/assets/css/custom.css'],
+  // AREA-206: Manrope from Google Fonts, self-hosted by @nuxt/fonts (shipped with Nuxt UI).
+  // The family is applied through --font-sans in app.css.
+  fonts: {
+    families: [
+      {
+        name: 'Manrope',
+        provider: 'google',
+        weights: [400, 500, 600, 700],
+        subsets: ['cyrillic', 'latin'],
+        global: true
+      }
+    ]
+  },
   icon: {
     provider: 'server',
     serverBundle: {

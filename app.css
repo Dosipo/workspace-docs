@@ -1,0 +1,33 @@
+/* AREA-206: theme scales and font. Docus imports this file into its
+   Tailwind entry (docus.css), so @theme is compiled here. `static`
+   keeps every shade in the output: Nuxt UI reads them at runtime via
+   --ui-color-primary-* / --ui-color-neutral-* (app.config.ts
+   ui.colors: primary gold, neutral graphite). Token mapping per theme
+   is in assets/css/main.css. */
+@theme static {
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+
+  --color-gold-50:  #FAF6EC;
+  --color-gold-100: #F3EAD3;
+  --color-gold-200: #E8D7AC;
+  --color-gold-300: #DCC283;
+  --color-gold-400: #D3B46D; /* brand light gold: hover, dark-theme accent */
+  --color-gold-500: #9E8446; /* brand old gold */
+  --color-gold-600: #8A7239;
+  --color-gold-700: #725F31; /* old gold darkened for AA text on light */
+  --color-gold-800: #5C4C29;
+  --color-gold-900: #4A3E23;
+  --color-gold-950: #2A2314;
+
+  --color-graphite-50:  #F3F0EC; /* brand warm background */
+  --color-graphite-100: #E9E5DF;
+  --color-graphite-200: #DBDBDB; /* brand border */
+  --color-graphite-300: #C4C4C4;
+  --color-graphite-400: #A5A5A5; /* brand muted / accented border */
+  --color-graphite-500: #858585;
+  --color-graphite-600: #6B6B6B; /* brand secondary text */
+  --color-graphite-700: #4A4A4A;
+  --color-graphite-800: #333333;
+  --color-graphite-900: #262626; /* brand graphite: text, dark background */
+  --color-graphite-950: #1A1A1A;
+}
