@@ -10,14 +10,15 @@ tags: [onboarding, authoring, frontmatter, mdc, search, okf, template]
 generated: { by: Docs/claude-sonnet-5-5, at: "2026-11-02T15:12:08Z" }
 status: stable
 created: "02.11.2026"
-updated: "02.11.2026"
+updated: "10.11.2026"
 created_by: { id: human:dosipo, name: Даниил Осипов }
-updated_by: { id: Docs/claude-sonnet-5-5, name: Docs }
+updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:
   - { id: human:dosipo, name: Даниил Осипов }
   - { id: claude/opus-5-5, name: Claude Opus 5.5 }
   - { id: multica-agent/multica, name: multica-agent }
   - { id: Docs/claude-sonnet-5-5, name: Docs }
+  - { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 ---
 
 Эти правила нужны, чтобы страница один раз попадала во внутренний поиск (Ctrl+K), правильно подписывалась в сайдбаре и попадала в `llms.txt`. Следуйте им при создании и правке любой страницы в `content/`.

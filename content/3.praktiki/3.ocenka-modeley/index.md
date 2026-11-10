@@ -11,12 +11,13 @@ generated: { by: Docs/claude-sonnet-5-5, at: "2026-11-05T15:00:00Z" }
 status: stable
 stale_after: "2027-02-05T00:00:00Z"
 created: "05.11.2026"
-updated: "05.11.2026"
+updated: "10.11.2026"
 created_by: { id: Docs/claude-sonnet-5-5, name: Docs }
-updated_by: { id: Docs/claude-sonnet-5-5, name: Docs }
+updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:
   - { id: Docs/claude-sonnet-5-5, name: Docs }
   - { id: Analyst/multica, name: Analyst }
+  - { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 ---
 
 Публичные бенчмарки помогают отобрать кандидатов, но выбор модели для вашей задачи подтверждает только проверка на ваших данных. Раздел объясняет, как её провести и не обмануться цифрами.

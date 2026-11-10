@@ -10,11 +10,12 @@ tags: [onboarding, authoring, visualization, diagrams, docus-viz]
 status: stable
 generated: { by: claude/opus-5-5, at: "2026-11-03T12:00:00Z" }
 created: "03.11.2026"
-updated: "03.11.2026"
+updated: "10.11.2026"
 created_by: { id: claude/opus-5-5, name: Claude Opus 5.5 }
-updated_by: { id: claude/opus-5-5, name: Claude Opus 5.5 }
+updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:
   - { id: claude/opus-5-5, name: Claude Opus 5.5 }
+  - { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 sources:
   - resource: https://github.com/Dosipo/docus-viz
     title: docus-viz — визуализации для Docus
