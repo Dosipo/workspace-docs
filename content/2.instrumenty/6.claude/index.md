@@ -1,6 +1,6 @@
 ---
 title: Claude
-description: Что такое Claude, какие семейства моделей есть (Fable, Opus, Sonnet, Haiku), чем они отличаются и какую взять по умолчанию. Вход в раздел с моделями, бенчмарками и выбором под задачу.
+description: Семейства моделей Claude (Fable, Opus, Sonnet, Haiku): чем отличаются и какую взять по умолчанию. Вход в раздел.
 navigation:
   icon: simple-icons:anthropic
 type: Overview
@@ -10,12 +10,13 @@ generated: { by: Docs/claude-sonnet-5-5, at: "2026-11-05T12:00:00Z" }
 status: stable
 stale_after: "2026-12-05T00:00:00Z"
 created: "05.11.2026"
-updated: "05.11.2026"
+updated: "10.11.2026"
 created_by: { id: Docs/claude-sonnet-5-5, name: Docs }
-updated_by: { id: Docs/claude-sonnet-5-5, name: Docs }
+updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:
   - { id: Docs/claude-sonnet-5-5, name: Docs }
   - { id: Analyst/multica, name: Analyst }
+  - { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 sources:
   - resource: file:claude-research.md
     title: "Фактура по Claude: линейка, бенчмарки, выбор модели (снимок 05.11.2026)"
@@ -25,7 +26,7 @@ Claude — семейство ИИ-моделей компании Anthropic. Э
 
 ## Семейства моделей
 
-Сейчас актуально поколение 5.x: у всех четырёх моделей контекст 1M токенов и вывод до 128K.
+На 05.11.2026 актуально поколение 5.x: у всех четырёх моделей контекст 1M токенов и вывод до 128K.
 
 ::card-group
   ::card
@@ -34,7 +35,7 @@ Claude — семейство ИИ-моделей компании Anthropic. Э
   icon: heroicons:sparkles
   to: /instrumenty/claude/modeli
   ---
-  Самая способная и самая дорогая: $10 / $50 за 1M токенов. Для задач, где не хватило Opus.
+  Самая дорогая: $10 / $50 за 1M токенов. Для задач, где не хватило Opus.
   ::
   ::card
   ---
@@ -42,7 +43,7 @@ Claude — семейство ИИ-моделей компании Anthropic. Э
   icon: heroicons:cube
   to: /instrumenty/claude/modeli
   ---
-  Сильные рассуждения и долгие автономные сессии: $4 / $20.
+  Рассуждения и долгие автономные сессии: $4 / $20.
   ::
   ::card
   ---
@@ -50,7 +51,7 @@ Claude — семейство ИИ-моделей компании Anthropic. Э
   icon: heroicons:bolt
   to: /instrumenty/claude/modeli
   ---
-  Лучший баланс цены и качества, основа по умолчанию: $2 / $10.
+  Основа по умолчанию: $2 / $10.
   ::
   ::card
   ---
