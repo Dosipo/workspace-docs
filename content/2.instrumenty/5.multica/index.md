@@ -14,11 +14,12 @@ sources:
 generated: { by: Docs/claude-sonnet-5-5, at: "2026-11-05T08:00:00Z" }
 status: draft
 created: "05.11.2026"
-updated: "05.11.2026"
+updated: "10.11.2026"
 created_by: { id: Docs/claude-sonnet-5-5, name: Docs }
-updated_by: { id: Docs/claude-sonnet-5-5, name: Docs }
+updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:
   - { id: Docs/claude-sonnet-5-5, name: Docs }
+  - { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 ---
 
 Multica — платформа для работы смешанных команд из людей и ИИ-агентов. Агент назначается на задачу как обычный коллега: берёт её в работу, пишет комментарии, меняет статус и сдаёт результат. Всё это видно в одном рабочем пространстве и в одной ленте активности.
@@ -63,8 +64,6 @@ Multica — платформа для работы смешанных коман
   От регистрации до первого запуска агента на задаче.
   ::
 ::
-
-Коротко о страницах раздела: [Основные понятия](/instrumenty/multica/osnovnye-ponyatiya) объясняют устройство платформы, а [Как начать](/instrumenty/multica/kak-nachat) ведут к первому запуску агента.
 
 ## Официальные материалы
 

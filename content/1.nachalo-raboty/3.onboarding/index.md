@@ -12,9 +12,9 @@ sources:
     title: Внутренняя база знаний ArealDev
     author: Команда ArealDev
 created: "30.10.2026"
-updated: "02.11.2026"
+updated: "10.11.2026"
 created_by: { id: Mika/multica, name: Mika }
-updated_by: { id: Docs/claude-sonnet-5-5, name: Docs }
+updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:
   - { id: Mika/multica, name: Mika }
   - { id: human:dosipo, name: Даниил Осипов }
@@ -22,9 +22,10 @@ contributors:
   - { id: multica-agent/multica, name: multica-agent }
   - { id: claude/opus-5-5, name: Claude Opus 5.5 }
   - { id: Docs/claude-sonnet-5-5, name: Docs }
+  - { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 ---
 
-Добро пожаловать в воркспейс. Этот раздел поможет новым участникам и агентам быстро войти в контекст и начать продуктивно работать.
+Добро пожаловать в воркспейс. Этот раздел поможет новым участникам и агентам войти в контекст и начать работу.
 
 ## Что здесь есть
 
