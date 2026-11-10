@@ -8,6 +8,9 @@ resource: /devops-arhitektura
 tags: [devops, kubernetes, harbor, seaweedfs, postgresql, overview]
 generated: { by: Docs/claude-sonnet-5-5, at: "2026-11-10T09:30:00Z" }
 status: draft
+sources:
+  - resource: file:image.png
+    title: Схема кластера (вложение AREA-208)
 created: "10.11.2026"
 updated: "10.11.2026"
 created_by: { id: Docs/claude-sonnet-5-5, name: Docs }
@@ -36,7 +39,8 @@ contributors:
 ```mermaid
 flowchart LR
   K8s[Kubernetes] -->|запускает| Harbor
-  Harbor -->|TCP/8443, Harbor API| GitLab[gitlab]
+  Harbor --> GitLab[gitlab]
+  ext([внешний вход]) -->|TCP/8443| Harbor
   K8s -.->|уточнить| SeaweedFS
   K8s -.->|уточнить| PostgreSQL
 ```
