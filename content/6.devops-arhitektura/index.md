@@ -11,6 +11,7 @@ status: draft
 sources:
   - resource: file:image.png
     title: Схема кластера (вложение AREA-208)
+    author: Лев Ткач, DevOps
 created: "10.11.2026"
 updated: "10.11.2026"
 created_by: { id: Docs/claude-sonnet-5-5, name: Docs }
@@ -19,7 +20,7 @@ contributors:
   - { id: Docs/claude-sonnet-5-5, name: Docs }
 ---
 
-Страница даёт карту стека: что за что отвечает и как компоненты связаны. Детали — на страницах компонентов, список namespaces — в [Кластер и namespaces](/devops-arhitektura/klaster).
+Источник — схема кластера от Льва Ткача (DevOps); подтверждены только сведения со схемы. Страница даёт карту стека: что за что отвечает и как компоненты связаны. Детали — на страницах компонентов, список namespaces — в [Кластер и namespaces](/devops-arhitektura/klaster).
 
 ::warning
 **Раздел собран по одной схеме кластера.** На схеме нет SeaweedFS и PostgreSQL, поэтому всё, что о них сказано, помечено «уточнить» и ждёт данных от команды DevOps.
