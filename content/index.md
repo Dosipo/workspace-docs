@@ -8,14 +8,15 @@ tags: [index, documentation, knowledge-base, workspace]
 generated: { by: human:dosipo, at: "2026-11-02T13:11:59Z" }
 status: stable
 created: "30.10.2026"
-updated: "02.11.2026"
+updated: "10.11.2026"
 created_by: { id: human:dosipo, name: Даниил Осипов }
-updated_by: { id: human:dosipo, name: Даниил Осипов }
+updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:
   - { id: human:dosipo, name: Даниил Осипов }
   - { id: Mika/multica, name: Mika }
   - { id: claude/sonnet-4-6, name: Claude Sonnet 4.6 }
   - { id: multica-agent/multica, name: multica-agent }
+  - { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
   - { id: claude/opus-5-5, name: Claude Opus 5.5 }
 ---
 
@@ -24,7 +25,7 @@ contributors:
 База знаний ИИ Ареал
 
 #description
-Всё, что нужно для работы с корпоративными ИИ-инструментами: платформа, вайб-кодинг, автоматизация, Excel, лучшие практики и ответы на частые вопросы.
+Корпоративные ИИ-инструменты: платформа, вайб-кодинг, автоматизация, Excel, практики работы и ответы на частые вопросы.
 
 #links
   :::u-button{to="/nachalo-raboty/onboarding" size="lg" icon="i-lucide-arrow-right" color="neutral" variant="outline"}
@@ -42,7 +43,7 @@ contributors:
     ::::
     ::::u-page-card{to="/nachalo-raboty/obzor" icon="i-lucide-layout-grid" title="Обзор ИИ-инструментов" description="Сравнение корпоративных инструментов: платформа, VSCode, Excel, n8n" variant="outline"}
     ::::
-    ::::u-page-card{to="/praktiki" icon="i-lucide-lightbulb" title="Лучшие практики" description="Как писать промпты, выбирать модели и работать с ИИ эффективно" variant="outline"}
+    ::::u-page-card{to="/praktiki" icon="i-lucide-lightbulb" title="Лучшие практики" description="Как писать промпты, выбирать модели и снижать затраты на ИИ" variant="outline"}
     ::::
   :::
 ::
@@ -72,7 +73,7 @@ contributors:
 
 #default
   :::u-page-grid
-    ::::u-page-card{to="/spravochnik/faq" icon="i-lucide-help-circle" title="Частые вопросы" description="Ответы на самые частые вопросы по всем инструментам" variant="outline"}
+    ::::u-page-card{to="/spravochnik/faq" icon="i-lucide-help-circle" title="Частые вопросы" description="Ответы на частые вопросы по всем инструментам" variant="outline"}
     ::::
     ::::u-page-card{to="/spravochnik/modeli" icon="i-lucide-cpu" title="Список моделей" description="Доступные ИИ-модели для платформы, n8n и вайб-кодинга" variant="outline"}
     ::::
