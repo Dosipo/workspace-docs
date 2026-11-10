@@ -1,6 +1,6 @@
 ---
 title: Правила оформления страниц
-description: Как оформить страницу: frontmatter, заголовок без H1, navigation.title для сайдбара, формат sources, блок «О странице» с метаданными OKF; шаблон новой страницы.
+description: Как оформить страницу базы знаний — frontmatter, заголовок без H1, короткое имя в сайдбаре через navigation.title, формат sources и блок «О странице» с метаданными OKF. Шаблон новой страницы.
 navigation:
   title: Оформление страниц
   icon: heroicons:pencil-square
