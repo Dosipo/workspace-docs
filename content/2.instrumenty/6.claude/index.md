@@ -10,7 +10,7 @@ generated: { by: Docs/claude-sonnet-5-5, at: "2026-11-05T12:00:00Z" }
 status: stable
 stale_after: "2026-12-05T00:00:00Z"
 created: "05.11.2026"
-updated: "10.11.2026"
+updated: "11.11.2026"
 created_by: { id: Docs/claude-sonnet-5-5, name: Docs }
 updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:
