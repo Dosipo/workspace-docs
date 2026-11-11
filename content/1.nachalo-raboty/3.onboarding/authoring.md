@@ -1,6 +1,6 @@
 ---
 title: Правила оформления страниц
-description: Как оформить страницу базы знаний — frontmatter, заголовок без H1, короткое имя в сайдбаре через navigation.title, формат sources и блок «О странице» с метаданными OKF. Шаблон новой страницы.
+description: Шаблон новой страницы, правила заголовка без H1, формат sources и блок «О странице» с метаданными OKF.
 navigation:
   title: Оформление страниц
   icon: heroicons:pencil-square
@@ -10,7 +10,7 @@ tags: [onboarding, authoring, frontmatter, mdc, search, okf, template]
 generated: { by: Docs/claude-sonnet-5-5, at: "2026-11-02T15:12:08Z" }
 status: stable
 created: "02.11.2026"
-updated: "10.11.2026"
+updated: "11.11.2026"
 created_by: { id: human:dosipo, name: Даниил Осипов }
 updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:

@@ -1,6 +1,6 @@
 ---
 title: Вайб-кодинг
-description: Написание кода с помощью ИИ - VSCode, Claude Code, Kilo Code, Git и работа в IDE.
+description: "Что такое вайб-кодинг, какие среды разработки подходят и где найти инструкции по VSCode, Git, SSH-ключу и OpenCode."
 navigation: false
 type: Overview
 resource: /instrumenty/vayb-koding
@@ -8,20 +8,21 @@ tags: [vibe-coding, ai-coding, vscode, ide]
 generated: { by: human:dosipo, at: "2026-11-02T13:11:59Z" }
 status: stable
 created: "30.10.2026"
-updated: "02.11.2026"
+updated: "11.11.2026"
 created_by: { id: Mika/multica, name: Mika }
-updated_by: { id: human:dosipo, name: Даниил Осипов }
+updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:
   - { id: Mika/multica, name: Mika }
   - { id: multica-agent/multica, name: multica-agent }
   - { id: human:dosipo, name: Даниил Осипов }
   - { id: claude/sonnet-4-6, name: Claude Sonnet 4.6 }
   - { id: claude/opus-5-5, name: Claude Opus 5.5 }
+  - { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 ---
 
 Вайб-кодинг — это работа с ИИ, при которой вы описываете задачу обычным языком, а ИИ сам пишет код, создаёт файлы и запускает команды.
 
-ИИ работает как цифровой помощник — не просто даёт ответы в чате, а выполняет задачи и показывает результаты.
+В отличие от чата, где ИИ только отвечает, здесь он выполняет задачи и показывает результаты.
 
 ## Для кого
 
@@ -49,12 +50,12 @@ contributors:
 
 ## Разделы
 
-- [Что такое вайб-кодинг](/instrumenty/vayb-koding/chto-takoe) — концепция и возможности
+- [Что такое вайб-кодинг](/instrumenty/vayb-koding/chto-takoe) — определение, применения, среды разработки
 - [VSCode](/instrumenty/vayb-koding/vscode) — установка и настройка ИИ-инструментов
 - [Git](/instrumenty/vayb-koding/git) — управление репозиториями
 - [SSH-ключ для Git](/instrumenty/vayb-koding/ssh-klyuch) — настройка SSH-доступа
 - [OpenCode](/instrumenty/vayb-koding/opencode) — терминальный ИИ-ассистент
-- [Работа с ИИ в IDE](/instrumenty/vayb-koding/ii-v-ide) — полное руководство по IDE и ИИ
+- [Работа с ИИ в IDE](/instrumenty/vayb-koding/ii-v-ide) — IDE, рабочая папка проекта, контекст ИИ, расширения для 1С
 - [Делаем игру «Золотая жила»](/instrumenty/vayb-koding/igra-zolotaya-zhila) — практический пример
 
 ## Безопасность

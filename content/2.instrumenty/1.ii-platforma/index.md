@@ -1,6 +1,6 @@
 ---
 title: ИИ-платформа
-description: Корпоративная ИИ-платформа - регистрация, агенты, модели, работа с файлами и каналами.
+description: "Адрес ИИ-платформы и список страниц раздела: регистрация, выбор модели, агенты, файлы, каналы, контекст."
 navigation: false
 type: Overview
 resource: /instrumenty/ii-platforma
@@ -8,13 +8,14 @@ tags: [ai-platform, corporate-ai]
 generated: { by: human:dosipo, at: "2026-11-02T13:11:59Z" }
 status: stable
 created: "02.11.2026"
-updated: "02.11.2026"
+updated: "11.11.2026"
 created_by: { id: human:dosipo, name: Даниил Осипов }
-updated_by: { id: human:dosipo, name: Даниил Осипов }
+updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:
   - { id: human:dosipo, name: Даниил Осипов }
   - { id: claude/opus-5-5, name: Claude Opus 5.5 }
   - { id: multica-agent/multica, name: multica-agent }
+  - { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 ---
 
 Корпоративная ИИ-платформа доступна по адресу: **https://chat.geotech.user.events/**

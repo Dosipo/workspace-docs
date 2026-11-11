@@ -1,6 +1,6 @@
 ---
 title: Визуализации на страницах
-description: Как добавить на страницу базы знаний схему процесса, граф связей, карту, график или календарный план — блоками flow, graph, map, chart и gantt из docus-viz, текстом или из файла xlsx, csv, kml, gpx.
+description: Как добавить на страницу схему, граф, карту, график или календарный план блоками flow, graph, map, chart и gantt из docus-viz.
 navigation:
   title: Визуализации
   icon: heroicons:chart-bar-square
@@ -10,7 +10,7 @@ tags: [onboarding, authoring, visualization, diagrams, docus-viz]
 status: stable
 generated: { by: claude/opus-5-5, at: "2026-11-03T12:00:00Z" }
 created: "03.11.2026"
-updated: "10.11.2026"
+updated: "11.11.2026"
 created_by: { id: claude/opus-5-5, name: Claude Opus 5.5 }
 updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:

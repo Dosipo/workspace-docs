@@ -1,6 +1,6 @@
 ---
 title: Лучшие практики
-description: Как эффективно работать с ИИ - написание промптов, выбор моделей, оптимизация запросов.
+description: Руководства по написанию промптов, снижению затрат на запросы, оценке моделей и выбору между крупными и компактными моделями.
 navigation: false
 type: Overview
 resource: /praktiki
@@ -8,7 +8,7 @@ tags: [best-practices, prompting, ai-usage]
 generated: { by: human:dosipo, at: "2026-11-02T13:11:59Z" }
 status: stable
 created: "30.10.2026"
-updated: "10.11.2026"
+updated: "11.11.2026"
 created_by: { id: Mika/multica, name: Mika }
 updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:
@@ -20,11 +20,11 @@ contributors:
   - { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 ---
 
-Руководства по работе с ИИ-инструментами.
+Руководства по работе с ИИ-моделями.
 
 ## Разделы
 
-- [Как написать промпт](/praktiki/napisat-prompt) — структура хорошего запроса, шаблоны и примеры
-- [Как улучшить ответы ИИ](/praktiki/uluchshit-otvety) — оптимизация затрат, выбор моделей, работа с контекстом
+- [Как написать промпт](/praktiki/napisat-prompt) — структура запроса, шаблоны и примеры
+- [Как улучшить ответы ИИ](/praktiki/uluchshit-otvety) — затраты, выбор модели, размер контекста
 - [Оценка моделей](/praktiki/ocenka-modeley) — бенчмарки качества и безопасности, голденсеты, проверка на промпт-инъекции
 - [Модели, которые мы используем](/praktiki/modeli-kotorye-ispolzuem) — крупные (фронтирные) и компактные модели, критерии выбора

@@ -1,6 +1,6 @@
 ---
 title: n8n
-description: Корпоративная автоматизация - workflows, credentials, PostgreSQL, демо-сценарии.
+description: Корпоративный n8n: адрес, вход через SSO и страницы раздела — создание workflows, credentials, PostgreSQL, список нод, демо-сценарии.
 navigation: false
 type: Overview
 resource: /instrumenty/n8n
@@ -8,18 +8,17 @@ tags: [n8n, automation, workflows]
 generated: { by: human:dosipo, at: "2026-11-02T13:11:59Z" }
 status: stable
 created: "02.11.2026"
-updated: "02.11.2026"
+updated: "11.11.2026"
 created_by: { id: human:dosipo, name: Даниил Осипов }
-updated_by: { id: human:dosipo, name: Даниил Осипов }
+updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 contributors:
   - { id: human:dosipo, name: Даниил Осипов }
   - { id: claude/opus-5-5, name: Claude Opus 5.5 }
   - { id: multica-agent/multica, name: multica-agent }
+  - { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
 ---
 
-Корпоративный n8n доступен по адресу: **https://n8n.geotech.user.events/**
-
-Доступ через SSO (доменная авторизация).
+Корпоративный n8n: https://n8n.geotech.user.events/. Вход через SSO (доменная авторизация).
 
 ## Разделы
 
