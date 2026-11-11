@@ -10,14 +10,14 @@ tags: [models, frontier, compact, model-selection]
 generated: { by: Docs/claude-sonnet-5-5, at: "2026-11-10T12:00:00Z" }
 status: draft
 created: "10.11.2026"
-updated: "10.11.2026"
+updated: "11.11.2026"
 created_by: { id: Docs/claude-sonnet-5-5, name: Docs }
 updated_by: { id: Docs/claude-sonnet-5-5, name: Docs }
 contributors:
   - { id: Docs/claude-sonnet-5-5, name: Docs }
 ---
 
-Страница объясняет, чем крупные (фронтирные) модели отличаются от компактных, и перечисляет подключённые модели. Рейтинги и доступность берите из [списка моделей](/spravochnik/modeli); здесь — принципы выбора.
+Крупные (фронтирные) модели рассчитаны на сложные задачи, компактные — на рутинные; ниже — какие модели у нас подключены и когда брать каждый класс. Рейтинги и доступность — в [списке моделей](/spravochnik/modeli).
 
 ## Два класса моделей
 
