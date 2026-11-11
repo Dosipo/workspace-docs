@@ -1,0 +1,260 @@
+{
+  "name": "PLANE → Service Desk: Polling Integration",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 5
+            }
+          ]
+        }
+      },
+      "id": "6a1f3e2d-0001-4a5b-8c9d-e0f1a2b3c4d5",
+      "name": "Every 5 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Load last run timestamp from workflow static data.\n// Immediately advance the saved timestamp to now — this way,\n// even if the workflow fails mid-run, the next execution will\n// not reprocess the same window (preventing duplicate SD tickets).\nconst staticData = $getWorkflowStaticData('global');\n\nconst queryFrom = staticData.lastRunTimestamp\n  ? staticData.lastRunTimestamp\n  : new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(); // default: last 24h on first run\n\n// Advance the saved timestamp before we do any work\nstaticData.lastRunTimestamp = new Date().toISOString();\n\nreturn [{ json: { queryFrom } }];"
+      },
+      "id": "6a1f3e2d-0002-4a5b-8c9d-e0f1a2b3c4d5",
+      "name": "Load & Advance State",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $env.PLANE_URL + '/api/v2/workspaces/' + $env.PLANE_WORKSPACE_SLUG + '/work-items/' }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Api-Key",
+              "value": "={{ $env.PLANE_TOKEN }}"
+            }
+          ]
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "label_id",
+              "value": "={{ $env.NEEDS_HUMAN_LABEL_ID }}"
+            },
+            {
+              "name": "updated_at__gte",
+              "value": "={{ $json.queryFrom }}"
+            },
+            {
+              "name": "per_page",
+              "value": "50"
+            },
+            {
+              "name": "offset",
+              "value": "0"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000,
+          "pagination": {
+            "paginationMode": "responseContainsNextURL",
+            "nextURL": "={{ $response.body.next }}",
+            "paginationCompleteWhen": "={{ !$response.body.next }}",
+            "limitPagesFetched": true,
+            "maxRequests": 20
+          }
+        }
+      },
+      "id": "6a1f3e2d-0003-4a5b-8c9d-e0f1a2b3c4d5",
+      "name": "Fetch PLANE Issues",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [440, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Aggregate results from all pages — n8n pagination emits one item per page.\n// BUG-5 fix: PLANE's `labels` field is an array of UUIDs;\n// use only label_details[].name for human-readable label names.\nconst allIssues = [];\nfor (const item of $input.all()) {\n  const body = item.json;\n  const pageIssues = body.results || body.issues || (Array.isArray(body) ? body : []);\n  allIssues.push(...pageIssues);\n}\n\nif (!allIssues.length) return [];\n\n// Skip issues already linked to the service desk\nconst pending = allIssues.filter(\n  issue => issue.external_source !== 'servicedesk'\n);\n\nif (!pending.length) return [];\n\nreturn pending.map(issue => ({\n  json: {\n    // Service desk payload\n    source: 'plane',\n    plane_issue_id: issue.id,\n    plane_identifier: issue.sequence_id || issue.name,\n    title: issue.name || issue.title || '(no title)',\n    description: (issue.description_stripped || issue.description || '').substring(0, 2000),\n    priority: issue.priority || 'none',\n    state: issue.state_detail?.name || issue.state || '',\n    state_group: issue.state_detail?.group || '',\n    // `labels` contains UUIDs — resolve names from label_details only\n    labels: (issue.label_details || []).map(l => l.name).filter(Boolean),\n    assignees: issue.assignees || [],\n    project_id: issue.project,\n    workspace: $env.PLANE_WORKSPACE_SLUG,\n    url: `${$env.PLANE_URL}/${$env.PLANE_WORKSPACE_SLUG}/projects/${issue.project}/issues/${issue.id}/`,\n    created_at: issue.created_at,\n    updated_at: issue.updated_at,\n    // Internal fields for the write-back step\n    _plane_project_id: issue.project,\n    _plane_issue_id: issue.id\n  }\n}));"
+      },
+      "id": "6a1f3e2d-0004-4a5b-8c9d-e0f1a2b3c4d5",
+      "name": "Map to SD Schema",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [660, 300]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "6a1f3e2d-0005-4a5b-8c9d-e0f1a2b3c4d5",
+      "name": "Loop Over Issues",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [880, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SERVICE_DESK_URL + '/api/tickets' }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SERVICE_DESK_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  source: $json.source,\n  plane_issue_id: $json.plane_issue_id,\n  plane_identifier: $json.plane_identifier,\n  title: $json.title,\n  description: $json.description,\n  priority: $json.priority,\n  state: $json.state,\n  state_group: $json.state_group,\n  labels: $json.labels,\n  assignees: $json.assignees,\n  project_id: $json.project_id,\n  workspace: $json.workspace,\n  url: $json.url,\n  created_at: $json.created_at,\n  updated_at: $json.updated_at\n}) }}",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "6a1f3e2d-0006-4a5b-8c9d-e0f1a2b3c4d5",
+      "name": "Create SD Ticket",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1100, 200]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $env.PLANE_URL + '/api/v2/workspaces/' + $env.PLANE_WORKSPACE_SLUG + '/projects/' + $('Map to SD Schema').item.json._plane_project_id + '/work-items/' + $('Map to SD Schema').item.json._plane_issue_id + '/' }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Api-Key",
+              "value": "={{ $env.PLANE_TOKEN }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  external_id: String($json.id || $json.ticket_id || $json.key || ''),\n  external_source: 'servicedesk'\n}) }}",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "6a1f3e2d-0007-4a5b-8c9d-e0f1a2b3c4d5",
+      "name": "Write Back to PLANE",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 2000,
+      "position": [1320, 200]
+    }
+  ],
+  "connections": {
+    "Every 5 Minutes": {
+      "main": [
+        [
+          {
+            "node": "Load & Advance State",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load & Advance State": {
+      "main": [
+        [
+          {
+            "node": "Fetch PLANE Issues",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch PLANE Issues": {
+      "main": [
+        [
+          {
+            "node": "Map to SD Schema",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map to SD Schema": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Issues",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Issues": {
+      "main": [
+        [
+          {
+            "node": "Create SD Ticket",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Create SD Ticket": {
+      "main": [
+        [
+          {
+            "node": "Write Back to PLANE",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write Back to PLANE": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Issues",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "instanceId": ""
+  },
+  "id": "plane-sd-polling-v1",
+  "tags": ["integration", "plane", "servicedesk"]
+}

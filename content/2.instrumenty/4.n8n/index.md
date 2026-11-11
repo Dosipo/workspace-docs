@@ -32,3 +32,7 @@ contributors:
 
 - [Загрузка данных из Data table](/instrumenty/n8n/demo-data-table)
 - [OCR файлов из Nextcloud](/instrumenty/n8n/demo-ocr-nextcloud)
+
+## Интеграции
+
+- [PLANE → Сервис деск](/instrumenty/n8n/plane-servicedesk) — polling инцидентов с лейблом `needs-human`
