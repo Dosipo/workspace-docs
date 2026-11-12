@@ -81,6 +81,26 @@ contributors:
  ## Что такое credentials?
 ```
 
+## Страница раздела (`index.md`)
+
+Заголовок раздела в сайдбаре задаёт `.navigation.yml` в папке (`title`, `icon`). Если у `index.md` не отключена навигация, он появляется ещё и первым пунктом внутри раздела с тем же названием, и раздел выглядит так, будто в нём пустая страница.
+
+В `index.md` каждой папки с `.navigation.yml` пишите `navigation: false`, а иконку и короткое имя задавайте в `.navigation.yml`. Страница остаётся доступной по ссылке и из заголовка раздела.
+
+```yaml [content/2.instrumenty/6.claude/index.md]
+---
+title: Claude
+navigation: false
+---
+```
+
+```yaml [content/2.instrumenty/6.claude/.navigation.yml]
+title: Claude
+icon: simple-icons:anthropic
+```
+
+Новый раздел без `.navigation.yml` не создавайте: заголовок тогда берётся из `index.md`, и дубль возвращается.
+
 ## Источники (`sources`)
 
 В `sources` попадает только то, что передал пользователь. У каждого источника есть `resource`, `title` — по желанию.
@@ -142,6 +162,7 @@ sources:
 
 - [ ] Во frontmatter есть `title`, `description`, `type`, `tags`, поля авторства (`generated`, `created`, `updated`, `created_by`, `updated_by`, `contributors`).
 - [ ] В тексте нет `# H1`; короткое имя для меню задано в `navigation.title`.
+- [ ] У `index.md` раздела `navigation: false`, а в папке есть `.navigation.yml` с `title` и `icon`.
 - [ ] `sources` содержит только вложения (`file:<имя>`) и ссылки пользователя (полный URL); `id` участников в одном из форматов выше.
 - [ ] `npm run build` проходит без ошибок MDC.
 
