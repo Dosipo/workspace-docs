@@ -1,8 +1,7 @@
 ---
 title: Обзор DevOps-архитектуры
 description: "Стек Kubernetes, Harbor, SeaweedFS и PostgreSQL: роли компонентов, их связи и карта кластера по схеме."
-navigation:
-  icon: i-lucide-server-cog
+navigation: false
 type: Overview
 resource: /devops-arhitektura
 tags: [devops, kubernetes, harbor, seaweedfs, postgresql, overview]

@@ -1,8 +1,7 @@
 ---
 title: Multica
 description: Обзор Multica — платформы, где люди и ИИ-агенты работают в одном рабочем пространстве над задачами: что это, для чего, ключевые возможности и ссылки на официальную документацию.
-navigation:
-  icon: heroicons:cpu-chip
+navigation: false
 type: Overview
 resource: /instrumenty/multica
 tags: [multica, agents, issues, runtimes, overview]

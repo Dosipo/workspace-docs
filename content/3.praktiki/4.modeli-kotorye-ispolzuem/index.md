@@ -1,9 +1,7 @@
 ---
 title: Модели, которые мы используем
 description: Какие ИИ-модели подключены у нас, что значит «крупная (фронтирная)» и «компактная» модель и по каким критериям выбрать одну из них под задачу.
-navigation:
-  title: Модели, которые мы используем
-  icon: i-lucide-cpu
+navigation: false
 type: Guide
 resource: /praktiki/modeli-kotorye-ispolzuem
 tags: [models, frontier, compact, model-selection]
