@@ -1,5 +1,9 @@
 # Журнал изменений
 
+## 2026-11-12
+
+* **Add**: раздел [Vue Flow](/instrumenty/vue-flow) — Справка по библиотеке Vue Flow, на которой построены схемы docus-viz. (AREA-235) — Автор знаний
+
 ## 2026-11-10
 
 * **Add**: раздел [DevOps-архитектура](/devops-arhitektura) — обзор стека, кластер и namespaces, Kubernetes, Harbor, SeaweedFS и PostgreSQL (AREA-208) — Docs

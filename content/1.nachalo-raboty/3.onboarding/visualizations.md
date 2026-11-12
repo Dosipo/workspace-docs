@@ -124,6 +124,8 @@ unit: тыс. руб.
 
 Полный синтаксис всех блоков, включая карты и календарные планы, — в [справочнике docus-viz](https://github.com/Dosipo/docus-viz/blob/master/skills/docs-from-sources/references/blocks.md).
 
+Схемы рисует библиотека Vue Flow; её устройство и ошибки описаны в разделе [«Vue Flow»](/instrumenty/vue-flow).
+
 <!-- okf:related:start -->
 ## Связанные материалы
 
