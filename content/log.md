@@ -1,5 +1,9 @@
 # Журнал изменений
 
+## 2026-11-12
+
+* **Add**: раздел [MCP Market](/instrumenty/mcp-market) — Каталог MCP-серверов, клиентов и навыков агентов mcpmarket.com как инструмент поиска. (AREA-239) — Автор знаний
+
 ## 2026-11-10
 
 * **Add**: раздел [DevOps-архитектура](/devops-arhitektura) — обзор стека, кластер и namespaces, Kubernetes, Harbor, SeaweedFS и PostgreSQL (AREA-208) — Docs
