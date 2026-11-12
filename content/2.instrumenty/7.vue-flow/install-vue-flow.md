@@ -32,7 +32,9 @@ contributors:
 2. Подключите обязательные стили: `@import '@vue-flow/core/dist/style.css';`.
 3. По желанию подключите тему по умолчанию: `@import '@vue-flow/core/dist/theme-default.css';`.
 4. Импортируйте `VueFlow` из `@vue-flow/core`.
-5. Задайте `nodes` и `edges` как реактивные `ref`-массивы. Узел: `id`, `position` с `x` и `y`, при желании `type` и `data.label`. Ребро: `id`, `source`, `target`.
+5. Задайте `nodes` и `edges` как реактивные `ref`-массивы:
+   - узел: `id`, `position` с `x` и `y`, при желании `type` и `data.label`;
+   - ребро: `id`, `source`, `target`.
 6. Выведите граф: `<VueFlow :nodes="nodes" :edges="edges" />`.
 7. Дайте родительскому элементу ширину и высоту, иначе граф не нарисуется.
 
@@ -42,7 +44,7 @@ contributors:
 
 ## Если не получилось
 
-Коды ошибок и решения — на странице «Ошибки Vue Flow».
+Причины и решения по кодам ошибок — на странице [«Ошибки Vue Flow»](/instrumenty/vue-flow/vue-flow-errors).
 
 <!-- okf:related:start -->
 ## Связанные материалы
