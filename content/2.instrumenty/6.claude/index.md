@@ -1,8 +1,7 @@
 ---
 title: Claude
 description: Семейства моделей Claude (Fable, Opus, Sonnet, Haiku): чем отличаются и какую взять по умолчанию. Вход в раздел.
-navigation:
-  icon: simple-icons:anthropic
+navigation: false
 type: Overview
 resource: /instrumenty/claude
 tags: [claude, anthropic, models, overview]

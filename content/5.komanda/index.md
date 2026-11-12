@@ -1,8 +1,7 @@
 ---
 title: О команде
 description: "Кто стоит за корпоративными ИИ-инструментами, за что отвечает команда и как пользоваться разделом «Команда»: состав, услуги, куда обращаться."
-navigation:
-  icon: i-lucide-users
+navigation: false
 type: Overview
 resource: /komanda
 tags: [team, overview, support]

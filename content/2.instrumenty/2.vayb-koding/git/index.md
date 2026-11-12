@@ -1,8 +1,7 @@
 ---
 title: Git
 description: Управление репозиториями Git - создание приватных репозиториев и настройка доступа.
-navigation:
-  icon: heroicons:code-bracket-square
+navigation: false
 type: Overview
 resource: /instrumenty/vayb-koding/git
 tags: [git, version-control]

@@ -1,9 +1,7 @@
 ---
 title: Оценка моделей
 description: Зачем проверять модели, какие бенчмарки существуют, как собрать голденсет и проверить агента на промпт-инъекции.
-navigation:
-  title: Оценка моделей
-  icon: i-lucide-gauge
+navigation: false
 type: Overview
 resource: /praktiki/ocenka-modeley
 tags: [evaluation, benchmarks, golden-set, safety, prompt-injection]
