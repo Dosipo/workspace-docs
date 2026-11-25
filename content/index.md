@@ -1,6 +1,6 @@
 ---
 title: База знаний ИИ Ареал
-description: Центральная база знаний по корпоративным ИИ-инструментам для команды и агентов.
+description: "Что такое База знаний ИИ Ареал: для кого она, что в ней есть, как искать, спрашивать ассистента и предлагать правки."
 navigation: false
 type: Overview
 resource: /
@@ -8,9 +8,9 @@ tags: [index, documentation, knowledge-base, workspace]
 generated: { by: human:dosipo, at: "2026-11-02T13:11:59Z" }
 status: stable
 created: "30.10.2026"
-updated: "10.11.2026"
+updated: "25.11.2026"
 created_by: { id: human:dosipo, name: Даниил Осипов }
-updated_by: { id: kb-editor/claude-sonnet-5-5, name: Редактор базы знаний }
+updated_by: { id: claude/opus-5-5, name: Claude Opus 5.5 }
 contributors:
   - { id: human:dosipo, name: Даниил Осипов }
   - { id: Mika/multica, name: Mika }
@@ -25,11 +25,35 @@ contributors:
 База знаний ИИ Ареал
 
 #description
-Корпоративные ИИ-инструменты: платформа, вайб-кодинг, автоматизация, Excel, практики работы и ответы на частые вопросы.
+Здесь собрано, как в компании работают с ИИ: какие инструменты доступны, как ими пользоваться, какие модели выбирать и куда обращаться за помощью. Базу читают и люди, и ИИ-агенты в Multica.
 
 #links
   :::u-button{to="/nachalo-raboty/onboarding" size="lg" icon="i-lucide-arrow-right" color="neutral" variant="outline"}
   Начать работу
+  :::
+  :::u-button{to="/komanda/obrashchenie" size="lg" color="neutral" variant="ghost"}
+  Куда обратиться
+  :::
+::
+
+::u-page-section
+#default
+  :::ask-kb
+  :::
+::
+
+::u-page-section
+#title
+Что здесь есть
+
+#default
+  :::u-page-grid
+    ::::u-page-card{title="Инструкции" description="Пошаговые действия: регистрация, подключение, настройка. Начинаются с цели и заканчиваются проверкой результата." variant="outline"}
+    ::::
+    ::::u-page-card{title="Справочники" description="Списки моделей, ответы на частые вопросы, спецификации. Их просматривают, а не читают подряд." variant="outline"}
+    ::::
+    ::::u-page-card{title="Объяснения" description="Почему устроено так: сравнение инструментов, выбор модели, архитектура платформы." variant="outline"}
+    ::::
   :::
 ::
 
@@ -64,6 +88,8 @@ contributors:
     ::::
     ::::u-page-card{to="/instrumenty/multica" icon="i-lucide-bot" title="Multica" description="Платформа, где люди и ИИ-агенты работают над задачами вместе" variant="outline"}
     ::::
+    ::::u-page-card{to="/instrumenty/claude" icon="i-lucide-sparkles" title="Claude" description="Семейства моделей Claude и какую взять по умолчанию" variant="outline"}
+    ::::
   :::
 ::
 
@@ -78,4 +104,32 @@ contributors:
     ::::u-page-card{to="/spravochnik/modeli" icon="i-lucide-cpu" title="Список моделей" description="Доступные ИИ-модели для платформы, n8n и вайб-кодинга" variant="outline"}
     ::::
   :::
+::
+
+::u-page-section
+#title
+Команда и платформа
+
+#default
+  :::u-page-grid
+    ::::u-page-card{to="/komanda" icon="i-lucide-users" title="Команда" description="Чем занимается команда, какие услуги оказывает и куда писать с вопросом" variant="outline"}
+    ::::
+    ::::u-page-card{to="/devops-arhitektura" icon="i-lucide-server" title="DevOps и архитектура" description="Kubernetes, Harbor, SeaweedFS и PostgreSQL: из чего собрана платформа" variant="outline"}
+    ::::
+  :::
+::
+
+::u-page-section
+#title
+Как устроена база
+
+#default
+Каждая страница — markdown-файл в репозитории [Dosipo/workspace-docs](https://github.com/Dosipo/workspace-docs). Внизу страницы есть блок «О странице»: кто её создал, кто правил последним и на каких источниках она основана. Если источников нет, страница описывает практику команды.
+
+Предложить правку можно двумя способами:
+
+1. Ссылка «Редактировать страницу» внизу любой страницы открывает файл на GitHub. Изменение уходит в pull request и проходит ревью.
+2. Новый документ или ссылку передайте агенту «Куратор знаний» в Multica. Он проверит, чего в базе ещё нет, и подготовит страницы. Текст вычитывает «Редактор базы знаний», публикацию одобряет человек.
+
+Правила оформления страниц: [Оформление страниц](/nachalo-raboty/onboarding/authoring). Формат, в котором база отдаётся агентам: [Open Knowledge Format](/spravochnik/okf).
 ::

@@ -155,6 +155,13 @@ export default defineAppConfig({
     },
   },
   assistant: {
+    // Suggested questions shown in the empty chat (same set as components/content/AskKb.vue)
+    faqQuestions: [
+      'С чего начать новому сотруднику?',
+      'Какую модель выбрать для работы с документами?',
+      'Как подключить Claude Code в VSCode?',
+      'Куда писать, если не могу войти на ИИ-платформу?'
+    ],
     floatingInput: true,
     explainWithAi: true,
     shortcuts: {
